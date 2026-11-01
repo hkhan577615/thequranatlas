@@ -1,30 +1,38 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style>
-.qa-nav{background:#10153d;color:#f1e6cb;font-family:"Alegreya Sans",system-ui,-apple-system,"Segoe UI",sans-serif;border-bottom:1px solid #2a3170;position:relative;z-index:11}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>
+body{margin:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+/* site nav, shared by every page */
+:root{--qa-bg:#f7f7f4;--qa-ink:#121417;--qa-ink2:#555a62;--qa-line:#e6e6e1;--qa-accent:#0f766e;--qa-pill:#121417;--qa-pill-ink:#f7f7f4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--qa-bg:#0c0d0f;--qa-ink:#ececea;--qa-ink2:#a3a7ad;--qa-line:#24272c;--qa-accent:#5fd0bd;--qa-pill:#ececea;--qa-pill-ink:#0c0d0f}}
+:root[data-theme="dark"]{--qa-bg:#0c0d0f;--qa-ink:#ececea;--qa-ink2:#a3a7ad;--qa-line:#24272c;--qa-accent:#5fd0bd;--qa-pill:#ececea;--qa-pill-ink:#0c0d0f}
+.qa-nav{background:var(--qa-bg);color:var(--qa-ink);font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;border-bottom:1px solid var(--qa-line);position:relative;z-index:11}
 .qa-nav.inset{margin-inline:calc(-1 * max(16px, env(safe-area-inset-left, 0px)))}
-.qa-nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;padding:8px max(16px, env(safe-area-inset-left, 0px))}
-.qa-brand{display:flex;align-items:center;gap:8px;color:#f1e6cb;text-decoration:none;font-family:"Markazi Text",Georgia,serif;font-weight:600;font-size:1.3rem;line-height:1;margin-inline-end:auto}
-.qa-brand svg{width:22px;height:22px;color:#e2b55a;flex:none}
-.qa-links{display:flex;gap:4px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
-.qa-links a{display:block;color:#d9d3c3;text-decoration:none;font-size:1rem;padding:6px 11px;border-radius:999px;white-space:nowrap}
-.qa-links a:hover{color:#fff;background:rgba(255,255,255,.08)}
-.qa-links a[aria-current="page"]{background:#e2b55a;color:#10153d;font-weight:600}
-.qa-links a:focus-visible,.qa-brand:focus-visible{outline:2px solid #e2b55a;outline-offset:2px}
-@media (max-width:520px){.qa-nav-in{justify-content:center}.qa-brand{margin-inline-end:0;width:100%;justify-content:center}.qa-links a{padding:6px 10px;font-size:.95rem}}
-</style></head><body>
-<nav class="qa-nav" aria-label="Site"><div class="qa-nav-in"><a class="qa-brand" href="../" target="_blank" rel="noopener"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="9" y="9" width="22" height="22"/><rect x="9" y="9" width="22" height="22" transform="rotate(45 20 20)"/><circle cx="20" cy="20" r="4.5"/></g></svg>Quran Atlas</a><ul class="qa-links"><li><a href="../" target="_blank" rel="noopener" data-ar="الأطلس">Atlas</a></li><li><a href="https://claude.ai/artifact/TyhBMbjyAB3DbMv1nkcL18" target="_blank" rel="noopener" data-ar="كيف تستخدمه">How to use</a></li><li><a href="#" data-ar="القصص" aria-current="page">Stories</a></li><li><a href="../library/" target="_blank" rel="noopener" data-ar="المكتبة">Library</a></li></ul></div></nav>
+.qa-nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:8px 16px;flex-wrap:wrap;padding:12px max(16px, env(safe-area-inset-left, 0px))}
+.qa-brand{display:flex;align-items:center;gap:9px;color:var(--qa-ink);text-decoration:none;font-family:"Inter Tight","Inter",system-ui,sans-serif;font-weight:650;font-size:1.05rem;letter-spacing:-.015em;line-height:1;margin-inline-end:auto}
+.qa-brand svg{width:22px;height:22px;color:var(--qa-accent);flex:none}
+.qa-links{display:flex;gap:2px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+.qa-links a{display:block;color:var(--qa-ink2);text-decoration:none;font-size:.9375rem;font-weight:500;padding:7px 13px;border-radius:999px;white-space:nowrap;transition:background .15s,color .15s}
+.qa-links a:hover{color:var(--qa-ink);background:color-mix(in srgb,var(--qa-ink) 7%,transparent)}
+.qa-links a[aria-current="page"]{background:var(--qa-pill);color:var(--qa-pill-ink)}
+.qa-links a:focus-visible,.qa-brand:focus-visible{outline:2px solid var(--qa-accent);outline-offset:2px}
+@media (max-width:520px){.qa-nav-in{justify-content:center}.qa-brand{margin-inline-end:0;width:100%;justify-content:center}.qa-links a{padding:6px 11px;font-size:.9rem}}
+</style>
+<nav class="qa-nav" aria-label="Site"><div class="qa-nav-in"><a class="qa-brand" href="../"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="9" y="9" width="22" height="22"/><rect x="9" y="9" width="22" height="22" transform="rotate(45 20 20)"/><circle cx="20" cy="20" r="4.5"/></g></svg>Quran Atlas</a><ul class="qa-links"><li><a href="../" data-ar="الأطلس">Atlas</a></li><li><a href="../guide/" data-ar="كيف تستخدمه">How to use</a></li><li><a href="#" data-ar="القصص" aria-current="page">Stories</a></li><li><a href="../library/" data-ar="المكتبة">Library</a></li></ul></div></nav>
 <title>Stories from the Quran</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Free books from the Quran Atlas: eight illustrated picture books of stories from the Quran for children around seven, and the Atlas itself as a 112-page book. Read online, download the PDFs, or help redraw them.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Andika:ital,wght@0,400;0,700;1,400&family=Reem+Kufi:wght@500&family=Amiri+Quran&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Andika:ital,wght@0,400;0,700;1,400&family=Reem+Kufi:wght@500&family=Markazi+Text:wght@500&family=Amiri+Quran&display=swap">
 <style>
 /* Layout: a night-sky band holds the series and the links between its books; below it, a shelf of eight free books, then the call for illustrators and the print-interest count. Reader and illustrator briefs are their own views on the hash. */
 :root {
-  --bg: #f3f1f8; --surface: #ffffff; --ink: #17204a; --muted: #585f82; --line: #dcd9ea;
-  --gold: #a87a1e; --gold-soft: #e2b55a; --night: #13204a; --night-ink: #f6edd8; --night-muted: #b9bdd6;
-  --ok: #2c7a4b; --chip: rgba(23, 32, 74, .06); --danger: #b23a2e;
+  --bg: #f7f7f4; --surface: #ffffff; --ink: #121417; --muted: #555a62; --line: #e6e6e1;
+  --gold: #0f766e; --gold-soft: #5fd0bd; --night: #111416; --night-ink: #f1f0ea; --night-muted: #b2b7b6;
+  --ok: #2c7a4b; --chip: rgba(18, 20, 23, .05); --danger: #b23a2e;
   --f-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --f-body: "Andika", "Segoe UI", system-ui, sans-serif;
   --f-kufi: "Reem Kufi", "Noto Kufi Arabic", "Geeza Pro", sans-serif;
@@ -34,15 +42,15 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0c1330; --surface: #161f47; --ink: #f2ead8; --muted: #a8aecb; --line: #2b3566;
-    --gold: #e2b55a; --gold-soft: #e9c477; --night: #0a1029; --night-ink: #f6edd8; --night-muted: #a8aecb;
-    --ok: #6fcf97; --chip: rgba(242, 234, 216, .07); --danger: #f08a7e; color-scheme: dark;
+    --bg: #0c0d0f; --surface: #15171a; --ink: #ececea; --muted: #a3a7ad; --line: #25282d;
+    --gold: #5fd0bd; --gold-soft: #7fdcc9; --night: #08090a; --night-ink: #f1f0ea; --night-muted: #a3a7ad;
+    --ok: #6fcf97; --chip: rgba(236, 236, 234, .06); --danger: #f08a7e; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0c1330; --surface: #161f47; --ink: #f2ead8; --muted: #a8aecb; --line: #2b3566;
-  --gold: #e2b55a; --gold-soft: #e9c477; --night: #0a1029; --night-ink: #f6edd8; --night-muted: #a8aecb;
-  --ok: #6fcf97; --chip: rgba(242, 234, 216, .07); --danger: #f08a7e; color-scheme: dark;
+  --bg: #0c0d0f; --surface: #15171a; --ink: #ececea; --muted: #a3a7ad; --line: #25282d;
+  --gold: #5fd0bd; --gold-soft: #7fdcc9; --night: #08090a; --night-ink: #f1f0ea; --night-muted: #a3a7ad;
+  --ok: #6fcf97; --chip: rgba(236, 236, 234, .06); --danger: #f08a7e; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: var(--s0); line-height: 1.55; }
@@ -212,14 +220,17 @@ dialog.lb .lb-bar button { background: rgba(255, 255, 255, .1); border: 1px soli
   .scene img { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { .cover { transition: none; } }
+.pbuh { font-family: "Markazi Text", var(--f-kufi); font-size: .5em; font-weight: 500; color: var(--gold); vertical-align: super; line-height: 0; margin-inline-start: .3em; white-space: nowrap; letter-spacing: 0; }
 </style>
+</head>
+<body>
 
 <div class="bar">
   <div class="wrap">
     <nav class="crumbs" aria-label="Site">
-      <a class="hide-sm" href="../" target="_blank" rel="noopener">Quran Atlas</a>
+      <a class="hide-sm" href="../">Quran Atlas</a>
       <span class="hide-sm" aria-hidden="true">/</span>
-      <a class="hide-sm" href="../library/" target="_blank" rel="noopener">Library</a>
+      <a class="hide-sm" href="../library/">Library</a>
       <span class="hide-sm" aria-hidden="true">/</span>
       <b>Stories</b>
     </nav>
@@ -336,7 +347,7 @@ dialog.lb .lb-bar button { background: rgba(255, 255, 255, .1); border: 1px soli
     <footer>
       <div class="wrap">
         <p>Each story is checked against the verses it retells; the notes for parents at the back of every book list them. A scholar’s review is still to come, and corrections are welcome.</p>
-        <p>Part of the <a href="../" target="_blank" rel="noopener">Quran Atlas</a>.</p>
+        <p>Part of the <a href="../">Quran Atlas</a>.</p>
       </div>
     </footer>
   </section>
@@ -348,16 +359,17 @@ dialog.lb .lb-bar button { background: rgba(255, 255, 255, .1); border: 1px soli
 
 <script>
 const BOOKS = [
-  { k: 'nuh', n: 1, f: 'book1-nuh-and-the-great-ark', t: 'Nuh and the Great Ark', ar: 'نوح والسفينة', b: 'Nine hundred and fifty years of patience, two of every kind, and an oven that gushed with water.' },
-  { k: 'ibrahim', n: 2, f: 'book2-ibrahim-and-the-fire', t: 'Ibrahim and the Fire', ar: 'إبراهيم والنار', b: 'A boy who asked who made the stars, a temple of silent statues, and a fire told to be cool and safe.' },
-  { k: 'yusuf', n: 3, f: 'book3-yusuf-and-the-eleven-stars', t: 'Yusuf and the Eleven Stars', ar: 'يوسف والكواكب', b: 'A dream, a deep well, seven fat cows and seven thin, and a family made whole again.' },
-  { k: 'musa', n: 4, f: 'book4-musa-and-the-river', t: 'Musa and the River', ar: 'موسى والنهر', b: 'A baby in a wooden chest on the Nile, a sister on the riverbank, and a promise kept twice over.' },
-  { k: 'sulayman', n: 5, f: 'book5-sulayman-and-the-ant', t: 'Sulayman and the Ant', ar: 'سليمان والنملة', b: 'A king who stopped his whole army for an ant, a hoopoe with news, and a floor of glass over water.' },
-  { k: 'yunus', n: 6, f: 'book6-yunus-and-the-big-fish', t: 'Yunus and the Big Fish', ar: 'يونس والحوت', b: 'A storm at sea, a whale, three darknesses, and a short prayer every child can learn.' },
-  { k: 'maryam', n: 7, f: 'book7-maryam-and-the-date-palm', t: 'Maryam and the Date Palm', ar: 'مريم والنخلة', b: 'Fruit out of season in a prayer room, a stream beneath a palm, and a newborn who spoke.' },
+  { k: 'nuh', pb: 'عليه السلام', n: 1, f: 'book1-nuh-and-the-great-ark', t: 'Nuh and the Great Ark', ar: 'نوح والسفينة', b: 'Nine hundred and fifty years of patience, two of every kind, and an oven that gushed with water.' },
+  { k: 'ibrahim', pb: 'عليه السلام', n: 2, f: 'book2-ibrahim-and-the-fire', t: 'Ibrahim and the Fire', ar: 'إبراهيم والنار', b: 'A boy who asked who made the stars, a temple of silent statues, and a fire told to be cool and safe.' },
+  { k: 'yusuf', pb: 'عليه السلام', n: 3, f: 'book3-yusuf-and-the-eleven-stars', t: 'Yusuf and the Eleven Stars', ar: 'يوسف والكواكب', b: 'A dream, a deep well, seven fat cows and seven thin, and a family made whole again.' },
+  { k: 'musa', pb: 'عليه السلام', n: 4, f: 'book4-musa-and-the-river', t: 'Musa and the River', ar: 'موسى والنهر', b: 'A baby in a wooden chest on the Nile, a sister on the riverbank, and a promise kept twice over.' },
+  { k: 'sulayman', pb: 'عليه السلام', n: 5, f: 'book5-sulayman-and-the-ant', t: 'Sulayman and the Ant', ar: 'سليمان والنملة', b: 'A king who stopped his whole army for an ant, a hoopoe with news, and a floor of glass over water.' },
+  { k: 'yunus', pb: 'عليه السلام', n: 6, f: 'book6-yunus-and-the-big-fish', t: 'Yunus and the Big Fish', ar: 'يونس والحوت', b: 'A storm at sea, a whale, three darknesses, and a short prayer every child can learn.' },
+  { k: 'maryam', pb: 'عليها السلام', n: 7, f: 'book7-maryam-and-the-date-palm', t: 'Maryam and the Date Palm', ar: 'مريم والنخلة', b: 'Fruit out of season in a prayer room, a stream beneath a palm, and a newborn who spoke.' },
   { k: 'cave', n: 8, f: 'book8-the-sleepers-in-the-cave', t: 'The Sleepers in the Cave', ar: 'أصحاب الكهف', b: 'Brave young friends, a faithful dog at the doorway, and three hundred and nine years of sleep.' },
 ];
 const PAGES = 24;
+const ttl = b => b.pb ? esc(b.t).replace(/^(\S+)/, `$1<span class="pbuh" lang="ar" title="${b.pb === 'عليها السلام' ? 'Peace be upon her' : 'Peace be upon him'}">${b.pb}</span>`) : esc(b.t);
 const ATLAS = { t: 'Quran Atlas, the book', img: 'atlas/cover.jpg' };
 const FILES = Object.assign(Object.fromEntries(BOOKS.map(b => [b.k, b.f])), { atlas: 'quran-atlas', 'atlas-print': 'quran-atlas-print-ready' });
 const VOTE_ITEMS = [...BOOKS.map(b => ({ k: b.k, t: b.t, img: `pages/${b.k}/01.jpg` })), { k: 'atlas', t: ATLAS.t, img: ATLAS.img }];
@@ -378,7 +390,7 @@ function renderHome() {
     <article class="book">
       <a class="cover" href="#read-${b.k}" aria-label="Read ${esc(b.t)}"><img src="${pimg(b.k, 1)}" alt="Cover of ${esc(b.t)}" loading="lazy" width="640" height="640"></a>
       <div class="meta"><span class="eyebrow">Book ${b.n}</span><span class="ar" lang="ar">${b.ar}</span></div>
-      <h3>${esc(b.t)}</h3>
+      <h3>${ttl(b)}</h3>
       <p class="blurb">${esc(b.b)}</p>
       <div class="row"><a class="btn btn-ink" href="#read-${b.k}">Read</a><button class="btn btn-soft" type="button" data-dl="${b.k}">Save PDF</button></div>
     </article>`).join('');
@@ -440,7 +452,7 @@ function renderReader(k, p) {
   const b = byK[k]; rd = { k, p: Math.min(PAGES, Math.max(1, p || 1)) };
   const v = $('#v-read');
   v.innerHTML = `<a class="back" href="#">← All books</a>
-    <div class="reader-head"><div><p class="eyebrow">Book ${b.n} of 8</p><h2>${esc(b.t)}</h2></div>
+    <div class="reader-head"><div><p class="eyebrow">Book ${b.n} of 8</p><h2>${ttl(b)}</h2></div>
       <div class="actions" style="margin:0"><button class="btn btn-soft" type="button" data-dl="${k}">Save PDF</button><button class="btn btn-soft" type="button" data-brief="${k}">Illustrator brief</button></div></div>
     <div class="stage"><img id="rd-img" alt="" width="640" height="640">
       <button class="turn prev" type="button" id="rd-prev" aria-label="Previous page">‹</button><button class="turn next" type="button" id="rd-next" aria-label="Next page">›</button></div>
@@ -564,5 +576,4 @@ renderHome(); syncDownloads(); route();
 </script>
 
 <script>(function(){function t(){if(document.documentElement.lang!=='ar')return;document.querySelectorAll('.qa-links a[data-ar]').forEach(function(a){a.textContent=a.getAttribute('data-ar')});var b=document.querySelector('.qa-brand');if(b)b.lastChild.textContent='أطلس القرآن';}if(document.readyState!=='loading')t();else document.addEventListener('DOMContentLoaded',t);window.addEventListener('load',t);})();</script>
-</body></html>
 </body></html>
