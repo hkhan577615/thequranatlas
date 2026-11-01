@@ -12,7 +12,7 @@
 .qa-links a:focus-visible,.qa-brand:focus-visible{outline:2px solid #e2b55a;outline-offset:2px}
 @media (max-width:520px){.qa-nav-in{justify-content:center}.qa-brand{margin-inline-end:0;width:100%;justify-content:center}.qa-links a{padding:6px 10px;font-size:.95rem}}
 </style></head><body>
-<nav class="qa-nav inset" aria-label="Site"><div class="qa-nav-in"><a class="qa-brand" href="#"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="9" y="9" width="22" height="22"/><rect x="9" y="9" width="22" height="22" transform="rotate(45 20 20)"/><circle cx="20" cy="20" r="4.5"/></g></svg>Quran Atlas</a><ul class="qa-links"><li><a href="#" data-ar="الأطلس" aria-current="page">Atlas</a></li><li><a href="https://claude.ai/artifact/TyhBMbjyAB3DbMv1nkcL18" target="_blank" rel="noopener" data-ar="كيف تستخدمه">How to use</a></li><li><a href="https://claude.ai/artifact/GWBzkDvP7ZgdyTtasmYNXZ" target="_blank" rel="noopener" data-ar="القصص">Stories</a></li><li><a href="https://claude.ai/artifact/3Uob5fdkpmuKMNrYxbKaeZ" target="_blank" rel="noopener" data-ar="المكتبة">Library</a></li></ul></div></nav>
+<nav class="qa-nav inset" aria-label="Site"><div class="qa-nav-in"><a class="qa-brand" href="#"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="9" y="9" width="22" height="22"/><rect x="9" y="9" width="22" height="22" transform="rotate(45 20 20)"/><circle cx="20" cy="20" r="4.5"/></g></svg>Quran Atlas</a><ul class="qa-links"><li><a href="#" data-ar="الأطلس" aria-current="page">Atlas</a></li><li><a href="https://claude.ai/artifact/TyhBMbjyAB3DbMv1nkcL18" target="_blank" rel="noopener" data-ar="كيف تستخدمه">How to use</a></li><li><a href="stories/" target="_blank" rel="noopener" data-ar="القصص">Stories</a></li><li><a href="library/" target="_blank" rel="noopener" data-ar="المكتبة">Library</a></li></ul></div></nav>
 <title>Quran Atlas</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Nine computed views of the Quran: verse barcode, stories, ring structure, opening letters, roots, echoes, rhyme, voice and name endings, with translation.">
@@ -397,8 +397,8 @@ html[lang="ar"] .tab { font-size: 1.125rem; }
     </div>
     <p class="mast-lede">Nine ways to see the Quran's structure. Every figure here is counted from the text itself, word by word, so you can check any pattern by tapping through to the verses.</p>
     <a class="mast-guide" href="https://claude.ai/artifact/TyhBMbjyAB3DbMv1nkcL18" target="_blank" rel="noopener">New here? Read how to use the Atlas</a>
-    <a class="mast-studies" href="https://claude.ai/artifact/3Uob5fdkpmuKMNrYxbKaeZ" target="_blank" rel="noopener"><span class="ms-k">Library</span><span class="ms-t">Six illustrated deep dives: the middle of the Quran, Ar-Rahman’s pairs, Musa’s story as a transit map, and more</span><span class="ms-a" aria-hidden="true">→</span></a>
-    <a class="mast-studies mast-books" href="https://claude.ai/artifact/GWBzkDvP7ZgdyTtasmYNXZ" target="_blank" rel="noopener"><span class="ms-k">Stories</span><span class="ms-t">Free books: Stories from the Quran, eight picture books for children, and this Atlas as a 112-page book to print</span><span class="ms-a" aria-hidden="true">→</span></a>
+    <a class="mast-studies" href="library/" target="_blank" rel="noopener"><span class="ms-k">Library</span><span class="ms-t">Six illustrated deep dives: the middle of the Quran, Ar-Rahman’s pairs, Musa’s story as a transit map, and more</span><span class="ms-a" aria-hidden="true">→</span></a>
+    <a class="mast-studies mast-books" href="stories/" target="_blank" rel="noopener"><span class="ms-k">Stories</span><span class="ms-t">Free books: Stories from the Quran, eight picture books for children, and this Atlas as a 112-page book to print</span><span class="ms-a" aria-hidden="true">→</span></a>
     <ul class="facts" id="facts">
       <li><b>114</b> surahs</li><li><b>6,236</b> verses</li><li><b>77,430</b> words</li><li><b>1,651</b> roots</li>
     </ul>
@@ -2717,7 +2717,7 @@ INIT.stories = () => Stories.init();
 
 /* ---------- boot ---------- */
 window.QPA = { Q, get Barcode() { return Barcode; }, Sheet };
-const STUDIES_URL = 'https://claude.ai/artifact/3Uob5fdkpmuKMNrYxbKaeZ';
+const STUDIES_URL = 'library/';
 function chrome() {
   const r = document.documentElement; r.lang = LANG; r.dir = isAr() ? 'rtl' : 'ltr';
   const b = $('#lang-btn'); b.textContent = isAr() ? 'English' : 'عربي'; b.lang = isAr() ? 'en' : 'ar'; b.setAttribute('aria-label', isAr() ? 'Read in English' : 'اقرأ بالعربية');

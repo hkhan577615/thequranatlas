@@ -12,7 +12,7 @@
 .qa-links a:focus-visible,.qa-brand:focus-visible{outline:2px solid #e2b55a;outline-offset:2px}
 @media (max-width:520px){.qa-nav-in{justify-content:center}.qa-brand{margin-inline-end:0;width:100%;justify-content:center}.qa-links a{padding:6px 10px;font-size:.95rem}}
 </style></head><body>
-<nav class="qa-nav inset" aria-label="Site"><div class="qa-nav-in"><a class="qa-brand" href="https://claude.ai/artifact/TQW3m96FhZUTbVPaqSmnJi" target="_blank" rel="noopener"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="9" y="9" width="22" height="22"/><rect x="9" y="9" width="22" height="22" transform="rotate(45 20 20)"/><circle cx="20" cy="20" r="4.5"/></g></svg>Quran Atlas</a><ul class="qa-links"><li><a href="https://claude.ai/artifact/TQW3m96FhZUTbVPaqSmnJi" target="_blank" rel="noopener" data-ar="الأطلس">Atlas</a></li><li><a href="https://claude.ai/artifact/TyhBMbjyAB3DbMv1nkcL18" target="_blank" rel="noopener" data-ar="كيف تستخدمه">How to use</a></li><li><a href="https://claude.ai/artifact/GWBzkDvP7ZgdyTtasmYNXZ" target="_blank" rel="noopener" data-ar="القصص">Stories</a></li><li><a href="#" data-ar="المكتبة" aria-current="page">Library</a></li></ul></div></nav>
+<nav class="qa-nav inset" aria-label="Site"><div class="qa-nav-in"><a class="qa-brand" href="../" target="_blank" rel="noopener"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="9" y="9" width="22" height="22"/><rect x="9" y="9" width="22" height="22" transform="rotate(45 20 20)"/><circle cx="20" cy="20" r="4.5"/></g></svg>Quran Atlas</a><ul class="qa-links"><li><a href="../" target="_blank" rel="noopener" data-ar="الأطلس">Atlas</a></li><li><a href="https://claude.ai/artifact/TyhBMbjyAB3DbMv1nkcL18" target="_blank" rel="noopener" data-ar="كيف تستخدمه">How to use</a></li><li><a href="../stories/" target="_blank" rel="noopener" data-ar="القصص">Stories</a></li><li><a href="#" data-ar="المكتبة" aria-current="page">Library</a></li></ul></div></nav>
 <title>Quran Atlas Studies</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Six deep studies from Quran Atlas, each drawn as an infographic in gold on indigo.">
@@ -1208,7 +1208,7 @@ function route() {
   if (s && s.ready) { renderStudy(id, DATA); store('last', id); document.title = L(s.title + ' · Quran Atlas Studies', s.ar + ' · دراسات أطلس القرآن'); }
   else renderContents(DATA);
 }
-const ATLAS_URL = 'https://claude.ai/artifact/TQW3m96FhZUTbVPaqSmnJi';
+const ATLAS_URL = '../';
 const CHROME = []; // [element, English HTML, Arabic HTML] for the fixed parts of the page
 function chrome() {
   const set = (sel, ar, attr) => { const n = $(sel); if (!n) return; if (attr) { const key = 'en' + attr.replace(/-/g, ''); if (n.dataset[key] == null) n.dataset[key] = n.getAttribute(attr) || ''; n.setAttribute(attr, isAr() ? ar : n.dataset[key]); return; }
