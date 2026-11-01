@@ -5,28 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <style>
 body{margin:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
-/* site nav, shared by every page */
-:root{--qa-bg:#f7f7f4;--qa-ink:#121417;--qa-ink2:#555a62;--qa-line:#e6e6e1;--qa-accent:#0f766e;--qa-pill:#121417;--qa-pill-ink:#f7f7f4}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--qa-bg:#0c0d0f;--qa-ink:#ececea;--qa-ink2:#a3a7ad;--qa-line:#24272c;--qa-accent:#5fd0bd;--qa-pill:#ececea;--qa-pill-ink:#0c0d0f}}
-:root[data-theme="dark"]{--qa-bg:#0c0d0f;--qa-ink:#ececea;--qa-ink2:#a3a7ad;--qa-line:#24272c;--qa-accent:#5fd0bd;--qa-pill:#ececea;--qa-pill-ink:#0c0d0f}
-.qa-nav{background:var(--qa-bg);color:var(--qa-ink);font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;border-bottom:1px solid var(--qa-line);position:relative;z-index:11}
-.qa-nav.inset{margin-inline:calc(-1 * max(16px, env(safe-area-inset-left, 0px)))}
-.qa-nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:8px 16px;flex-wrap:wrap;padding:12px max(16px, env(safe-area-inset-left, 0px))}
-.qa-brand{display:flex;align-items:center;gap:9px;color:var(--qa-ink);text-decoration:none;font-family:"Inter Tight","Inter",system-ui,sans-serif;font-weight:650;font-size:1.05rem;letter-spacing:-.015em;line-height:1;margin-inline-end:auto}
-.qa-brand svg{width:22px;height:22px;color:var(--qa-accent);flex:none}
-.qa-links{display:flex;gap:2px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
-.qa-links a{display:block;color:var(--qa-ink2);text-decoration:none;font-size:.9375rem;font-weight:500;padding:7px 13px;border-radius:999px;white-space:nowrap;transition:background .15s,color .15s}
-.qa-links a:hover{color:var(--qa-ink);background:color-mix(in srgb,var(--qa-ink) 7%,transparent)}
-.qa-links a[aria-current="page"]{background:var(--qa-pill);color:var(--qa-pill-ink)}
-.qa-links a:focus-visible,.qa-brand:focus-visible{outline:2px solid var(--qa-accent);outline-offset:2px}
-@media (max-width:520px){.qa-nav-in{justify-content:center}.qa-brand{margin-inline-end:0;width:100%;justify-content:center}.qa-links a{padding:6px 11px;font-size:.9rem}}
 </style>
 <nav class="qa-nav inset" aria-label="Site"><div class="qa-nav-in"><a class="qa-brand" href="#"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="9" y="9" width="22" height="22"/><rect x="9" y="9" width="22" height="22" transform="rotate(45 20 20)"/><circle cx="20" cy="20" r="4.5"/></g></svg>Quran Atlas</a><ul class="qa-links"><li><a href="#" data-ar="الأطلس" aria-current="page">Atlas</a></li><li><a href="guide/" data-ar="كيف تستخدمه">How to use</a></li><li><a href="stories/" data-ar="القصص">Stories</a></li><li><a href="library/" data-ar="المكتبة">Library</a></li></ul></div></nav>
 <title>Quran Atlas</title>
 <meta name="description" content="Nine computed views of the Quran: verse barcode, stories, ring structure, opening letters, roots, echoes, rhyme, voice and name endings, with translation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=Amiri+Quran&family=Markazi+Text:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Xanh+Mono&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&family=Amiri+Quran&family=Markazi+Text:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap">
 <style>
 /* Layout: one column under an open masthead. Each view opens with a bilingual header
    (English left, Arabic right), then controls, the figure at full column width, and short
@@ -34,14 +20,16 @@ body{margin:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:no
    paper with a deep teal accent by day; near-black with mint by night. Type: Inter and
    Inter Tight for Latin, Markazi Text for Arabic headings, Amiri Quran for the text itself. */
 :root {
-  --paper: #f7f7f4; --leaf: #ffffff; --ink: #121417; --ink-2: #4b5058; --ink-3: #6b7078;
-  --rule: #e6e6e1; --gold: #0f766e; --gold-soft: #7cc2b6; --lapis: #0f766e; --tile-off: #ebebe6;
-  --seq-0: #e3f2ef; --seq-1: #c2e4dd; --seq-2: #98d1c6; --seq-3: #6bbbad; --seq-4: #42a293; --seq-5: #23867a; --seq-6: #136b61; --seq-7: #0a504a;
-  --c1: #2a78d6; --c2: #eb6834; --c3: #1baf7a; --c4: #eda100; --c5: #e87ba4; --c6: #008300; --c7: #6250d6; --c8: #e34948;
-  --mec: #d5dbe3; --med: #0f766e;
-  --scrim: rgba(18, 20, 23, .40); --lift: 0 -10px 40px rgba(18, 20, 23, .18); --chip: rgba(18, 20, 23, .05);
-  --f-display: "Inter Tight", "Inter", "Markazi Text", "Noto Naskh Arabic", system-ui, sans-serif;
-  --f-ui: "Inter", "Markazi Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+  --paper: #191a1e; --leaf: #212227; --ink: #f3f3f0; --ink-2: #b0b1b5; --ink-3: #85878c;
+  --rule: #2d2e34; --gold: #acffce; --gold-soft: #4f9c76; --lapis: #acffce; --tile-off: #27282e;
+  --seq-0: #1f3a2e; --seq-1: #255040; --seq-2: #2d6851; --seq-3: #388163; --seq-4: #4b9a77; --seq-5: #66b48e; --seq-6: #88d2aa; --seq-7: #acffce;
+  --c1: #6ea8fe; --c2: #ff8a5c; --c3: #3ddc97; --c4: #ffc84a; --c5: #ff8fbf; --c6: #8be36b; --c7: #b19cff; --c8: #ff6b6b;
+  --mec: #3a3c44; --med: #acffce;
+  --scrim: rgba(0, 0, 0, .62); --lift: 0 -10px 40px rgba(0, 0, 0, .6); --chip: rgba(255, 255, 255, .06);
+  --f-display: "Xanh Mono", "Markazi Text", "Noto Naskh Arabic", ui-monospace, monospace;
+  --f-ui: "General Sans", "Inter", "Markazi Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "Space Mono", ui-monospace, Menlo, monospace;
   --f-ar: "Markazi Text", "Noto Naskh Arabic", "Geeza Pro", Tahoma, serif;
   --f-quran: "Amiri Quran", "Amiri", "Scheherazade New", "Noto Naskh Arabic", "Geeza Pro", serif;
   --s-1: .875rem; --s0: 1rem; --s1: 1.125rem; --s2: 1.5rem; --s3: 2.125rem; --s4: 3.5rem;
@@ -49,22 +37,22 @@ body{margin:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:no
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #0c0d0f; --leaf: #15171a; --ink: #ececea; --ink-2: #b1b5ba; --ink-3: #868a91;
-    --rule: #25282d; --gold: #5fd0bd; --gold-soft: #2f8f80; --lapis: #6fd6c4; --tile-off: #1c1f23;
-    --seq-0: #102d29; --seq-1: #133d37; --seq-2: #164f46; --seq-3: #1a6256; --seq-4: #1f7768; --seq-5: #2a8f7d; --seq-6: #45aa96; --seq-7: #74cbb6;
-    --c1: #3987e5; --c2: #d95926; --c3: #199e70; --c4: #c98500; --c5: #d55181; --c6: #008300; --c7: #9085e9; --c8: #e66767;
-    --mec: #2a313b; --med: #5fd0bd;
-    --scrim: rgba(0, 0, 0, .62); --lift: 0 -10px 40px rgba(0, 0, 0, .55); --chip: rgba(236, 236, 234, .06);
+    --paper: #191a1e; --leaf: #212227; --ink: #f3f3f0; --ink-2: #b0b1b5; --ink-3: #85878c;
+    --rule: #2d2e34; --gold: #acffce; --gold-soft: #4f9c76; --lapis: #acffce; --tile-off: #27282e;
+    --seq-0: #1f3a2e; --seq-1: #255040; --seq-2: #2d6851; --seq-3: #388163; --seq-4: #4b9a77; --seq-5: #66b48e; --seq-6: #88d2aa; --seq-7: #acffce;
+    --c1: #6ea8fe; --c2: #ff8a5c; --c3: #3ddc97; --c4: #ffc84a; --c5: #ff8fbf; --c6: #8be36b; --c7: #b19cff; --c8: #ff6b6b;
+    --mec: #3a3c44; --med: #acffce;
+    --scrim: rgba(0, 0, 0, .62); --lift: 0 -10px 40px rgba(0, 0, 0, .6); --chip: rgba(255, 255, 255, .06);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #0c0d0f; --leaf: #15171a; --ink: #ececea; --ink-2: #b1b5ba; --ink-3: #868a91;
-  --rule: #25282d; --gold: #5fd0bd; --gold-soft: #2f8f80; --lapis: #6fd6c4; --tile-off: #1c1f23;
-  --seq-0: #102d29; --seq-1: #133d37; --seq-2: #164f46; --seq-3: #1a6256; --seq-4: #1f7768; --seq-5: #2a8f7d; --seq-6: #45aa96; --seq-7: #74cbb6;
-  --c1: #3987e5; --c2: #d95926; --c3: #199e70; --c4: #c98500; --c5: #d55181; --c6: #008300; --c7: #9085e9; --c8: #e66767;
-  --mec: #2a313b; --med: #5fd0bd;
-  --scrim: rgba(0, 0, 0, .62); --lift: 0 -10px 40px rgba(0, 0, 0, .55); --chip: rgba(236, 236, 234, .06);
+  --paper: #191a1e; --leaf: #212227; --ink: #f3f3f0; --ink-2: #b0b1b5; --ink-3: #85878c;
+  --rule: #2d2e34; --gold: #acffce; --gold-soft: #4f9c76; --lapis: #acffce; --tile-off: #27282e;
+  --seq-0: #1f3a2e; --seq-1: #255040; --seq-2: #2d6851; --seq-3: #388163; --seq-4: #4b9a77; --seq-5: #66b48e; --seq-6: #88d2aa; --seq-7: #acffce;
+  --c1: #6ea8fe; --c2: #ff8a5c; --c3: #3ddc97; --c4: #ffc84a; --c5: #ff8fbf; --c6: #8be36b; --c7: #b19cff; --c8: #ff6b6b;
+  --mec: #3a3c44; --med: #acffce;
+  --scrim: rgba(0, 0, 0, .62); --lift: 0 -10px 40px rgba(0, 0, 0, .6); --chip: rgba(255, 255, 255, .06);
   color-scheme: dark;
 }
 
@@ -77,6 +65,7 @@ body {
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+body { background: transparent; }
 .wrap { max-width: var(--col); margin: 0 auto; }
 a { color: var(--lapis); text-underline-offset: 2px; }
 button, select, input { font: inherit; color: inherit; }
@@ -396,7 +385,67 @@ html[lang="ar"] .tab { font-size: 1.125rem; }
   .vtext { font-size: 1.55rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+
+/* ---- byotone-inspired layer: typewriter capitals, mono labels, dashed pills ---- */
+.masthead { padding-block: 64px 30px; gap: 18px; justify-items: center; text-align: center; }
+.mast-top { flex-direction: column; justify-content: center; gap: 6px; }
+.mast-name { flex-direction: column; gap: 14px; }
+.mast-mark { width: 54px; height: 54px; color: var(--gold); }
+.mast-title { font-family: var(--f-display); font-weight: 400; text-transform: uppercase; color: var(--gold); font-size: clamp(3rem, 9vw, 6.2rem); letter-spacing: .04em; line-height: .95; }
+.mast-ar { font-size: clamp(1.8rem, 4.5vw, 2.6rem); color: var(--ink); opacity: .85; }
+.mast-lede { font-family: var(--f-display); font-weight: 400; text-transform: uppercase; color: var(--ink); font-size: clamp(1.35rem, 3.4vw, 2.3rem); letter-spacing: .03em; line-height: 1.12; max-width: 30ch; margin-inline: auto; }
+.mast-sub { color: var(--ink-2); max-width: 46ch; margin-inline: auto; font-size: var(--s0); }
+.lang-btn, .mast-guide { font-family: var(--f-mono); font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); background: rgba(255, 255, 255, .04); border: 1px dashed rgba(172, 255, 206, .35); border-radius: 999px; padding: 9px 16px; text-decoration: none; }
+.lang-btn { position: absolute; inset-inline-end: 0; top: 18px; font-family: var(--f-ar); font-size: 1rem; padding: 5px 14px; font-weight: 500; letter-spacing: 0; text-transform: none; }
+html[lang="ar"] .lang-btn { font-family: var(--f-mono); font-size: .75rem; }
+.masthead { position: relative; }
+.mast-guide { justify-self: center; display: inline-flex; align-items: center; gap: 10px; }
+.mast-guide::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; box-shadow: 0 0 10px currentColor; }
+.mast-guide:hover, .lang-btn:hover { background: rgba(172, 255, 206, .08); border-color: var(--gold); }
+.facts { justify-content: center; gap: 6px 22px; font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+.facts li::before { content: "● "; color: var(--gold); font-size: .55rem; vertical-align: 1px; }
+.facts b { color: var(--ink); font-weight: 700; }
+
+.tabs { background: rgba(25, 26, 30, .82); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); counter-reset: tab; }
+.tabs-inner { justify-content: safe center; gap: 4px; }
+.tab { font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 400; color: var(--ink-2); border-bottom: 0; padding: 12px 8px; display: flex; flex-direction: column; align-items: center; gap: 5px; counter-increment: tab; }
+.tab::before { content: counter(tab, upper-alpha); display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid var(--ink-3); border-radius: 50%; font-family: var(--f-display); font-size: .85rem; letter-spacing: 0; color: var(--ink); transition: background .15s, color .15s, border-color .15s; }
+.tab:hover { color: var(--ink); }
+.tab:hover::before { border-color: var(--gold); }
+.tab[aria-selected="true"] { color: var(--gold); border-bottom: 0; font-weight: 400; }
+.tab[aria-selected="true"]::before { background: var(--gold); border-color: var(--gold); color: #191a1e; box-shadow: 0 0 14px rgba(172, 255, 206, .45); }
+html[lang="ar"] .tab { font-family: var(--f-ui); font-size: .9rem; letter-spacing: 0; }
+
+.vhead { border-bottom: 1px solid var(--rule); padding-block: 10px 16px; }
+.vtitle { font-family: var(--f-display); font-weight: 400; text-transform: uppercase; color: var(--gold); font-size: clamp(2rem, 5vw, 2.9rem); letter-spacing: .03em; }
+.vtitle-ar { color: var(--ink); opacity: .8; font-family: var(--f-ar); }
+.sub, .st-name { font-family: var(--f-display); font-weight: 400; text-transform: uppercase; letter-spacing: .03em; color: var(--ink); }
+html[lang="ar"] .vtitle, html[lang="ar"] .sub, html[lang="ar"] .st-name, html[lang="ar"] .mast-title, html[lang="ar"] .mast-lede { font-family: var(--f-ar); text-transform: none; letter-spacing: 0; }
+.ctl-label, .ctl > label { font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .08em; color: var(--ink-2); font-weight: 400; }
+.ctl-label::before, .ctl > label::before { content: "● "; color: var(--gold); font-size: .55rem; vertical-align: 1px; }
+.seg { background: rgba(255, 255, 255, .04); border: 1px solid var(--rule); border-radius: 999px; padding: 3px; }
+.seg label { border-radius: 999px; padding: 6px 13px; }
+.seg input:checked + label { background: var(--gold); color: #191a1e; box-shadow: none; font-weight: 600; }
+select { background-color: #222328; border-color: var(--rule); border-radius: 999px; padding-inline: 14px 32px; color: var(--ink); }
+.btn { font-family: var(--f-mono); font-size: .75rem; font-weight: 700; letter-spacing: .05em; color: var(--gold); background: rgba(255, 255, 255, .04); border: 1px dashed rgba(172, 255, 206, .35); border-radius: 999px; padding: 8px 15px; }
+.btn:hover { background: rgba(172, 255, 206, .08); border-color: var(--gold); }
+.viz, .pairbox, .soon-card { background: rgba(32, 33, 38, .78); border: 1px solid var(--rule); border-radius: 18px; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.legend, .subnote, .notes .more, .dim { font-size: var(--s-1); }
+.legend { font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .05em; text-transform: uppercase; }
+.pbuh-note { font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase; }
+.pbuh-note [lang="ar"] { font-family: var(--f-ar); text-transform: none; letter-spacing: 0; }
+.tip { background: #f3f3f0; color: #191a1e; }
+.sheet { background: #1e1f24; border-top: 1px solid var(--rule); }
+footer.credits { font-size: .75rem; }
+footer.credits b { font-family: var(--f-mono); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--gold); font-size: .6875rem; }
+table.grid th[scope="col"] { font-family: var(--f-mono); }
+
+:is(h1, h2, h3, .ct, .vtitle, .sub, .mast-title)[lang="ar"], :is(h1, h2, h3) [lang="ar"] { font-family: var(--f-ar); text-transform: none; letter-spacing: 0; }
+html[lang="ar"] :is(.mast-guide, .facts, .ctl-label, .ctl > label, .legend, .btn, .pbuh-note, footer.credits b) { font-family: var(--f-ui); letter-spacing: 0; text-transform: none; }
+html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
 </style>
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js" defer></script>
 </head>
 <body>
 

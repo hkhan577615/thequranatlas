@@ -5,36 +5,24 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <style>
 body{margin:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
-/* site nav, shared by every page */
-:root{--qa-bg:#f7f7f4;--qa-ink:#121417;--qa-ink2:#555a62;--qa-line:#e6e6e1;--qa-accent:#0f766e;--qa-pill:#121417;--qa-pill-ink:#f7f7f4}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--qa-bg:#0c0d0f;--qa-ink:#ececea;--qa-ink2:#a3a7ad;--qa-line:#24272c;--qa-accent:#5fd0bd;--qa-pill:#ececea;--qa-pill-ink:#0c0d0f}}
-:root[data-theme="dark"]{--qa-bg:#0c0d0f;--qa-ink:#ececea;--qa-ink2:#a3a7ad;--qa-line:#24272c;--qa-accent:#5fd0bd;--qa-pill:#ececea;--qa-pill-ink:#0c0d0f}
-.qa-nav{background:var(--qa-bg);color:var(--qa-ink);font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;border-bottom:1px solid var(--qa-line);position:relative;z-index:11}
-.qa-nav.inset{margin-inline:calc(-1 * max(16px, env(safe-area-inset-left, 0px)))}
-.qa-nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:8px 16px;flex-wrap:wrap;padding:12px max(16px, env(safe-area-inset-left, 0px))}
-.qa-brand{display:flex;align-items:center;gap:9px;color:var(--qa-ink);text-decoration:none;font-family:"Inter Tight","Inter",system-ui,sans-serif;font-weight:650;font-size:1.05rem;letter-spacing:-.015em;line-height:1;margin-inline-end:auto}
-.qa-brand svg{width:22px;height:22px;color:var(--qa-accent);flex:none}
-.qa-links{display:flex;gap:2px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
-.qa-links a{display:block;color:var(--qa-ink2);text-decoration:none;font-size:.9375rem;font-weight:500;padding:7px 13px;border-radius:999px;white-space:nowrap;transition:background .15s,color .15s}
-.qa-links a:hover{color:var(--qa-ink);background:color-mix(in srgb,var(--qa-ink) 7%,transparent)}
-.qa-links a[aria-current="page"]{background:var(--qa-pill);color:var(--qa-pill-ink)}
-.qa-links a:focus-visible,.qa-brand:focus-visible{outline:2px solid var(--qa-accent);outline-offset:2px}
-@media (max-width:520px){.qa-nav-in{justify-content:center}.qa-brand{margin-inline-end:0;width:100%;justify-content:center}.qa-links a{padding:6px 11px;font-size:.9rem}}
 </style>
 <nav class="qa-nav" aria-label="Site"><div class="qa-nav-in"><a class="qa-brand" href="../"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="9" y="9" width="22" height="22"/><rect x="9" y="9" width="22" height="22" transform="rotate(45 20 20)"/><circle cx="20" cy="20" r="4.5"/></g></svg>Quran Atlas</a><ul class="qa-links"><li><a href="../" data-ar="الأطلس">Atlas</a></li><li><a href="../guide/" data-ar="كيف تستخدمه">How to use</a></li><li><a href="#" data-ar="القصص" aria-current="page">Stories</a></li><li><a href="../library/" data-ar="المكتبة">Library</a></li></ul></div></nav>
 <title>Stories from the Quran</title>
 <meta name="description" content="Free books from the Quran Atlas: eight illustrated picture books of stories from the Quran for children around seven, and the Atlas itself as a 112-page book. Read online, download the PDFs, or help redraw them.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Andika:ital,wght@0,400;0,700;1,400&family=Reem+Kufi:wght@500&family=Markazi+Text:wght@500&family=Amiri+Quran&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Xanh+Mono&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&family=Amiri+Quran&family=Markazi+Text:wght@400;500;600;700&family=Reem+Kufi:wght@500&display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap">
 <style>
 /* Layout: a night-sky band holds the series and the links between its books; below it, a shelf of eight free books, then the call for illustrators and the print-interest count. Reader and illustrator briefs are their own views on the hash. */
 :root {
-  --bg: #f7f7f4; --surface: #ffffff; --ink: #121417; --muted: #555a62; --line: #e6e6e1;
-  --gold: #0f766e; --gold-soft: #5fd0bd; --night: #111416; --night-ink: #f1f0ea; --night-muted: #b2b7b6;
-  --ok: #2c7a4b; --chip: rgba(18, 20, 23, .05); --danger: #b23a2e;
-  --f-display: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --f-body: "Andika", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+  --bg: #191a1e; --surface: #212227; --ink: #f3f3f0; --muted: #b0b1b5; --line: #2d2e34;
+  --gold: #acffce; --gold-soft: #acffce; --night: #191a1e; --night-ink: #f3f3f0; --night-muted: #b0b1b5;
+  --ok: #6fcf97; --chip: rgba(255, 255, 255, .06); --danger: #f08a7e;
+  --f-display: "Xanh Mono", ui-monospace, monospace;
+  --f-mono: "Space Mono", ui-monospace, Menlo, monospace;
+  --f-body: "General Sans", "Inter", "Segoe UI", system-ui, sans-serif;
   --f-kufi: "Reem Kufi", "Noto Kufi Arabic", "Geeza Pro", sans-serif;
   --f-quran: "Amiri Quran", "Amiri", "Geeza Pro", serif;
   --s-1: .8125rem; --s0: 1rem; --s1: 1.1875rem; --s2: 1.5rem; --s3: 2.125rem; --s4: 3rem;
@@ -42,15 +30,15 @@ body{margin:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:no
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0c0d0f; --surface: #15171a; --ink: #ececea; --muted: #a3a7ad; --line: #25282d;
-    --gold: #5fd0bd; --gold-soft: #7fdcc9; --night: #08090a; --night-ink: #f1f0ea; --night-muted: #a3a7ad;
-    --ok: #6fcf97; --chip: rgba(236, 236, 234, .06); --danger: #f08a7e; color-scheme: dark;
+    --bg: #191a1e; --surface: #212227; --ink: #f3f3f0; --muted: #b0b1b5; --line: #2d2e34;
+    --gold: #acffce; --gold-soft: #acffce; --night: #191a1e; --night-ink: #f3f3f0; --night-muted: #b0b1b5;
+    --ok: #6fcf97; --chip: rgba(255, 255, 255, .06); --danger: #f08a7e; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0c0d0f; --surface: #15171a; --ink: #ececea; --muted: #a3a7ad; --line: #25282d;
-  --gold: #5fd0bd; --gold-soft: #7fdcc9; --night: #08090a; --night-ink: #f1f0ea; --night-muted: #a3a7ad;
-  --ok: #6fcf97; --chip: rgba(236, 236, 234, .06); --danger: #f08a7e; color-scheme: dark;
+  --bg: #191a1e; --surface: #212227; --ink: #f3f3f0; --muted: #b0b1b5; --line: #2d2e34;
+  --gold: #acffce; --gold-soft: #acffce; --night: #191a1e; --night-ink: #f3f3f0; --night-muted: #b0b1b5;
+  --ok: #6fcf97; --chip: rgba(255, 255, 255, .06); --danger: #f08a7e; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: var(--s0); line-height: 1.55; }
@@ -221,7 +209,26 @@ dialog.lb .lb-bar button { background: rgba(255, 255, 255, .1); border: 1px soli
 }
 @media (prefers-reduced-motion: reduce) { .cover { transition: none; } }
 .pbuh { font-family: "Markazi Text", var(--f-kufi); font-size: .5em; font-weight: 500; color: var(--gold); vertical-align: super; line-height: 0; margin-inline-start: .3em; white-space: nowrap; letter-spacing: 0; }
+
+/* ---- byotone-inspired layer ---- */
+body { background: transparent; }
+body::before { background: var(--bg); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; text-transform: uppercase; letter-spacing: .03em; }
+h1 { color: var(--gold); }
+:is(h1, h2, h3)[lang="ar"], :is(h1, h2, h3) [lang="ar"], .ar { text-transform: none; letter-spacing: 0; }
+.eyebrow { font-family: var(--f-mono); font-weight: 400; font-size: .6875rem; letter-spacing: .08em; }
+.eyebrow::before { content: "● "; font-size: .55rem; vertical-align: 1px; }
+.bar { background: rgba(25, 26, 30, .82); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); font-family: var(--f-mono); font-size: .75rem; letter-spacing: .05em; text-transform: uppercase; }
+.btn { font-family: var(--f-mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; border-radius: 999px; padding: 10px 18px; }
+.btn-gold { background: var(--gold); color: #191a1e; box-shadow: 0 0 18px rgba(172, 255, 206, .25); }
+.btn-ghost, .btn-soft { background: rgba(255, 255, 255, .04); color: var(--gold); border: 1px dashed rgba(172, 255, 206, .35); }
+.btn-soft:hover, .btn-ghost:hover { border-color: var(--gold); background: rgba(172, 255, 206, .08); }
+.btn-ink { background: var(--gold); color: #191a1e; }
+.hero, .night { background: transparent !important; }
+input, textarea { background: #222328; color: var(--ink); border-color: var(--line); }
 </style>
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
 </head>
 <body>
 
@@ -310,7 +317,7 @@ dialog.lb .lb-bar button { background: rgba(255, 255, 255, .1); border: 1px soli
         </div>
         <div class="panel">
           <h3>Volunteer</h3>
-          <p class="note">Tell us which books you would like to draw and where to see your work. Only the project’s owner can read what you send.</p>
+          <p class="note">Tell us which books you would like to draw and where to see your work. Pressing Send opens your email app with everything filled in, ready to send.</p>
           <form id="vol-form" novalidate>
             <label for="v-name">Your name<input id="v-name" name="name" autocomplete="name" required></label>
             <label for="v-contact">Email, or another way to reach you<input id="v-contact" name="contact" required></label>
@@ -321,17 +328,6 @@ dialog.lb .lb-bar button { background: rgba(255, 255, 255, .1); border: 1px soli
             <p class="msg" id="v-msg" role="status"></p>
           </form>
         </div>
-      </div>
-    </div>
-
-    <div class="wrap section" id="prints">
-      <div class="two">
-        <div>
-          <div class="section-head" style="margin-bottom:10px"><h2>Would you like a printed copy?</h2></div>
-          <p style="color:var(--muted);max-width:36rem">The books are free as PDFs. If enough people want printed copies, of the children’s books or the Atlas, we will arrange printing later. Mark the ones you would want in print; it only counts interest, and nothing is ordered.</p>
-          <p class="note" id="vote-state" style="margin-top:10px"></p>
-        </div>
-        <div class="panel"><div class="votes" id="votes"></div></div>
       </div>
     </div>
 
@@ -369,6 +365,7 @@ const BOOKS = [
   { k: 'cave', n: 8, f: 'book8-the-sleepers-in-the-cave', t: 'The Sleepers in the Cave', ar: 'أصحاب الكهف', b: 'Brave young friends, a faithful dog at the doorway, and three hundred and nine years of sleep.' },
 ];
 const PAGES = 24;
+const CONTACT_EMAIL = ''; // address that receives illustrator sign-ups
 const ttl = b => b.pb ? esc(b.t).replace(/^(\S+)/, `$1<span class="pbuh" lang="ar" title="${b.pb === 'عليها السلام' ? 'Peace be upon her' : 'Peace be upon him'}">${b.pb}</span>`) : esc(b.t);
 const ATLAS = { t: 'Quran Atlas, the book', img: 'atlas/cover.jpg' };
 const FILES = Object.assign(Object.fromEntries(BOOKS.map(b => [b.k, b.f])), { atlas: 'quran-atlas', 'atlas-print': 'quran-atlas-print-ready' });
@@ -398,7 +395,6 @@ function renderHome() {
   $('#brief-links').innerHTML = BOOKS.map(b => `<button type="button" data-brief="${b.k}">${b.n}. ${esc(b.t)}</button>`).join('');
   $('#v-books').innerHTML = BOOKS.map(b => `<label for="vb-${b.k}"><input type="checkbox" id="vb-${b.k}" name="books" value="${b.k}">${esc(b.t)}</label>`).join('');
   $('#atlas-inside').innerHTML = SAMPLES.map(([p, c], i) => `<button type="button" data-sample="${i}"><img src="${simg(p)}" alt="Page ${p}: ${esc(c)}" loading="lazy" width="1400" height="1082"><span>p. ${p} · ${esc(c)}</span></button>`).join('');
-  renderVotes({});
   drawEchoes();
 }
 let lbI = 0;
@@ -525,14 +521,11 @@ async function sendVolunteer(e) {
   msg.className = 'msg err';
   if (!v.name || !v.contact) { msg.textContent = 'Add your name and a way to reach you.'; $(v.name ? '#v-contact' : '#v-name').focus(); return; }
   if (v.link && !/^https?:\/\//.test(v.link)) { msg.textContent = 'The link to your work should start with https://'; $('#v-link').focus(); return; }
-  if (!cap.db || !cap.uid) { msg.textContent = 'Sending needs you to be signed in to Claude. Open this page in Claude and try again.'; return; }
-  if (cap.canWrite === false) { msg.textContent = 'This copy of the page is read-only for you, so it cannot send. Ask whoever shared it to give you access to take part.'; return; }
-  $('#v-send').disabled = true;
-  try {
-    await cap.db.doc('volunteers/' + cap.uid).set({ ...v, at: Date.now() });
-    msg.className = 'msg ok'; msg.textContent = 'Thank you. Your details were sent, and you will hear back about the books you chose.';
-  } catch (err) { msg.textContent = 'Your details could not be sent. Try again in a moment.'; }
-  finally { $('#v-send').disabled = false; }
+  if (!CONTACT_EMAIL) { msg.textContent = 'Volunteer sign-ups open soon. Please check back.'; return; }
+  const names = v.books.map(k => (byK[k] || {}).t || k).join(', ') || 'Any';
+  const body = `Name: ${v.name}\nContact: ${v.contact}\nWork: ${v.link || '-'}\nBooks: ${names}\n\n${v.note}`;
+  location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Quran Atlas Stories: illustrator volunteer')}&body=${encodeURIComponent(body)}`;
+  msg.className = 'msg ok'; msg.textContent = 'Your email app should open with your details. Send it from there.';
 }
 
 /* ---------- views on the hash ---------- */
@@ -563,16 +556,6 @@ window.addEventListener('resize', () => { clearTimeout(window.__rs); window.__rs
 matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', drawEchoes);
 
 renderHome(); syncDownloads(); route();
-(async () => {
-  if (!window.claude || !claude.use) return;
-  const [dl, db, user] = await Promise.all([claude.use('downloads'), claude.use('db'), claude.use('user')]);
-  cap.dl = dl; syncDownloads();
-  cap.db = db; cap.user = user;
-  if (user) { try { cap.uid = await user.id(); } catch (e) { cap.uid = null; } try { cap.canWrite = await user.can('data.write'); } catch (e) { cap.canWrite = null; } }
-  if (db && cap.uid) { watchVotes(); if (cap.canWrite === false) setTimeout(() => { $('#vote-state').textContent += ' This copy of the page is read-only for you, so you can see the count but not add to it.'; }, 1500); }
-  else $('#vote-state').textContent = 'Sign in to Claude to mark the books you would want in print.';
-  renderVotes(voteState.counts, voteState.mine);
-})();
 </script>
 
 <script>(function(){function t(){if(document.documentElement.lang!=='ar')return;document.querySelectorAll('.qa-links a[data-ar]').forEach(function(a){a.textContent=a.getAttribute('data-ar')});var b=document.querySelector('.qa-brand');if(b)b.lastChild.textContent='أطلس القرآن';}if(document.readyState!=='loading')t();else document.addEventListener('DOMContentLoaded',t);window.addEventListener('load',t);})();</script>
