@@ -114,3 +114,8 @@ html[lang="ar"] .qa-word-ar { display: none; }
 .qa-dial { transform-box: view-box; transform-origin: 50% 50%; animation: qa-turn 240s linear infinite; }
 @keyframes qa-turn { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .qa-pill, .qa-theme, .qa-brand .qa-mark { transition: none; } .qa-dial { animation: none; } }
+
+/* ---------- copyright line at the foot of every page ---------- */
+.qa-legal { max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center; padding: 22px max(20px, env(safe-area-inset-left, 0px)) 34px; border-top: 1px solid var(--qa-line); font-family: var(--qa-mono); font-size: .6875rem; letter-spacing: .06em; text-transform: uppercase; color: var(--qa-ink3); }
+.qa-legal a { color: var(--qa-ink2); text-decoration: none; }
+.qa-legal a:hover { color: var(--qa-accent); }

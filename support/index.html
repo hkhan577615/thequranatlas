@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>try{var t=localStorage.getItem('qa:theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+<meta name="theme-color" content="#f7f2e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+body{margin:0}img{max-width:100%}
+</style>
+<title>Support · Quran Atlas</title>
+<meta name="description" content="Support the Quran Atlas: give, sponsor a picture book or translation, or bring the Atlas to your school or mosque.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Xanh+Mono&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&family=Amiri+Quran&family=Markazi+Text:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap">
+<style>
+:root {
+  --paper: var(--qa-bg); --leaf: var(--qa-surface); --ink: var(--qa-ink); --ink-2: var(--qa-ink2); --ink-3: var(--qa-ink3); --rule: var(--qa-line);
+  --accent: var(--qa-accent); --chip: var(--qa-chip); --dark: var(--qa-plate); --dark-ink: var(--qa-plate-ink); --dark-ink-2: var(--qa-plate-ink-2); --mint: var(--qa-gilt);
+  --f-display: "Xanh Mono", "Markazi Text", ui-monospace, monospace;
+  --f-mono: "Space Mono", ui-monospace, Menlo, monospace;
+  --f-ui: "General Sans", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-ar: "Markazi Text", "Noto Naskh Arabic", "Geeza Pro", serif;
+  --f-quran: "Amiri Quran", "Amiri", "Noto Naskh Arabic", serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-ui); font-size: 1rem; line-height: 1.6; }
+a { color: var(--accent); text-underline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 max(16px, env(safe-area-inset-left, 0px)); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 650; line-height: 1.1; margin: 0; letter-spacing: -.02em; text-wrap: balance; }
+p { margin: 0; }
+.hero { padding-block: 52px 30px; display: grid; gap: 12px; }
+.hero h1 { font-size: clamp(2.4rem, 7vw, 3.5rem); letter-spacing: -.035em; font-weight: 700; }
+.hero .ar { font-family: var(--f-ar); font-weight: 600; color: var(--accent); font-size: 2rem; line-height: 1.3; }
+.lede { color: var(--ink-2); font-size: 1.15rem; max-width: 60ch; }
+section { padding-block: 32px; border-top: 1px solid var(--rule); display: grid; gap: 16px; }
+section > h2 { font-size: 1.85rem; }
+.sub { color: var(--ink-2); max-width: 64ch; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.card { background: var(--leaf); border: 1px solid var(--rule); border-radius: 16px; padding: 20px; display: grid; gap: 6px; align-content: start; }
+.card h3 { font-size: 1.25rem; }
+.card p { color: var(--ink-2); }
+.card.not { background: transparent; border-style: dashed; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: s; }
+.steps li { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr); gap: 14px; align-items: start; counter-increment: s; }
+.steps li::before { content: counter(s); width: 2.2rem; height: 2.2rem; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--paper); font-family: var(--f-display); font-weight: 600; font-size: 1rem; }
+.steps b { display: block; font-size: 1.05rem; }
+.steps span { color: var(--ink-2); }
+.views { display: grid; border-top: 1px solid var(--rule); }
+.view { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 4px 18px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.view .nm { display: grid; align-content: start; }
+.view .nm a { font-family: var(--f-display); font-weight: 650; font-size: 1.2rem; line-height: 1.2; text-decoration: none; color: var(--ink); letter-spacing: -.01em; }
+.view .nm a:hover { color: var(--accent); }
+.view .nm .ar { font-family: var(--f-ar); color: var(--accent); font-size: 1.1rem; }
+.view p { color: var(--ink-2); }
+.view .try { margin-top: 4px; font-size: .9rem; color: var(--ink-3); }
+.view .try b { color: var(--ink); font-weight: 600; }
+@media (max-width: 560px) { .view { grid-template-columns: minmax(0, 1fr); } }
+.plate { background: var(--dark); color: var(--dark-ink); border-radius: 20px; padding: 24px; display: grid; gap: 10px; align-content: start; }
+.plate h3 { font-size: 1.4rem; }
+.plate p { color: var(--dark-ink-2); }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.btn { display: inline-block; text-decoration: none; padding: 9px 16px; border-radius: 999px; font-weight: 600; font-size: .95rem; background: var(--mint); color: #0c0d0f; }
+.btn.ghost { background: transparent; color: var(--dark-ink); border: 1px solid rgba(255, 255, 255, .22); }
+.verse { background: var(--leaf); border: 1px solid var(--rule); border-radius: 16px; padding: 16px 18px; display: grid; gap: 6px; }
+.verse .a { font-family: var(--f-quran); font-size: 1.5rem; line-height: 2; direction: rtl; text-align: right; }
+.verse .e { color: var(--ink-2); }
+.verse .r { font-size: .85rem; color: var(--ink-3); }
+ul.plain { margin: 0; padding-inline-start: 1.2em; display: grid; gap: 8px; color: var(--ink-2); }
+ul.plain b { color: var(--ink); }
+footer { border-top: 1px solid var(--rule); padding-block: 22px 44px; color: var(--ink-3); font-size: .875rem; display: grid; gap: 6px; }
+
+/* ---- byotone-inspired layer ---- */
+body { background: transparent; }
+h1, h2, h3, .view .nm a { font-family: var(--f-display); font-weight: 400; text-transform: uppercase; letter-spacing: .03em; }
+.hero { text-align: center; justify-items: center; padding-block: 64px 36px; }
+.hero h1 { color: var(--accent); font-weight: 400; letter-spacing: .04em; font-size: clamp(2.4rem, 7vw, 4.4rem); }
+.hero .ar { color: var(--ink); opacity: .85; }
+section > h2 { color: var(--accent); font-size: 2rem; }
+section > h2::before { content: "● "; font-size: .5em; vertical-align: .35em; }
+.card, .verse { background: var(--qa-card); border-radius: 18px; }
+.card.not { background: transparent; border-style: dashed; }
+.steps li::before { background: transparent; border: 1px solid var(--accent); color: var(--accent); font-family: var(--f-display); }
+.plate { border: 1px solid var(--rule); }
+.btn { font-family: var(--f-mono); font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: var(--mint); color: var(--qa-plate); }
+.btn.ghost { background: rgba(236, 231, 220, .05); color: var(--mint); border: 1px dashed rgba(233, 196, 127, .4); }
+.view .try b { font-family: var(--f-mono); text-transform: uppercase; font-size: .75rem; letter-spacing: .06em; color: var(--accent); }
+footer { font-size: .8rem; }
+
+:is(h1, h2, h3, .ct, .vtitle, .sub, .mast-title)[lang="ar"], :is(h1, h2, h3) [lang="ar"] { font-family: var(--f-ar); text-transform: none; letter-spacing: 0; }
+.form { display: grid; gap: 12px; }
+.form label { display: grid; gap: 5px; font-size: .9rem; color: var(--ink-2); }
+.form input, .form select, .form textarea { font: inherit; color: var(--ink); background: var(--qa-field); border: 1px solid var(--rule); border-radius: 10px; padding: 10px 12px; width: 100%; min-width: 0; }
+.form textarea { min-height: 120px; resize: vertical; }
+.form :focus { outline: 2px solid var(--accent); outline-offset: 0; }
+.form .send { justify-self: start; font-family: var(--f-mono); font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: var(--accent); color: var(--qa-on-accent); border: 0; border-radius: 999px; padding: 11px 20px; cursor: pointer; }
+.hp { position: absolute !important; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.sent { border: 1px dashed var(--qa-accent-line); background: var(--qa-accent-tint); border-radius: 12px; padding: 12px 14px; }
+.sent b { color: var(--accent); }
+.card .tag { font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+#contact { scroll-margin-top: 20px; }
+</style>
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<nav class="qa-nav" aria-label="Site"><div class="qa-nav-in"><a class="qa-brand" href="../" aria-label="Quran Atlas, home"><svg class="qa-mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true"><path d="M32.00 4.00L60.00 32.00L32.00 60.00L4.00 32.00Z" stroke-width="3.0"/><path d="M51.80 12.20L51.80 51.80L12.20 51.80L12.20 12.20Z" stroke-width="3.0"/><circle cx="32" cy="32" r="12.5" stroke-width="2.4"/><path d="M32.00 21.50L33.84 30.16L42.50 32.00L33.84 33.84L32.00 42.50L30.16 33.84L21.50 32.00L30.16 30.16Z" fill="currentColor" stroke="none"/></svg><span class="qa-word" data-ar="أطلس القرآن">Quran Atlas</span><span class="qa-word-ar" lang="ar">أطلس القرآن</span></a><ul class="qa-links"><li><a href="../" data-ar="الأطلس">Atlas</a></li><li><a href="../guide/" data-ar="كيف تستخدمه">How to use</a></li><li><a href="../library/" data-ar="المكتبة">Library</a></li><li><a href="../studies/" data-ar="الدراسات">Studies</a></li><li><a href="../support/" data-ar="ادعمنا" aria-current="page">Support</a></li></ul><button class="qa-theme" type="button" aria-label="Switch to night mode"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button></div></nav>
+
+<div class="wrap">
+  <header class="hero">
+    <h1>Support the Atlas</h1>
+    <div class="ar" lang="ar" dir="rtl">ادعم الأطلس</div>
+    <p class="lede">The Atlas, the Studies and the picture books are free for everyone. Your support keeps them free, and pays for new books, new languages and a scholar’s review of everything we publish.</p>
+  </header>
+
+  <section aria-labelledby="give">
+    <h2 id="give">Ways to help</h2>
+    <div class="cols">
+      <div class="card"><span class="tag">Sadaqah jariyah</span><h3>Give</h3><p>A gift of any size helps keep the site running and the books free. Online giving opens soon. Until then, send a note below and we will reply with the details.</p></div>
+      <div class="card"><span class="tag">From one book</span><h3>Sponsor a book</h3><p>Fund a new illustrated story from the Quran for children. Sponsors can be thanked by name, or in memory of someone they love, inside every copy.</p></div>
+      <div class="card"><span class="tag">From one language</span><h3>Sponsor a translation</h3><p>Bring the picture books, or the whole Atlas, to Urdu, Malay, Turkish, French, Bahasa Indonesia or another language your community reads.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="schools">
+    <h2 id="schools">For schools and mosques</h2>
+    <div class="cols">
+      <div class="card"><h3>Classroom packs</h3><p>Lesson plans for each of the nine views, worksheets and posters, with a unit on the stories of the prophets, peace be upon them.</p></div>
+      <div class="card"><h3>Printed sets</h3><p>Boxed sets of the eight picture books for your library, classroom or weekend school.</p></div>
+      <div class="card"><h3>Talks and workshops</h3><p>“Seeing the Quran’s structure”: a session for students, teachers or your community, in person or online.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="contact">
+    <h2 id="contact">Get in touch</h2>
+    <p class="sub">Tell us how you would like to help, or ask for permission to use the Atlas or the books. We read every message and reply by email.</p>
+    <div class="card">
+      <div class="sent" id="c-sent" role="status" hidden><b>Thank you.</b> Your message has been sent. We will reply soon.</div>
+      <form class="form" id="c-form" action="https://formsubmit.co/haseem.n.9@gmail.com" method="POST">
+        <label for="c-name">Your name<input id="c-name" name="name" autocomplete="name" required></label>
+        <label for="c-email">Email<input id="c-email" name="email" type="email" autocomplete="email" required></label>
+        <label for="c-topic">I am interested in<select id="c-topic" name="topic" required>
+          <option value="">Choose one</option>
+          <option>Giving</option><option>Sponsoring a book</option><option>Sponsoring a translation</option>
+          <option>Classroom packs</option><option>Printed sets</option><option>A talk or workshop</option>
+          <option>Permission to use the Atlas or the books</option><option>Something else</option>
+        </select></label>
+        <label for="c-msg">Message<textarea id="c-msg" name="message" required></textarea></label>
+        <input type="hidden" name="_subject" value="Quran Atlas: support enquiry">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" id="c-next" value="https://thequranatlas.com/support/?sent=1#contact">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="send" type="submit">Send message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>Quran Atlas is an independent project. Gifts support the website and the books; they are not zakat collection.</p>
+    <p><a href="../">Back to the Atlas</a></p>
+  </footer>
+</div>
+<script>
+(function () {
+  var f = document.getElementById('c-form');
+  f.addEventListener('submit', function () { document.getElementById('c-next').value = location.origin + location.pathname + '?sent=1#contact'; });
+  if (new URLSearchParams(location.search).has('sent')) { document.getElementById('c-sent').hidden = false; history.replaceState(null, '', location.pathname + location.hash); }
+  var t = new URLSearchParams(location.search).get('topic'); if (t) { var s = document.getElementById('c-topic'); for (var o of s.options) if (o.text === t) s.value = t; }
+})();
+</script>
+<footer class="qa-legal"><span>© 2026 Quran Atlas. All rights reserved.</span><span>Picture books: CC BY-NC-SA 4.0.</span><a href="../licence/">Licence</a><a href="../support/">Support the Atlas</a></footer>
+</body>
+</html>
