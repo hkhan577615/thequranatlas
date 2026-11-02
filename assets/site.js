@@ -28,7 +28,7 @@
   /* ---------- nav ---------- */
   function navLang() {
     const A = ar();
-    document.querySelectorAll('.qa-links a[data-ar], .qa-word[data-ar]').forEach(a => {
+    document.querySelectorAll('.qa-links a[data-ar]').forEach(a => {
       if (!a.dataset.en) a.dataset.en = a.textContent;
       a.textContent = A ? a.dataset.ar : a.dataset.en;
     });

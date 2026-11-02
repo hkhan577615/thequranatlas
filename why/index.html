@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>try{var t=localStorage.getItem('qa:theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+<meta name="theme-color" content="#f7f2e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+body{margin:0}img{max-width:100%}
+</style>
+<title>Why? · Quran Atlas</title>
+<meta name="description" content="The Holy Qur’an as the ultimate Atlas: a divine cartography designed not to navigate the outer world, but to map, guide, and rescue the human soul.">
+<link rel="canonical" href="https://thequranatlas.com/why/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@0;1&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&family=Markazi+Text:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap">
+<style>
+:root {
+  --paper: var(--qa-bg); --ink: var(--qa-ink); --ink-2: var(--qa-ink2); --ink-3: var(--qa-ink3); --rule: var(--qa-line); --accent: var(--qa-accent);
+  --f-display: "Xanh Mono", "Markazi Text", ui-monospace, monospace;
+  --f-mono: "Space Mono", ui-monospace, Menlo, monospace;
+  --f-ui: "General Sans", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { background: transparent; color: var(--ink); font-family: var(--f-ui); font-size: 1rem; line-height: 1.6; }
+a { color: var(--accent); text-underline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+p { margin: 0; }
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 max(16px, env(safe-area-inset-left, 0px)); }
+
+/* the opening: the title and the essay's first sentence, set like a frontispiece */
+.hero { display: grid; justify-items: center; gap: 26px; text-align: center; padding-block: 64px 48px; }
+.hero h1 { margin: 0; font-family: var(--f-display); font-weight: 400; text-transform: uppercase; letter-spacing: .04em; line-height: 1; color: var(--accent); font-size: clamp(2.6rem, 8vw, 4.6rem); }
+.thesis { font-family: var(--f-display); font-size: clamp(1.3rem, 3.4vw, 1.85rem); line-height: 1.38; color: var(--ink); max-width: 32ch; text-wrap: balance; }
+.thesis em { font-style: italic; color: var(--accent); }
+.rule { display: flex; align-items: center; gap: 14px; width: min(260px, 70%); color: var(--accent); }
+.rule::before, .rule::after { content: ""; flex: 1; height: 1px; background: currentColor; opacity: .45; }
+.rule svg { width: 18px; height: 18px; flex: none; }
+
+/* the essay column */
+.essay { max-width: 66ch; margin: 0 auto; display: grid; padding-bottom: 24px; }
+.essay p { font-size: 1.0625rem; line-height: 1.78; }
+.essay .intro { font-size: 1.2rem; line-height: 1.7; color: var(--ink); padding-bottom: 40px; }
+.t { font-family: var(--f-display); font-style: italic; color: var(--accent); font-size: 1.04em; letter-spacing: .01em; white-space: nowrap; }
+
+.part { border-top: 1px solid var(--rule); padding-block: 40px; display: grid; gap: 18px; }
+.part h2 { margin: 0; display: flex; align-items: center; gap: 16px; font-family: var(--f-display); font-weight: 400; text-transform: uppercase; letter-spacing: .03em; line-height: 1.15; color: var(--accent); font-size: clamp(1.45rem, 3.6vw, 1.9rem); text-wrap: balance; }
+.part h2 .n { flex: none; width: 2.6rem; height: 2.6rem; border-radius: 50%; border: 1px solid var(--qa-accent-line); display: grid; place-items: center; font-size: 1.05rem; letter-spacing: 0; }
+.part h2 .t { text-transform: none; font-size: .9em; }
+.part > p { color: var(--ink); }
+
+.points { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 22px; }
+.points li { position: relative; padding-inline-start: 30px; display: grid; gap: 4px; }
+.points li::before { content: ""; position: absolute; inset-inline-start: 5px; top: .42em; width: 8px; height: 8px; border: 1.5px solid var(--accent); transform: rotate(45deg); }
+.points b { font-family: var(--f-mono); font-weight: 700; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); line-height: 1.5; }
+.points p { color: var(--ink-2); }
+.points b .t { font-weight: 400; text-transform: none; letter-spacing: .01em; font-size: 1.3em; line-height: 1; margin-inline-start: 4px; }
+
+/* the close: the essay's last word, answering the opening */
+.coda { border-top: 1px solid var(--rule); padding-block: 48px 28px; display: grid; justify-items: center; gap: 26px; text-align: center; }
+.essay .coda p { font-family: var(--f-display); font-size: clamp(1.15rem, 2.8vw, 1.4rem); line-height: 1.5; color: var(--ink); max-width: 44ch; text-wrap: pretty; }
+
+@media (max-width: 560px) {
+  .hero { padding-block: 44px 36px; }
+  .part { padding-block: 32px; }
+  .part h2 { gap: 12px; }
+  .part h2 .n { width: 2.2rem; height: 2.2rem; font-size: .95rem; }
+  .points li { padding-inline-start: 24px; }
+  .points li::before { inset-inline-start: 2px; }
+}
+</style>
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<nav class="qa-nav" aria-label="Site"><div class="qa-nav-in"><a class="qa-brand" href="../" aria-label="Quran Atlas, home"><svg class="qa-mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true"><path d="M32.00 4.00L60.00 32.00L32.00 60.00L4.00 32.00Z" stroke-width="3.0"/><path d="M51.80 12.20L51.80 51.80L12.20 51.80L12.20 12.20Z" stroke-width="3.0"/><circle cx="32" cy="32" r="12.5" stroke-width="2.4"/><path d="M32.00 21.50L33.84 30.16L42.50 32.00L33.84 33.84L32.00 42.50L30.16 33.84L21.50 32.00L30.16 30.16Z" fill="currentColor" stroke="none"/></svg></a><ul class="qa-links"><li><a href="../" data-ar="الأطلس">Atlas</a></li><li><a href="../why/" data-ar="لماذا؟" aria-current="page">Why?</a></li><li><a href="../library/" data-ar="المكتبة">Library</a></li><li><a href="../studies/" data-ar="الدراسات">Studies</a></li></ul><button class="qa-theme" type="button" aria-label="Switch to night mode"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button></div></nav>
+
+<div class="wrap">
+  <header class="hero">
+    <h1>Why?</h1>
+    <div class="rule" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32.00 10.00L35.85 28.15L54.00 32.00L35.85 35.85L32.00 54.00L28.15 35.85L10.00 32.00L28.15 28.15Z" fill="currentColor"/></svg></div>
+    <p class="thesis">The Holy Qur’an itself becomes the ultimate <em>Atlas</em>—a divine cartography designed not to navigate the outer world, but to map, guide, and rescue the human soul.</p>
+  </header>
+
+  <article class="essay">
+    <p class="intro">In this spiritual philosophy, the cosmos is a vast, perilous wilderness, and the human soul (<i class="t">An-Nafs</i>) is a traveler seeking its primordial home. The Qur’an is the multi-dimensional map gifted by the Creator to navigate this interior landscape.</p>
+
+    <section class="part" aria-labelledby="p1">
+      <h2 id="p1"><span class="n">1</span><span>The Map of Spiritual Topography</span></h2>
+      <p>The Qur’an charts the hidden landscapes of human existence, defining coordinates that cannot be seen with physical eyes:</p>
+      <ul class="points">
+        <li><b>The Realms of Being</b><p>It maps the boundaries between the fleeting lower world (<i class="t">Al-Dunya</i>) and the enduring, ultimate reality (<i class="t">Al-Akhirah</i>).</p></li>
+        <li><b>The Internal Terrain</b><p>It delineates the sharp peaks of spiritual excellence (<i class="t">Ihsan</i>), the stable valleys of faith (<i class="t">Iman</i>), and the treacherous, sinking quicksands of hypocrisy (<i class="t">Nifaq</i>) and arrogance (<i class="t">Kibr</i>).</p></li>
+        <li><b>The Ultimate Destinations</b><p>It provides the spiritual coordinates for the expansive, peaceful terrain of Paradise (<i class="t">Al-Jannah</i>) and the constricted, chaotic abyss of Distance (<i class="t">An-Nar</i>).</p></li>
+      </ul>
+    </section>
+
+    <section class="part" aria-labelledby="p2">
+      <h2 id="p2"><span class="n">2</span><span>The GPS of the Soul <i class="t">(Al-Huda)</i></span></h2>
+      <p>Just as a traveler relies on an atlas to avoid getting lost in the desert, the soul utilizes the Qur’an as <i class="t">Al-Huda</i> (The Guidance).</p>
+      <ul class="points">
+        <li><b>Real-Time Calibration</b><p>It acts as a living compass. When the soul wanders into the foggy thickets of doubt (<i class="t">Shubahat</i>) or the dark valleys of desire (<i class="t">Shahawat</i>), reciting the Qur’an recalibrates the inner spiritual compass (<i class="t">Fitrah</i>), pointing it back toward the Divine Center.</p></li>
+        <li><b>The Straight Path <i class="t">(Al-Sirat al-Mustaqim)</i></b><p>The map does not just show landmarks; it carves out a singular, optimal route. It is a straight highway cutting through the chaotic, intersecting paths of human philosophy and ego.</p></li>
+      </ul>
+    </section>
+
+    <section class="part" aria-labelledby="p3">
+      <h2 id="p3"><span class="n">3</span><span>A Multi-Layered Relief Map of Consciousness</span></h2>
+      <p>The Qur’an is not a flat, static document; it is a multi-dimensional atlas that adapts to the elevation of the traveler:</p>
+      <ul class="points">
+        <li><b>The Surface Layer</b><p>It provides clear boundaries, laws, and ethical signposts (<i class="t">Shari’ah</i>) to keep the traveler safe from immediate harm.</p></li>
+        <li><b>The Deeper Strata</b><p>For the mystic and the philosopher, it reveals deep spiritual truths (<i class="t">Haqiqah</i>), mapping the subtle diseases of the heart—like spiritual blindness, rust, and hardness—and providing the precise, divine remedies to heal them.</p></li>
+      </ul>
+    </section>
+
+    <section class="part" aria-labelledby="p4">
+      <h2 id="p4"><span class="n">4</span><span>The Cartographer and the Traveler</span></h2>
+      <p>In worldly geography, a mapmaker stands outside of their creation. But the Author of this Spiritual Atlas is the Creator of the soul itself. The Qur’an is an atlas designed by the One who knows every hidden crevice, vulnerability, and capacity of the human spirit. To read this map is to allow the Divine Light (<i class="t">An-Nur</i>) to illuminate the dark, unmapped corners of one’s own being.</p>
+    </section>
+
+    <div class="coda">
+      <div class="rule" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32.00 10.00L35.85 28.15L54.00 32.00L35.85 35.85L32.00 54.00L28.15 35.85L10.00 32.00L28.15 28.15Z" fill="currentColor"/></svg></div>
+      <p>Ultimately, treating the Qur’an as an atlas means recognizing that revelation is the only reliable guide for an immortal soul. It transforms the reader from a lost wanderer into a purposeful pilgrim, ensuring that every internal step taken aligns with eternal peace.</p>
+    </div>
+  </article>
+</div>
+<footer class="qa-legal"><span>© 2026 Quran Atlas. All rights reserved.</span><span>Picture books: CC BY-NC-SA 4.0.</span><a href="../licence/">Licence</a><a href="../contact/">Contact</a></footer>
+</body>
+</html>

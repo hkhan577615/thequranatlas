@@ -76,9 +76,6 @@ html body { background: transparent; }
 .qa-brand { display: flex; align-items: center; gap: 11px; color: var(--qa-ink); text-decoration: none; margin-inline-end: auto; line-height: 1; }
 .qa-brand .qa-mark { width: 30px; height: 30px; color: var(--qa-accent); flex: none; transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
 .qa-brand:hover .qa-mark { transform: rotate(45deg); }
-.qa-word { font-family: var(--qa-sans); font-weight: 600; font-size: .875rem; letter-spacing: .18em; text-transform: uppercase; }
-.qa-word-ar { display: flex; align-items: center; gap: 11px; font-family: "Markazi Text", serif; font-weight: 600; font-size: 1.25rem; letter-spacing: 0; color: var(--qa-ink2); }
-.qa-word-ar::before { content: ""; width: 1px; height: 20px; background: currentColor; opacity: .4; }
 .qa-links { display: flex; gap: 0; flex-wrap: wrap; margin: 0; padding: 0; list-style: none; align-items: center; }
 .qa-links li + li::before { content: "·"; color: var(--qa-ink3); padding-inline: 9px; }
 .qa-links a { color: var(--qa-ink); text-decoration: none; font-size: .75rem; letter-spacing: .07em; text-transform: uppercase; padding: 6px 2px; white-space: nowrap; transition: color .15s; }
@@ -94,9 +91,6 @@ html body { background: transparent; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .qa-theme .i-sun { display: block; } :root:not([data-theme="light"]) .qa-theme .i-moon { display: none; } }
 .qa-links a:focus-visible, .qa-brand:focus-visible, .qa-theme:focus-visible { outline: 1px dashed var(--qa-accent); outline-offset: 4px; }
 html[lang="ar"] :is(.qa-links a, .qa-pill, .qa-label) { font-family: var(--qa-sans), "Markazi Text", sans-serif; letter-spacing: 0; text-transform: none; font-size: .9rem; }
-html[lang="ar"] .qa-word { font-family: "Markazi Text", serif; letter-spacing: 0; font-size: 1.3rem; }
-html[lang="ar"] .qa-word-ar { display: none; }
-@media (max-width: 900px) { .qa-word-ar { display: none; } }
 @media (max-width: 600px) {
   .qa-nav-in { padding-block: 14px 10px; }
   .qa-brand { order: 0; }
