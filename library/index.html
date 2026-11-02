@@ -15,7 +15,7 @@
 body{margin:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
 </style>
 <title>Library · Quran Atlas</title>
-<meta name="description" content="The Quran Atlas Library: eight free illustrated picture books of stories from the Quran for children around seven. Read online, download the PDFs, or send us your own illustrations.">
+<meta name="description" content="The Quran Atlas Library: eight illustrated picture books of stories from the Quran for children, free to read, and teaching packs for each of the Atlas’s nine perspectives.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Xanh+Mono&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&family=Amiri+Quran&family=Markazi+Text:wght@400;500;600;700&family=Reem+Kufi:wght@500&display=swap">
@@ -212,12 +212,29 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
 .sent { border: 1px dashed var(--qa-accent-line); background: var(--qa-accent-tint); border-radius: 12px; padding: 12px 14px; color: var(--ink); margin-top: 10px; }
 .sent b { color: var(--gold); }
 .section, #volunteer { scroll-margin-top: 72px; }
+.packs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.pack { background: var(--qa-card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; display: grid; gap: 8px; align-content: start; transition: border-color .15s; }
+.pack:hover { border-color: var(--qa-accent-line-hi); }
+.pack-top { display: flex; align-items: center; gap: 10px; }
+.pack-i { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); font-family: var(--f-display); flex: none; }
+.pack-v { font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.pack-v [lang="ar"] { font-family: "Markazi Text", serif; font-size: .95rem; letter-spacing: 0; text-transform: none; margin-inline-start: 6px; }
+.pack h3 { font-size: 1.2rem; }
+.pack p { color: var(--muted); font-size: .92rem; }
+.pack-age { font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); }
+#teach .checks { grid-template-columns: 1fr; }
+#teach .checks label { font-size: .88rem; }
+#teach .checks input { width: auto; padding: 0; }
+#teach fieldset { border: 1px solid var(--line); border-radius: 10px; }
+#packs-notify { scroll-margin-top: 72px; }
+@media (max-width: 860px) { .packs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .packs { grid-template-columns: minmax(0, 1fr); } }
 </style>
 <link rel="stylesheet" href="../assets/site.css">
 <script src="../assets/site.js" defer></script>
 </head>
 <body>
-<nav class="qa-nav" aria-label="Site"><div class="qa-nav-in"><a class="qa-brand" href="../" aria-label="Quran Atlas, home"><svg class="qa-mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true"><path d="M32.00 4.00L60.00 32.00L32.00 60.00L4.00 32.00Z" stroke-width="3.0"/><path d="M51.80 12.20L51.80 51.80L12.20 51.80L12.20 12.20Z" stroke-width="3.0"/><circle cx="32" cy="32" r="12.5" stroke-width="2.4"/><path d="M32.00 21.50L33.84 30.16L42.50 32.00L33.84 33.84L32.00 42.50L30.16 33.84L21.50 32.00L30.16 30.16Z" fill="currentColor" stroke="none"/></svg><span class="qa-word" data-ar="أطلس القرآن">Quran Atlas</span><span class="qa-word-ar" lang="ar">أطلس القرآن</span></a><ul class="qa-links"><li><a href="../" data-ar="الأطلس">Atlas</a></li><li><a href="../guide/" data-ar="كيف تستخدمه">How to use</a></li><li><a href="../library/" data-ar="المكتبة" aria-current="page">Library</a></li><li><a href="../studies/" data-ar="الدراسات">Studies</a></li><li><a href="../support/" data-ar="ادعمنا">Support</a></li></ul><button class="qa-theme" type="button" aria-label="Switch to night mode"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button></div></nav>
+<nav class="qa-nav" aria-label="Site"><div class="qa-nav-in"><a class="qa-brand" href="../" aria-label="Quran Atlas, home"><svg class="qa-mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true"><path d="M32.00 4.00L60.00 32.00L32.00 60.00L4.00 32.00Z" stroke-width="3.0"/><path d="M51.80 12.20L51.80 51.80L12.20 51.80L12.20 12.20Z" stroke-width="3.0"/><circle cx="32" cy="32" r="12.5" stroke-width="2.4"/><path d="M32.00 21.50L33.84 30.16L42.50 32.00L33.84 33.84L32.00 42.50L30.16 33.84L21.50 32.00L30.16 30.16Z" fill="currentColor" stroke="none"/></svg><span class="qa-word" data-ar="أطلس القرآن">Quran Atlas</span><span class="qa-word-ar" lang="ar">أطلس القرآن</span></a><ul class="qa-links"><li><a href="../" data-ar="الأطلس">Atlas</a></li><li><a href="../guide/" data-ar="كيف تستخدمه">How to use</a></li><li><a href="../library/" data-ar="المكتبة" aria-current="page">Library</a></li><li><a href="../studies/" data-ar="الدراسات">Studies</a></li></ul><button class="qa-theme" type="button" aria-label="Switch to night mode"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button></div></nav>
 
 <div class="bar">
   <div class="wrap">
@@ -262,7 +279,62 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
         <p>In the order the prophets lived, from Nuh to the sleepers in the cave. Read any book on this page, or save its PDF to read offline and print.</p>
       </div>
       <div class="shelf" id="shelf-grid"></div>
-      <p class="dl-note" id="dl-note">Each PDF is about 2 MB: 24 square pages, sized to print well on A4 or US Letter paper.</p>
+      <p class="dl-note" id="dl-note">Each PDF is about 2 MB: 24 square pages, sized to print well on A4 or US Letter paper. Printed editions will be for sale once the new illustrations are finished; <a href="#packs-notify">ask to be told</a>.</p>
+    </div>
+
+    <div class="wrap section" id="teach">
+      <div class="section-head">
+        <h2>Teaching packs</h2>
+        <p>One pack for each of the Atlas’s nine perspectives, ready for the classroom, the madrasa or the weekend school. Each has a teacher’s guide, slides, printable worksheets with answers, and a poster.</p>
+      </div>
+      <div class="packs">
+        <article class="pack"><div class="pack-top"><span class="pack-i">A</span><span class="pack-v">Barcode <span lang="ar">بصمة المصحف</span></span></div>
+          <h3>Mapping the mushaf</h3><p>Every verse as a tile: Meccan and Medinan surahs, verse length, and the order of revelation.</p><span class="pack-age">Ages 11+</span></article>
+        <article class="pack"><div class="pack-top"><span class="pack-i">B</span><span class="pack-v">Stories <span lang="ar">القصص</span></span></div>
+          <h3>The prophets, scene by scene</h3><p>Follow one prophet’s story across the surahs that tell it, and ask why each telling chooses its scenes.</p><span class="pack-age">Ages 8+</span></article>
+        <article class="pack"><div class="pack-top"><span class="pack-i">C</span><span class="pack-v">Names <span lang="ar">خواتيم الآيات</span></span></div>
+          <h3>The names that close verses</h3><p>Forgiving and Merciful, Mighty and Wise: how the closing names answer what each verse has said.</p><span class="pack-age">Ages 10+</span></article>
+        <article class="pack"><div class="pack-top"><span class="pack-i">D</span><span class="pack-v">Rings <span lang="ar">النظم الحلقي</span></span></div>
+          <h3>Ring composition</h3><p>Al-Baqarah as mirrored sections around a centre, and how to test a structure against the text.</p><span class="pack-age">Ages 14+</span></article>
+        <article class="pack"><div class="pack-top"><span class="pack-i">E</span><span class="pack-v">Letters <span lang="ar">الحروف المقطعة</span></span></div>
+          <h3>The opening letters</h3><p>The 29 surahs that open with letters: their families, and the word that so often follows them.</p><span class="pack-age">Ages 11+</span></article>
+        <article class="pack"><div class="pack-top"><span class="pack-i">F</span><span class="pack-v">Roots <span lang="ar">الجذور</span></span></div>
+          <h3>Three-letter roots</h3><p>How Arabic builds families of words from three letters, using roots such as r-ḥ-m and ʿ-l-m.</p><span class="pack-age">Ages 10+</span></article>
+        <article class="pack"><div class="pack-top"><span class="pack-i">G</span><span class="pack-v">Echoes <span lang="ar">المتشابهات</span></span></div>
+          <h3>Repeated phrases</h3><p>Refrains, formulas and the near-identical verses that people memorising the Quran learn to tell apart.</p><span class="pack-age">Hifz classes</span></article>
+        <article class="pack"><div class="pack-top"><span class="pack-i">H</span><span class="pack-v">Rhyme <span lang="ar">الفواصل</span></span></div>
+          <h3>Verse endings</h3><p>Hear and see the rhyme of each surah, and where it shifts as the subject turns.</p><span class="pack-age">Ages 9+</span></article>
+        <article class="pack"><div class="pack-top"><span class="pack-i">I</span><span class="pack-v">Voice <span lang="ar">الالتفات</span></span></div>
+          <h3>Who is speaking?</h3><p>I and We, You, He and They: the turns of voice the scholars called iltifāt, starting with Al-Fatihah.</p><span class="pack-age">Ages 13+</span></article>
+      </div>
+      <div class="two" style="margin-top:28px">
+        <div class="panel">
+          <h3>In each pack</h3>
+          <ul class="rules">
+            <li>A teacher’s guide: the idea in plain words, with the verses quoted in Arabic and English.</li>
+            <li>A lesson of 45 to 60 minutes, with slides that open straight into the Atlas.</li>
+            <li>Printable worksheets in two levels, with an answer key.</li>
+            <li>A classroom poster, A3 and A2.</li>
+            <li>One licence covers a teacher and their classes.</li>
+          </ul>
+        </div>
+        <div class="panel" id="packs-notify">
+          <h3>Be the first to know</h3>
+          <p class="note">The packs are being prepared. Leave your email and we will write once, when they are ready to buy.</p>
+          <div class="sent" id="p-sent" role="status" hidden><b>Thank you.</b> We will let you know when the packs are ready.</div>
+          <form id="pack-form" action="https://formsubmit.co/haseem.n.9@gmail.com" method="POST">
+            <label for="p-email">Email<input id="p-email" name="email" type="email" autocomplete="email" required></label>
+            <label for="p-school">School or organisation <span class="hint">optional</span><input id="p-school" name="school" autocomplete="organization"></label>
+            <fieldset><legend>Packs you would use</legend><div class="checks"><label><input type="checkbox" name="packs" value="A. Mapping the mushaf"> A. Mapping the mushaf</label><label><input type="checkbox" name="packs" value="B. The prophets, scene by scene"> B. The prophets, scene by scene</label><label><input type="checkbox" name="packs" value="C. The names that close verses"> C. The names that close verses</label><label><input type="checkbox" name="packs" value="D. Ring composition"> D. Ring composition</label><label><input type="checkbox" name="packs" value="E. The opening letters"> E. The opening letters</label><label><input type="checkbox" name="packs" value="F. Three-letter roots"> F. Three-letter roots</label><label><input type="checkbox" name="packs" value="G. Repeated phrases"> G. Repeated phrases</label><label><input type="checkbox" name="packs" value="H. Verse endings"> H. Verse endings</label><label><input type="checkbox" name="packs" value="I. Who is speaking?"> I. Who is speaking?</label><label><input type="checkbox" name="packs" value="Printed picture books"> Printed picture books</label></div></fieldset>
+            <input type="hidden" name="_subject" value="Quran Atlas: teaching packs interest">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" id="p-next" value="https://thequranatlas.com/library/?packs=1#packs-notify">
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn btn-ink" type="submit">Notify me</button>
+          </form>
+        </div>
+      </div>
     </div>
 
     <div class="wrap section" id="illustrators">
@@ -308,7 +380,7 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
       <ul class="open">
         <li><h3>The books</h3><p>Words and pictures under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. Print them, share them and translate them for free, with credit to Quran Atlas. Selling them, or anything made from them, needs our permission.</p></li>
         <li><h3>The verses</h3><p>Arabic text from the Tanzil Project, quoted exactly. Counts and hidden details are computed with the same open data as the Quran Atlas.</p></li>
-        <li><h3>Printed copies</h3><p>Schools, mosques and publishers who would like printed sets or a new language edition can <a href="../support/#contact">get in touch</a>.</p></li>
+        <li><h3>Printed editions</h3><p>Printed books will be for sale once the new illustrations are finished. Schools, bookshops and publishers can <a href="../contact/">get in touch</a>.</p></li>
       </ul>
     </div>
 
@@ -456,6 +528,11 @@ function checkVolunteer(e) {
   msg.className = 'msg ok'; msg.textContent = 'Sending… larger files can take a moment.';
   setTimeout(() => { $('#v-send').disabled = true; }, 0);
 }
+function packsBack() {
+  const f = $('#pack-form'); f.addEventListener('submit', () => { $('#p-next').value = location.origin + location.pathname + '?packs=1#packs-notify'; });
+  const q = new URLSearchParams(location.search); if (!q.has('packs')) return;
+  $('#p-sent').hidden = false; history.replaceState(null, '', location.pathname + location.hash);
+}
 function sentBack() {
   const q = new URLSearchParams(location.search); if (!q.has('sent')) return;
   $('#v-sent').hidden = false;
@@ -483,8 +560,8 @@ window.addEventListener('hashchange', route);
 window.addEventListener('resize', () => { clearTimeout(window.__rs); window.__rs = setTimeout(drawSky, 150); });
 matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', drawEchoes);
 
-renderHome(); syncDownloads(); sentBack(); route();
+renderHome(); syncDownloads(); sentBack(); packsBack(); route();
 </script>
 
-<footer class="qa-legal"><span>© 2026 Quran Atlas. All rights reserved.</span><span>Picture books: CC BY-NC-SA 4.0.</span><a href="../licence/">Licence</a><a href="../support/">Support the Atlas</a></footer>
+<footer class="qa-legal"><span>© 2026 Quran Atlas. All rights reserved.</span><span>Picture books: CC BY-NC-SA 4.0.</span><a href="../licence/">Licence</a><a href="../contact/">Contact</a></footer>
 </body></html>

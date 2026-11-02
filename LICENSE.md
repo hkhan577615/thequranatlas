@@ -41,4 +41,4 @@ them in the books, online and in print, and to share them under CC BY-NC-SA 4.0.
 - **Fonts:** loaded from Google Fonts and Fontshare under their own licences.
 
 For permissions, printed editions or partnerships, use the form at
-https://thequranatlas.com/support/.
+https://thequranatlas.com/contact/.
