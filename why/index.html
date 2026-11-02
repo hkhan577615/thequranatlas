@@ -50,10 +50,12 @@ p { margin: 0; }
 .essay .intro { font-size: 1.2rem; line-height: 1.7; color: var(--ink); padding-bottom: 40px; }
 .t { font-family: var(--f-display); font-style: italic; color: var(--accent); font-size: 1.04em; letter-spacing: .01em; white-space: nowrap; }
 
+.ar { font-family: "Markazi Text", "Noto Naskh Arabic", "Geeza Pro", serif; font-style: normal; font-weight: 500; font-size: 1.22em; line-height: 1; letter-spacing: 0; color: var(--ink); opacity: .9; }
 .part { border-top: 1px solid var(--rule); padding-block: 40px; display: grid; gap: 18px; }
 .part h2 { margin: 0; display: flex; align-items: center; gap: 16px; font-family: var(--f-display); font-weight: 400; text-transform: uppercase; letter-spacing: .03em; line-height: 1.15; color: var(--accent); font-size: clamp(1.45rem, 3.6vw, 1.9rem); text-wrap: balance; }
 .part h2 .n { flex: none; width: 2.6rem; height: 2.6rem; border-radius: 50%; border: 1px solid var(--qa-accent-line); display: grid; place-items: center; font-size: 1.05rem; letter-spacing: 0; }
-.part h2 .t { text-transform: none; font-size: .9em; }
+.part h2 .pair { font-size: .9em; text-transform: none; }
+.pair .t { font-size: 1em; }
 .part > p { color: var(--ink); }
 
 .points { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 22px; }
@@ -61,7 +63,7 @@ p { margin: 0; }
 .points li::before { content: ""; position: absolute; inset-inline-start: 5px; top: .42em; width: 8px; height: 8px; border: 1.5px solid var(--accent); transform: rotate(45deg); }
 .points b { font-family: var(--f-mono); font-weight: 700; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); line-height: 1.5; }
 .points p { color: var(--ink-2); }
-.points b .t { font-weight: 400; text-transform: none; letter-spacing: .01em; font-size: 1.3em; line-height: 1; margin-inline-start: 4px; }
+.points b .pair { font-family: var(--f-display); font-weight: 400; text-transform: none; letter-spacing: .01em; font-size: 1.3em; line-height: 1; margin-inline-start: 4px; }
 
 /* the close: the essay's last word, answering the opening */
 .coda { border-top: 1px solid var(--rule); padding-block: 48px 28px; display: grid; justify-items: center; gap: 26px; text-align: center; }
@@ -90,24 +92,24 @@ p { margin: 0; }
   </header>
 
   <article class="essay">
-    <p class="intro">In this spiritual philosophy, the cosmos is a vast, perilous wilderness, and the human soul (<i class="t">An-Nafs</i>) is a traveler seeking its primordial home. The Qur’an is the multi-dimensional map gifted by the Creator to navigate this interior landscape.</p>
+    <p class="intro">In this spiritual philosophy, the cosmos is a vast, perilous wilderness, and the human soul (<i class="t">An-Nafs</i>&nbsp;<span class="ar" lang="ar" dir="rtl">النفس</span>) is a traveler seeking its primordial home. The Qur’an is the multi-dimensional map gifted by the Creator to navigate this interior landscape.</p>
 
     <section class="part" aria-labelledby="p1">
       <h2 id="p1"><span class="n">1</span><span>The Map of Spiritual Topography</span></h2>
       <p>The Qur’an charts the hidden landscapes of human existence, defining coordinates that cannot be seen with physical eyes:</p>
       <ul class="points">
-        <li><b>The Realms of Being</b><p>It maps the boundaries between the fleeting lower world (<i class="t">Al-Dunya</i>) and the enduring, ultimate reality (<i class="t">Al-Akhirah</i>).</p></li>
-        <li><b>The Internal Terrain</b><p>It delineates the sharp peaks of spiritual excellence (<i class="t">Ihsan</i>), the stable valleys of faith (<i class="t">Iman</i>), and the treacherous, sinking quicksands of hypocrisy (<i class="t">Nifaq</i>) and arrogance (<i class="t">Kibr</i>).</p></li>
-        <li><b>The Ultimate Destinations</b><p>It provides the spiritual coordinates for the expansive, peaceful terrain of Paradise (<i class="t">Al-Jannah</i>) and the constricted, chaotic abyss of Distance (<i class="t">An-Nar</i>).</p></li>
+        <li><b>The Realms of Being</b><p>It maps the boundaries between the fleeting lower world (<i class="t">Al-Dunya</i>&nbsp;<span class="ar" lang="ar" dir="rtl">الدنيا</span>) and the enduring, ultimate reality (<i class="t">Al-Akhirah</i>&nbsp;<span class="ar" lang="ar" dir="rtl">الآخرة</span>).</p></li>
+        <li><b>The Internal Terrain</b><p>It delineates the sharp peaks of spiritual excellence (<i class="t">Ihsan</i>&nbsp;<span class="ar" lang="ar" dir="rtl">إحسان</span>), the stable valleys of faith (<i class="t">Iman</i>&nbsp;<span class="ar" lang="ar" dir="rtl">إيمان</span>), and the treacherous, sinking quicksands of hypocrisy (<i class="t">Nifaq</i>&nbsp;<span class="ar" lang="ar" dir="rtl">نفاق</span>) and arrogance (<i class="t">Kibr</i>&nbsp;<span class="ar" lang="ar" dir="rtl">كِبْر</span>).</p></li>
+        <li><b>The Ultimate Destinations</b><p>It provides the spiritual coordinates for the expansive, peaceful terrain of Paradise (<i class="t">Al-Jannah</i>&nbsp;<span class="ar" lang="ar" dir="rtl">الجنة</span>) and the constricted, chaotic abyss of Distance (<i class="t">An-Nar</i>&nbsp;<span class="ar" lang="ar" dir="rtl">النار</span>).</p></li>
       </ul>
     </section>
 
     <section class="part" aria-labelledby="p2">
-      <h2 id="p2"><span class="n">2</span><span>The GPS of the Soul <i class="t">(Al-Huda)</i></span></h2>
-      <p>Just as a traveler relies on an atlas to avoid getting lost in the desert, the soul utilizes the Qur’an as <i class="t">Al-Huda</i> (The Guidance).</p>
+      <h2 id="p2"><span class="n">2</span><span>The GPS of the Soul <span class="pair">(<i class="t">Al-Huda</i>&nbsp;<span class="ar" lang="ar" dir="rtl">الهدى</span>)</span></span></h2>
+      <p>Just as a traveler relies on an atlas to avoid getting lost in the desert, the soul utilizes the Qur’an as <i class="t">Al-Huda</i>&nbsp;<span class="ar" lang="ar" dir="rtl">الهدى</span> (The Guidance).</p>
       <ul class="points">
-        <li><b>Real-Time Calibration</b><p>It acts as a living compass. When the soul wanders into the foggy thickets of doubt (<i class="t">Shubahat</i>) or the dark valleys of desire (<i class="t">Shahawat</i>), reciting the Qur’an recalibrates the inner spiritual compass (<i class="t">Fitrah</i>), pointing it back toward the Divine Center.</p></li>
-        <li><b>The Straight Path <i class="t">(Al-Sirat al-Mustaqim)</i></b><p>The map does not just show landmarks; it carves out a singular, optimal route. It is a straight highway cutting through the chaotic, intersecting paths of human philosophy and ego.</p></li>
+        <li><b>Real-Time Calibration</b><p>It acts as a living compass. When the soul wanders into the foggy thickets of doubt (<i class="t">Shubahat</i>&nbsp;<span class="ar" lang="ar" dir="rtl">شبهات</span>) or the dark valleys of desire (<i class="t">Shahawat</i>&nbsp;<span class="ar" lang="ar" dir="rtl">شهوات</span>), reciting the Qur’an recalibrates the inner spiritual compass (<i class="t">Fitrah</i>&nbsp;<span class="ar" lang="ar" dir="rtl">فطرة</span>), pointing it back toward the Divine Center.</p></li>
+        <li><b>The Straight Path <span class="pair">(<i class="t">Al-Sirat al-Mustaqim</i>&nbsp;<span class="ar" lang="ar" dir="rtl">الصراط المستقيم</span>)</span></b><p>The map does not just show landmarks; it carves out a singular, optimal route. It is a straight highway cutting through the chaotic, intersecting paths of human philosophy and ego.</p></li>
       </ul>
     </section>
 
@@ -115,14 +117,14 @@ p { margin: 0; }
       <h2 id="p3"><span class="n">3</span><span>A Multi-Layered Relief Map of Consciousness</span></h2>
       <p>The Qur’an is not a flat, static document; it is a multi-dimensional atlas that adapts to the elevation of the traveler:</p>
       <ul class="points">
-        <li><b>The Surface Layer</b><p>It provides clear boundaries, laws, and ethical signposts (<i class="t">Shari’ah</i>) to keep the traveler safe from immediate harm.</p></li>
-        <li><b>The Deeper Strata</b><p>For the mystic and the philosopher, it reveals deep spiritual truths (<i class="t">Haqiqah</i>), mapping the subtle diseases of the heart—like spiritual blindness, rust, and hardness—and providing the precise, divine remedies to heal them.</p></li>
+        <li><b>The Surface Layer</b><p>It provides clear boundaries, laws, and ethical signposts (<i class="t">Shari’ah</i>&nbsp;<span class="ar" lang="ar" dir="rtl">شريعة</span>) to keep the traveler safe from immediate harm.</p></li>
+        <li><b>The Deeper Strata</b><p>For the mystic and the philosopher, it reveals deep spiritual truths (<i class="t">Haqiqah</i>&nbsp;<span class="ar" lang="ar" dir="rtl">حقيقة</span>), mapping the subtle diseases of the heart—like spiritual blindness, rust, and hardness—and providing the precise, divine remedies to heal them.</p></li>
       </ul>
     </section>
 
     <section class="part" aria-labelledby="p4">
       <h2 id="p4"><span class="n">4</span><span>The Cartographer and the Traveler</span></h2>
-      <p>In worldly geography, a mapmaker stands outside of their creation. But the Author of this Spiritual Atlas is the Creator of the soul itself. The Qur’an is an atlas designed by the One who knows every hidden crevice, vulnerability, and capacity of the human spirit. To read this map is to allow the Divine Light (<i class="t">An-Nur</i>) to illuminate the dark, unmapped corners of one’s own being.</p>
+      <p>In worldly geography, a mapmaker stands outside of their creation. But the Author of this Spiritual Atlas is the Creator of the soul itself. The Qur’an is an atlas designed by the One who knows every hidden crevice, vulnerability, and capacity of the human spirit. To read this map is to allow the Divine Light (<i class="t">An-Nur</i>&nbsp;<span class="ar" lang="ar" dir="rtl">النور</span>) to illuminate the dark, unmapped corners of one’s own being.</p>
     </section>
 
     <div class="coda">
