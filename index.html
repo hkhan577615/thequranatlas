@@ -1071,6 +1071,7 @@ function go(id, fromHash) {
   }
   const t = document.getElementById('t-' + id); t.scrollIntoView({ block: 'nearest', inline: 'nearest' });
   store('view', id);
+  if (window.qaTrack) qaTrack.page();
   if (INIT[id] && !inited[id]) { inited[id] = true; INIT[id](); }
   else if (INIT[id] && INIT[id].shown) INIT[id].shown();
   window.dispatchEvent(new Event('qpa:view'));
@@ -1105,7 +1106,7 @@ const Sheet = {
   },
   show() {
     const wasHidden = $('#sheet').hidden;
-    if (wasHidden) this.lastFocus = document.activeElement;
+    if (wasHidden) { this.lastFocus = document.activeElement; if (window.qaTrack) qaTrack.event('verse-tap/' + (current || 'barcode')); }
     $('#scrim').hidden = false; $('#sheet').hidden = false; $('#sheet').scrollTop = 0;
     this.render();
     if (wasHidden) $('#sheet-close').focus({ preventScroll: true });
@@ -1931,7 +1932,9 @@ const Roots = {
   },
   setupSearch() {
     const q = $('#rt-q'), box = $('#rt-sugg'); let items = [], sel = -1;
-    const pick = r => { this.select(r); q.value = ''; items = []; render(); };
+    const pick = r => { if (window.qaTrack) qaTrack.event('root-search/' + Sim.rt[r][1]); this.select(r); q.value = ''; items = []; render(); };
+    let miss = 0; // a search that finds nothing, counted once the reader stops typing
+    q.addEventListener('input', () => { clearTimeout(miss); miss = setTimeout(() => { const v = q.value.trim(); if (v.length > 1 && !items.length && window.qaTrack) qaTrack.event('root-search-no-match/' + v.toLowerCase()); }, 1500); });
     const render = () => {
       box.textContent = '';
       if (!q.value.trim()) { box.hidden = true; return; }

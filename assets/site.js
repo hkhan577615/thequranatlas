@@ -4,7 +4,11 @@
    2. The site nav in Arabic when the page is in Arabic.
    3. A slow ring of particles behind the page, drawn on one canvas. It thins out on
       small screens, pauses when the tab is hidden and stays still for readers who
-      prefer reduced motion. */
+      prefer reduced motion.
+   4. Visitor counts through GoatCounter: no cookies, no personal data, nothing kept
+      on the reader's device. Each view of the Atlas (#barcode, #roots...) counts as its
+      own page, and a few actions count as events: verse taps, root searches, PDF
+      saves, form sends, links out and reading in Arabic. Pages call qaTrack.event(). */
 (function () {
   if (window.__qaSite) return; window.__qaSite = true;
   const root = document.documentElement, KEY = 'qa:theme';
@@ -87,6 +91,36 @@
     document.addEventListener('visibilitychange', () => { cancelAnimationFrame(raf); if (!document.hidden) raf = requestAnimationFrame(loop); });
   }
 
-  function start() { nav(); field(); }
+  /* ---------- visitor counts (GoatCounter) ---------- */
+  const GC = 'https://thequranatlas.goatcounter.com/count';
+  const queue = []; let lastPath = null;
+  function send(o) { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count(o); else queue.push(o); }
+  const track = window.qaTrack = {
+    page() {
+      const h = location.hash.replace(/~(ar|en)$/, ''), path = location.pathname + (/^#[\w-]+$/.test(h) ? h : '');
+      if (path === lastPath) return; lastPath = path;
+      send({ path, title: document.title });
+    },
+    event(name) { send({ path: String(name).slice(0, 200), title: document.title, event: true }); },
+  };
+  function counts() {
+    window.goatcounter = Object.assign(window.goatcounter || {}, { no_onload: true });
+    const s = document.createElement('script'); s.async = true; s.src = 'https://gc.zgo.at/count.js'; s.dataset.goatcounter = GC;
+    s.onload = () => { while (queue.length) window.goatcounter.count(queue.shift()); };
+    document.head.append(s);
+    track.page();
+    addEventListener('hashchange', () => track.page());
+    const arabic = () => { try { if (ar() && !sessionStorage.getItem('qa:ar-counted')) { sessionStorage.setItem('qa:ar-counted', '1'); track.event('reading-in-arabic'); } } catch (e) {} };
+    if (document.readyState === 'complete') arabic(); else addEventListener('load', arabic);
+    document.addEventListener('click', e => {
+      const a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
+      let u; try { u = new URL(a.href, location.href); } catch (err) { return; }
+      if (u.origin !== location.origin && /^https?:$/.test(u.protocol)) track.event('outbound/' + u.hostname.replace(/^www\./, ''));
+      else if (/\.pdf$/i.test(u.pathname)) track.event('pdf/' + u.pathname.split('/').pop());
+    });
+    document.addEventListener('submit', e => { if (!e.defaultPrevented) track.event('form-sent/' + (e.target.id || 'form')); });
+  }
+
+  function start() { nav(); field(); counts(); }
   if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
 })();

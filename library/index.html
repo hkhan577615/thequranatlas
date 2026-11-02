@@ -462,6 +462,7 @@ async function savePdf(k, btn) {
     if (cap.dl) await cap.dl.save({ filename: `${f}.pdf`, data: blob });
     else { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `${f}.pdf`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); }
     btn.textContent = 'Saved';
+    if (window.qaTrack) qaTrack.event('pdf/' + f + '.pdf');
   } catch (e) {
     btn.textContent = e && e.code === 'declined' ? old : 'Could not save';
   } finally { btn.disabled = false; setTimeout(() => { btn.textContent = old; }, 2500); }
