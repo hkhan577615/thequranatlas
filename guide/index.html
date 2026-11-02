@@ -3,25 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>try{var t=localStorage.getItem('qa:theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+<meta name="theme-color" content="#f7f2e8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <style>
 body{margin:0}img{max-width:100%}
 </style>
 <title>How to use · Quran Atlas</title>
-<meta name="description" content="What the Quran Atlas is, what it is not, and how to read its nine views, its Library of studies and its Stories for children.">
+<meta name="description" content="What the Quran Atlas is, what it is not, and how to read its nine views, its Studies and its Library of picture books for children.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Xanh+Mono&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&family=Amiri+Quran&family=Markazi+Text:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap">
 <style>
 :root {
-  --paper: #191a1e; --leaf: #212227; --ink: #f3f3f0; --ink-2: #b0b1b5; --ink-3: #85878c; --rule: #2d2e34;
-  --accent: #acffce; --chip: rgba(255, 255, 255, .06); --dark: #1f2025; --dark-ink: #f3f3f0; --dark-ink-2: #b0b1b5; --mint: #acffce;
+  --paper: var(--qa-bg); --leaf: var(--qa-surface); --ink: var(--qa-ink); --ink-2: var(--qa-ink2); --ink-3: var(--qa-ink3); --rule: var(--qa-line);
+  --accent: var(--qa-accent); --chip: var(--qa-chip); --dark: var(--qa-plate); --dark-ink: var(--qa-plate-ink); --dark-ink-2: var(--qa-plate-ink-2); --mint: var(--qa-gilt);
   --f-display: "Xanh Mono", "Markazi Text", ui-monospace, monospace;
   --f-mono: "Space Mono", ui-monospace, Menlo, monospace;
   --f-ui: "General Sans", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-ar: "Markazi Text", "Noto Naskh Arabic", "Geeza Pro", serif;
   --f-quran: "Amiri Quran", "Amiri", "Noto Naskh Arabic", serif;
-  color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -80,12 +86,12 @@ h1, h2, h3, .view .nm a { font-family: var(--f-display); font-weight: 400; text-
 .hero .ar { color: var(--ink); opacity: .85; }
 section > h2 { color: var(--accent); font-size: 2rem; }
 section > h2::before { content: "● "; font-size: .5em; vertical-align: .35em; }
-.card, .verse { background: rgba(32, 33, 38, .78); border-radius: 18px; }
+.card, .verse { background: var(--qa-card); border-radius: 18px; }
 .card.not { background: transparent; border-style: dashed; }
 .steps li::before { background: transparent; border: 1px solid var(--accent); color: var(--accent); font-family: var(--f-display); }
 .plate { border: 1px solid var(--rule); }
-.btn { font-family: var(--f-mono); font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: var(--mint); color: #191a1e; }
-.btn.ghost { background: rgba(255, 255, 255, .04); color: var(--mint); border: 1px dashed rgba(172, 255, 206, .35); }
+.btn { font-family: var(--f-mono); font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: var(--mint); color: var(--qa-plate); }
+.btn.ghost { background: rgba(236, 231, 220, .05); color: var(--mint); border: 1px dashed rgba(233, 196, 127, .4); }
 .view .try b { font-family: var(--f-mono); text-transform: uppercase; font-size: .75rem; letter-spacing: .06em; color: var(--accent); }
 footer { font-size: .8rem; }
 
@@ -95,7 +101,7 @@ footer { font-size: .8rem; }
 <script src="../assets/site.js" defer></script>
 </head>
 <body>
-<nav class="qa-nav" aria-label="Site"><div class="qa-nav-in"><a class="qa-brand" href="../"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4"><rect x="9" y="9" width="22" height="22"/><rect x="9" y="9" width="22" height="22" transform="rotate(45 20 20)"/><circle cx="20" cy="20" r="4.5"/></g></svg>Quran Atlas</a><ul class="qa-links"><li><a href="../">Atlas</a></li><li><a href="#" aria-current="page">How to use</a></li><li><a href="../stories/">Stories</a></li><li><a href="../library/">Library</a></li></ul></div></nav>
+<nav class="qa-nav" aria-label="Site"><div class="qa-nav-in"><a class="qa-brand" href="../" aria-label="Quran Atlas, home"><svg class="qa-mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" aria-hidden="true"><path d="M32.00 4.00L60.00 32.00L32.00 60.00L4.00 32.00Z" stroke-width="3.0"/><path d="M51.80 12.20L51.80 51.80L12.20 51.80L12.20 12.20Z" stroke-width="3.0"/><circle cx="32" cy="32" r="12.5" stroke-width="2.4"/><path d="M32.00 21.50L33.84 30.16L42.50 32.00L33.84 33.84L32.00 42.50L30.16 33.84L21.50 32.00L30.16 30.16Z" fill="currentColor" stroke="none"/></svg><span class="qa-word" data-ar="أطلس القرآن">Quran Atlas</span><span class="qa-word-ar" lang="ar">أطلس القرآن</span></a><ul class="qa-links"><li><a href="../" data-ar="الأطلس">Atlas</a></li><li><a href="../guide/" data-ar="كيف تستخدمه" aria-current="page">How to use</a></li><li><a href="../library/" data-ar="المكتبة">Library</a></li><li><a href="../studies/" data-ar="الدراسات">Studies</a></li></ul><button class="qa-theme" type="button" aria-label="Switch to night mode"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button></div></nav>
 
 <div class="wrap">
   <header class="hero">
@@ -125,7 +131,7 @@ footer { font-size: .8rem; }
       <li><div><b>Tap anything.</b><span>Every tile, dot, arc and bar is a verse or a group of verses. Tap one and a page rises from the bottom with the Arabic, an English translation (Saheeh International or Yusuf Ali), the root of each word, and a link to tafsir and recitation on Quran.com. Use Previous and Next to read on.</span></div></li>
       <li><div><b>Change the question.</b><span>Most views have controls above the picture: colour by length or by Meccan and Medinan, mushaf order or revelation order, pick a surah, pick a root. Change one and watch the picture change.</span></div></li>
       <li><div><b>Read the notes.</b><span>Under each picture is a short note on what it shows and how it was counted. Patterns are worth noticing, but a count is only as firm as the rule behind it.</span></div></li>
-      <li><div><b>Read in Arabic or English.</b><span>The <span lang="ar">عربي</span> button at the top of the Atlas and the Library switches the whole site into Arabic. Each view has its own link, ending in #roots, #rhyme and so on, so you can send someone straight to it.</span></div></li>
+      <li><div><b>Read in Arabic or English.</b><span>The <span lang="ar">عربي</span> button at the top of the Atlas and the Studies switches them into Arabic. Each view has its own link, ending in #roots, #rhyme and so on, so you can send someone straight to it.</span></div></li>
     </ol>
   </section>
 
@@ -146,17 +152,17 @@ footer { font-size: .8rem; }
   </section>
 
   <section aria-labelledby="more">
-    <h2 id="more">Stories and Library</h2>
+    <h2 id="more">Library and Studies</h2>
     <div class="cols">
       <div class="plate">
-        <h3>Stories</h3>
+        <h3>Library</h3>
         <p>Eight free picture books for children around seven, from Nuh to the sleepers in the cave. Read them on screen or save the PDFs to print at home. No person, and never a prophet, is drawn.</p>
-        <div class="btns"><a class="btn" href="../stories/">Open Stories</a></div>
+        <div class="btns"><a class="btn" href="../library/">Open the Library</a></div>
       </div>
       <div class="plate">
-        <h3>Library</h3>
+        <h3>Studies</h3>
         <p>Six illustrated studies that each follow one finding in depth: how the revelation grew, where the middle of the Quran falls, Ar-Rahman's pairs, Musa's story as a transit map, the family of prophets, and whether popular word counts really balance.</p>
-        <div class="btns"><a class="btn" href="../library/">Open the Library</a><a class="btn ghost" href="../library/#middle">Start with “Where is the middle?”</a></div>
+        <div class="btns"><a class="btn" href="../studies/">Open the Studies</a><a class="btn ghost" href="../studies/#middle">Start with “Where is the middle?”</a></div>
       </div>
     </div>
   </section>
@@ -166,7 +172,7 @@ footer { font-size: .8rem; }
     <ul class="plain">
       <li><b>On a phone,</b> swipe the row of tabs sideways to see all nine views, and turn the phone sideways for the wider pictures.</li>
       <li><b>The first visit is the slowest,</b> because the Atlas loads the full Arabic text and two translations, a few megabytes. After that your browser keeps them.</li>
-      <li><b>Dark mode</b> follows your device setting.</li>
+      <li><b>Day and night.</b> The sun and moon button at the top right switches between a warm paper page for daytime and a dark page for night reading. Until you choose, it follows your device.</li>
       <li><b>Translations are meanings, not the Quran.</b> The Arabic is always shown alongside them, quoted exactly.</li>
       <li><b>Found a mistake?</b> Corrections are welcome. A scholar's review of the children's books is still to come.</li>
     </ul>
