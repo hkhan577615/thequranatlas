@@ -1036,6 +1036,8 @@ DRAW.family = (() => {
       put(pick, strip(who), el('div', { class: 'fam-axis' }, el('span', { text: '1:1' }), el('span', { text: 'where the name appears' }), el('span', { text: '114:6' })));
       const mine = T.filter(t => t.a === k || t.b === k);
       if (mine.length) put(pick, el('div', { class: 'm-btns', style: 'flex-direction:column;align-items:flex-start' }, ...mine.map(t => el('button', { class: 'lnk', onclick: () => Sheet.open(t.g), text: relText(t, k, Pp) + ' · ' + ref(t.g) }))));
+      if (who.t) put(pick, el('div', { text: L('Called by title in ' + who.t.length + ' more verses: O Prophet (' + who.tg[0].v.length + '), O Messenger (2), O you wrapped (73:1), O you cloaked (74:1), and as the Prophet, the Messenger, the Messenger of Allah and His servant. With these, ' + new Set([...who.v, ...who.t]).size + ' verses. The Atlas Stories view lists them all.',
+        'وذُكر بألقابه في ' + who.t.length + ' آية أخرى: يا أيها النبي (' + who.tg[0].v.length + ')، يا أيها الرسول (2)، يا أيها المزمل (73:1)، يا أيها المدثر (74:1)، وبـ«النبي» و«الرسول» و«رسول الله» و«عبده». فهي معها ' + new Set([...who.v, ...who.t]).size + ' آية، وتجدها كلها في عرض «القصص» في الأطلس.') }));
       if (k === 'yaqub') put(pick, el('div', { text: L('Traditionally identified with Israel, as in 3:93; the Children of Israel are his descendants.', 'هو إسرائيل في قول المفسرين، كما في الآية ٣:٩٣؛ وبنو إسرائيل ذريته.') }));
       put(pick, el('button', { class: 'lnk', onclick: () => Sheet.open(first), text: L('Read where first named, ', 'اقرأ أول موضع ورد فيه، ') + ref(first) }));
     };

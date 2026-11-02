@@ -156,6 +156,8 @@ select { background: var(--leaf); border: 1px solid var(--rule); border-radius: 
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chipbtn { background: var(--chip); border: 1px solid transparent; border-radius: 999px; padding: 5px 11px; font-size: var(--s-1); cursor: pointer; color: var(--ink-2); }
 .chipbtn[aria-pressed="true"] { border-color: var(--gold); color: var(--ink); }
+.tchips { display: flex; flex-wrap: wrap; gap: 6px; margin: .5rem 0; }
+#st-notes h3.th { font-size: var(--s1, 1.05rem); margin: 1.2rem 0 .3rem; }
 .vocab-wrap { display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: flex-start; }
 .vocab-wrap > .viz { flex: none; }
 .vocab-wrap > .notes { flex: 1 1 260px; min-width: 0; }
@@ -1203,7 +1205,8 @@ const Barcode = {
     $$('input[name="bc-mode"]').forEach(r => r.addEventListener('change', () => this.setMode(r.value)));
     $$('input[name="bc-ord"]').forEach(r => r.addEventListener('change', () => this.setOrder(r.value)));
     const ps = $('#bc-pro');
-    for (const p of Q.core.prophets) ps.append(el('option', { value: p.k, text: LL(p.en + (p.alt ? ' (' + p.alt + ')' : ''), p.ar) + ' · ' + p.v.length }));
+    for (const p of Q.core.prophets) { ps.append(el('option', { value: p.k, text: LL(p.en + (p.alt ? ' (' + p.alt + ')' : ''), p.ar) + ' · ' + p.v.length }));
+      if (p.t) ps.append(el('option', { value: p.k + '+t', text: LL(p.en + ', by name and title', p.ar + '، باسمه وألقابه') + ' · ' + new Set([...p.v, ...p.t]).size })); }
     ps.value = this.pro;
     ps.addEventListener('change', () => { this.pro = ps.value; this.recolor(); });
     $('#bc-root').addEventListener('change', e => { this.root = +e.target.value; this.recolor(); });
@@ -1263,11 +1266,11 @@ const Barcode = {
       legend = [[LL('Meccan', 'مكية'), T.mec], [LL('Medinan', 'مدنية'), T.med]].map(([lab, c]) => el('span', { class: 'key' }, el('span', { class: 'sw', style: 'background:' + c }), lab));
       notes = this.notesMM();
     } else if (this.mode === 'pro') {
-      const p = Q.core.prophets.find(x => x.k === this.pro); const cnt = new Uint8Array(N);
-      p.v.forEach(g => cnt[g]++);
+      const wt = this.pro.endsWith('+t'), p = Q.core.prophets.find(x => x.k === this.pro.replace('+t', '')); const cnt = new Uint8Array(N);
+      p.v.forEach(g => cnt[g]++); if (wt) p.t.forEach(g => cnt[g]++);
       for (let g = 0; g < N; g++) ci[g] = cnt[g] ? (cnt[g] >= 3 ? 8 : cnt[g] === 2 ? 6 : 5) : 0;
       legend = this.legendRamp(['1', '2', '3+'], 'Mentions in the verse', 5, [5, 6, 8]);
-      notes = this.notesPro(p, cnt);
+      notes = this.notesPro(p, cnt, wt);
     } else if (this.mode === 'root') {
       this.setLegend([el('span', { class: 'loading', text: 'Loading roots…' })]);
       let vr, rt; try { [vr, rt] = await Promise.all([load('vroots'), load('roots')]); } catch (e) { this.setLegend([e.message]); return; }
@@ -1403,11 +1406,12 @@ const Barcode = {
         this.order === 'rev' ? 'In revelation order the Medinan surahs form one block at the end.' : 'In mushaf order the long Medinan surahs sit near the front.'),
       el('p', { class: 'more', text: 'Labels and revelation order follow Tanzil metadata, based on the 1924 Egyptian standard edition. The order applies to whole surahs; verses keep their place inside each surah, and scholars dispute the dating of some surahs.' })];
   },
-  notesPro(p, cnt) {
+  notesPro(p, cnt, wt) {
     const per = new Map(); let verses = 0;
     for (let g = 0; g < Q.N; g++) if (cnt[g]) { verses++; per.set(Q.sOf[g], (per.get(Q.sOf[g]) || 0) + cnt[g]); }
     const top = [...per.entries()].sort((a, b) => b[1] - a[1]).slice(0, 4);
-    const pt = isAr() ? el('p', {}, 'ورد اسم ', el('b', { text: p.ar }), ' ', el('b', { text: String(p.v.length) }), ' مرة في ' + verses + ' آية في ' + arCount(per.size, 'سورة واحدة', 'سورتين', 'سور', 'سورة') + '.')
+    const pt = wt ? el('p', {}, el('b', { text: LL(p.en, p.ar) }), honor(p.k), LL(' is named ' + p.v.length + ' times, and called by title (O Prophet, the Messenger, His servant…) in ' + p.t.length + ' more verses: ', ' ذُكر باسمه ' + p.v.length + ' مرات، ونودي أو ذُكر بألقابه (يا أيها النبي، الرسول، عبده…) في ' + fmt(p.t.length) + ' آية أخرى: '), el('b', { text: fmt(verses) }), LL(' verses across ' + per.size + ' surahs. Most of them are Medinan, where he is addressed as leader of the community.', ' آية في ' + per.size + ' سورة. وأكثرها مدنية، حيث يُخاطَب قائدًا للأمة.'))
+      : isAr() ? el('p', {}, 'ورد اسم ', el('b', { text: p.ar }), ' ', el('b', { text: String(p.v.length) }), ' مرة في ' + verses + ' آية في ' + arCount(per.size, 'سورة واحدة', 'سورتين', 'سور', 'سورة') + '.')
       : el('p', {}, el('b', { text: p.en }), (p.alt ? ' (' + p.alt + ')' : '') + ' is named ', el('b', { text: String(p.v.length) }), ' times in ' + verses + ' verses across ' + per.size + (per.size === 1 ? ' surah.' : ' surahs.'));
     const tp = el('p', {}, LL('Most often in ', 'أكثر وروده في '));
     top.forEach(([sn, n], i) => { tp.append(el('button', { class: 'linkbtn', onclick: () => Sheet.open(Q.start[sn - 1]), text: sn + ' ' + surahName(sn) }), tx(' (' + n + ')'), i < top.length - 1 ? LL(', ', '، ') : '.'); });
@@ -2660,7 +2664,7 @@ const Stories = {
   pos(n) { return this.order === 'rev' ? Q.surahs[n - 1].ord - 1 : n - 1; },
   dots() {
     const box = $('#st-dots'), wrap = $('#st-dots-wrap'), P = Q.core.prophets;
-    const W = Math.max(280, wrap.clientWidth - (wrap.clientWidth < 420 ? 16 : 24)), left = W < 500 ? 78 : 132, right = 8, rowH = 22, top = 6, H = top + P.length * rowH + 26;
+    const W = Math.max(280, wrap.clientWidth - (wrap.clientWidth < 420 ? 16 : 24)), left = W < 500 ? 78 : 132, right = 8, rowH = 22, top = 6, H = top + P.length * rowH + 44;
     const X = n => left + (this.pos(n) + 0.5) / 114 * (W - left - right);
     const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': 'Where each prophet is named, surah by surah' });
     // Medinan surahs shaded so the two periods can be told apart
@@ -2669,22 +2673,27 @@ const Stories = {
     P.forEach((p, i) => {
       const y = top + i * rowH + rowH / 2, per = new Map();
       p.v.forEach(g => per.set(Q.sOf[g], (per.get(Q.sOf[g]) || 0) + 1));
+      // titles (O Prophet, the Messenger…): drawn as rings behind the named dots
+      const tper = new Map(); (p.t || []).forEach(g => tper.set(Q.sOf[g], (tper.get(Q.sOf[g]) || 0) + 1));
       const lab = svgEl('text', { x: 0, y: y + 4, 'font-size': 12, style: 'fill:var(--ink)' }, LL(p.en, p.ar)); if (W >= 500 && !isAr()) lab.append(svgEl('tspan', { dx: 3, dy: -4, 'font-size': 7.5, style: 'fill:var(--gold);font-family:var(--f-ar)' }, pbuhText(p.k))); svg.append(lab);
       svg.append(svgEl('line', { x1: left, x2: W - right, y1: y, y2: y, style: 'stroke:var(--rule)' }));
+      [...tper.entries()].sort((a, b) => b[1] - a[1]).forEach(([n, c]) => svg.append(svgEl('circle', { cx: X(n), cy: y, r: Math.min(8, 2.2 + Math.sqrt(c) * 1.1), 'stroke-width': 1.2, style: 'fill:none;stroke:var(--gold);stroke-opacity:.8' })));
       [...per.entries()].sort((a, b) => b[1] - a[1]).forEach(([n, c]) => svg.append(svgEl('circle', { cx: X(n), cy: y, r: Math.min(8, 2.2 + Math.sqrt(c) * 1.5), 'stroke-width': 1, style: 'fill:var(--gold);fill-opacity:.85;stroke:var(--leaf)' })));
       const hit = svgEl('rect', { x: left, y: y - rowH / 2, width: W - left - right, height: rowH, style: 'fill:transparent;cursor:pointer', tabindex: -1 });
-      const nearest = ev => { const r = svg.getBoundingClientRect(), x = (ev.clientX - r.left) * (W / r.width); let best = null, bd = 1e9; for (const n of per.keys()) { const d = Math.abs(X(n) - x); if (d < bd) { bd = d; best = n; } } return bd < 14 ? best : null; };
+      const nearest = ev => { const r = svg.getBoundingClientRect(), x = (ev.clientX - r.left) * (W / r.width); let best = null, bd = 1e9; for (const n of new Set([...per.keys(), ...tper.keys()])) { const d = Math.abs(X(n) - x); if (d < bd) { bd = d; best = n; } } return bd < 14 ? best : null; };
       hit.addEventListener('pointermove', ev => { if (ev.pointerType === 'touch') return; const n = nearest(ev); if (!n) { tip.hidden = true; return; }
-        tip.textContent = ''; tip.append(el('b', { text: LL(p.en, p.ar) }), honor(p.k), LL(' in ', ' في ') + n + ' ' + surahName(n), el('br'), el('span', { class: 't2', text: LL(per.get(n) + (per.get(n) === 1 ? ' mention' : ' mentions'), arCount(per.get(n), 'مرة واحدة', 'مرتين', 'مرات', 'مرة')) }));
+        tip.textContent = ''; tip.append(el('b', { text: LL(p.en, p.ar) }), honor(p.k), LL(' in ', ' في ') + n + ' ' + surahName(n), el('br'), el('span', { class: 't2', text: [per.get(n) ? LL(per.get(n) + (per.get(n) === 1 ? ' mention by name' : ' mentions by name'), arCount(per.get(n), 'مرة واحدة', 'مرتين', 'مرات', 'مرة') + ' باسمه') : '', tper.get(n) ? LL(tper.get(n) + (tper.get(n) === 1 ? ' verse by title' : ' verses by title'), arCount(tper.get(n), 'آية واحدة', 'آيتين', 'آيات', 'آية') + ' بلقبه') : ''].filter(Boolean).join(' · ') }));
         const br = wrap.getBoundingClientRect(); placeTip(tip, wrap, ev.clientX - br.left, ev.clientY - br.top); });
       hit.addEventListener('pointerleave', () => tip.hidden = true);
-      hit.addEventListener('click', ev => { const n = nearest(ev); if (n) Sheet.open(p.v.find(g => Q.sOf[g] === n)); });
+      hit.addEventListener('click', ev => { const n = nearest(ev); if (n) Sheet.open(p.v.find(g => Q.sOf[g] === n) ?? p.t.find(g => Q.sOf[g] === n)); });
       svg.append(hit);
     });
     const yb = top + P.length * rowH + 16;
     svg.append(svgEl('text', { x: left, y: yb, 'font-size': 11, style: 'fill:var(--ink-3)' }, this.order === 'rev' ? LL('first revealed', 'أول ما نزل') : LL('surah 1', 'السورة 1')));
     svg.append(svgEl('text', { x: W - right, y: yb, 'text-anchor': 'end', 'font-size': 11, style: 'fill:var(--ink-3)' }, this.order === 'rev' ? LL('last', 'آخره') : '114'));
     svg.append(svgEl('text', { x: (left + W) / 2, y: yb, 'text-anchor': 'middle', 'font-size': 11, style: 'fill:var(--ink-3)' }, 'shaded columns: Medinan surahs'));
+    const yr = yb + 17; svg.append(svgEl('circle', { cx: left + 5, cy: yr - 4, r: 4, style: 'fill:var(--gold);fill-opacity:.85;stroke:var(--leaf)' }), svgEl('text', { x: left + 14, y: yr, 'font-size': 11, style: 'fill:var(--ink-3)' }, LL('named', 'بالاسم')));
+    const rx = left + (isAr() ? 70 : 64); svg.append(svgEl('circle', { cx: rx, cy: yr - 4, r: 4, 'stroke-width': 1.2, style: 'fill:none;stroke:var(--gold)' }), svgEl('text', { x: rx + 9, y: yr, 'font-size': 11, style: 'fill:var(--ink-3)' }, LL('by title: O Prophet, the Messenger…', 'باللقب: يا أيها النبي، الرسول…')));
     box.textContent = ''; box.append(svg);
   },
   notes() {
@@ -2696,7 +2705,25 @@ const Stories = {
     nb.append(el('p', {}, el('b', { text: LL(most.en, most.ar) }), honor(most.k), LL(' is named most often: ' + most.v.length + ' times in ' + new Set(most.v.map(g => Q.sOf[g])).size + ' surahs. The surahs that name the most prophets are ',
       ' أكثرهم ذكرًا باسمه: ' + most.v.length + ' مرة في ' + new Set(most.v.map(g => Q.sOf[g])).size + ' سورة. وأكثر السور تسميةً للأنبياء: '),
       ...top.flatMap(([s, set], i) => [el('button', { class: 'linkbtn', onclick: () => Sheet.open(Q.start[s - 1]), text: s + ' ' + surahName(s) }), ' (' + set.size + ')', i < top.length - 1 ? LL(', ', '، ') : '.'])));
-    nb.append(el('p', { class: 'more', text: 'Counts are of names only. Prophets are also referred to by title or pronoun, such as Yunus as "the man of the fish", so they appear in more verses than are counted here.' }));
+    const mu = P.find(p => p.k === 'muhammad');
+    if (mu && mu.t) {
+      const all = new Set([...mu.v, ...mu.t]), ss = new Set([...all].map(g => Q.sOf[g])).size, box = el('div', { class: 'tvs' });
+      const show = (t, b) => { nb.querySelectorAll('.tchips button').forEach(x => x.setAttribute('aria-pressed', x === b)); box.textContent = '';
+        box.append(el('p', { class: 'dim', style: 'margin:.4rem 0 .2rem' }, el('b', { lang: 'ar', class: 'ar', text: t.ar }), ' · ' + LL(t.en, '') + LL(' · ' + t.v.length + (t.v.length === 1 ? ' verse' : ' verses'), ' · ' + arCount(t.v.length, 'آية واحدة', 'آيتان', 'آيات', 'آية'))),
+          el('p', { style: 'margin:0;line-height:1.9' }, ...t.v.flatMap((g, i) => [el('button', { class: 'linkbtn', onclick: () => Sheet.open(g), text: ref(g) }), i < t.v.length - 1 ? ' ' : '']))); };
+      const chips = el('p', { class: 'tchips' }, ...mu.tg.map(t => { const b = el('button', { class: 'chipbtn', 'aria-pressed': 'false', text: LL(t.en, t.ar) + ' · ' + t.v.length }); b.onclick = () => show(t, b); return b; }));
+      nb.append(el('h3', { class: 'th' }, LL('The Prophet Muhammad', 'النبي محمد'), honor('muhammad'), LL(', by name and by title', '، باسمه وبألقابه')),
+        el('p', {}, LL('He is named only ' + mu.v.length + ' times (four as Muhammad, once as Ahmad), because the Quran speaks to him far more than about him. Allah calls him by title instead: ',
+          'لم يُذكر باسمه إلا ' + mu.v.length + ' مرات (أربعًا «محمد» ومرة «أحمد»)، لأن القرآن يخاطبه أكثر مما يتحدث عنه. فيناديه الله بألقابه: '),
+          el('b', { text: LL('O Prophet', 'يا أيها النبي') }), LL(' (' + mu.tg[0].v.length + ' times), ', ' (' + mu.tg[0].v.length + ' مرة)، '),
+          el('b', { text: LL('O Messenger', 'يا أيها الرسول') }), LL(' (twice), and in the earliest calls, ', ' (مرتين)، وفي أول النداءات '),
+          el('b', { text: LL('O you wrapped in garments', 'يا أيها المزمل') }), LL(' (73:1) and ', ' (73:1) و'), el('b', { text: LL('O you cloaked', 'يا أيها المدثر') }), ' (74:1). ',
+          LL('Counting these titles, he appears in ' + all.size + ' verses across ' + ss + ' surahs; the rings on his row above mark them. Tap a title to list its verses.',
+            'وبعدّ هذه الألقاب يرد في ' + fmt(all.size) + ' آية في ' + ss + ' سورة، وتدلّ عليها الحلقات في صفّه أعلاه. اضغط لقبًا لتعرض آياته.')),
+        chips, box);
+    }
+    nb.append(el('p', { class: 'more', text: LL('Dots count names only. Prophets are also referred to by title or pronoun, such as Yunus as "the man of the fish". For the Prophet Muhammad ﷺ the titles are counted too: the Prophet and the Messenger (definite, or as His/Our Messenger and the Messenger of Allah), His servant where it means him, and the four calls with yā. Verses where these words mean another prophet, such as 61:5, are left out.',
+      'النقاط للأسماء وحدها. ويُشار إلى الأنبياء أيضًا بالألقاب والضمائر، كتسمية يونس «صاحب الحوت». وللنبي محمد ﷺ عُدّت الألقاب أيضًا: النبي والرسول (معرّفين، و«رسوله» و«رسولنا» و«رسول الله»)، و«عبده» حيث يُراد به، والنداءات الأربعة بـ«يا». وتُركت الآيات التي يُراد فيها نبي آخر، مثل 61:5.') }));
   },
   episodes() { const st = this.cur(); return st.episodes.filter(e => this.theme || e.k !== st.theme); },
   cols() {
