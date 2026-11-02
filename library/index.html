@@ -229,6 +229,11 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
 #packs-notify { scroll-margin-top: 72px; }
 @media (max-width: 860px) { .packs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .packs { grid-template-columns: minmax(0, 1fr); } }
+.pack-live { border-color: var(--qa-accent-line); }
+.pack-buy { display: grid; gap: 10px; justify-items: start; border-top: 1px dashed var(--line); padding-top: 10px; margin-top: 2px; }
+.pack-now { font-size: .9rem; color: var(--ink); font-weight: 500; }
+.pbuh-s { font-family: "Markazi Text", serif; font-size: .7em; color: var(--gold); vertical-align: super; line-height: 0; margin-inline-start: .25em; }
+.pack-buy .btn { padding: 9px 16px; }
 </style>
 <link rel="stylesheet" href="../assets/site.css">
 <script src="../assets/site.js" defer></script>
@@ -290,8 +295,10 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
       <div class="packs">
         <article class="pack"><div class="pack-top"><span class="pack-i">A</span><span class="pack-v">Barcode <span lang="ar">بصمة المصحف</span></span></div>
           <h3>Mapping the mushaf</h3><p>Every verse as a tile: Meccan and Medinan surahs, verse length, and the order of revelation.</p><span class="pack-age">Ages 11+</span></article>
-        <article class="pack"><div class="pack-top"><span class="pack-i">B</span><span class="pack-v">Stories <span lang="ar">القصص</span></span></div>
-          <h3>The prophets, scene by scene</h3><p>Follow one prophet’s story across the surahs that tell it, and ask why each telling chooses its scenes.</p><span class="pack-age">Ages 8+</span></article>
+        <article class="pack pack-live"><div class="pack-top"><span class="pack-i">B</span><span class="pack-v">Stories <span lang="ar">القصص</span></span></div>
+          <h3>The prophets, scene by scene</h3><p>A series of twelve lessons, one prophet or family of prophets at a time, following each story across the surahs that tell it.</p>
+          <div class="pack-buy"><span class="pack-now">Lesson 1 · Musa<span class="pbuh-s" lang="ar">عليه السلام</span> and the call at the fire</span><a class="btn btn-gold" href="https://payhip.com/b/RrVKE" target="_blank" rel="noopener">Buy · $14</a></div>
+          <span class="pack-age">Ages 8–14 · more lessons coming</span></article>
         <article class="pack"><div class="pack-top"><span class="pack-i">C</span><span class="pack-v">Names <span lang="ar">خواتيم الآيات</span></span></div>
           <h3>The names that close verses</h3><p>Forgiving and Merciful, Mighty and Wise: how the closing names answer what each verse has said.</p><span class="pack-age">Ages 10+</span></article>
         <article class="pack"><div class="pack-top"><span class="pack-i">D</span><span class="pack-v">Rings <span lang="ar">النظم الحلقي</span></span></div>
@@ -315,12 +322,12 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
             <li>A lesson of 45 to 60 minutes, with slides that open straight into the Atlas.</li>
             <li>Printable worksheets in two levels, with an answer key.</li>
             <li>A classroom poster, A3 and A2.</li>
-            <li>One licence covers a teacher and their classes.</li>
+            <li>One licence covers a teacher and their classes. For every teacher in a school, <a href="../contact/?topic=Teaching%20packs">ask for a school licence</a>, paid by invoice.</li>
           </ul>
         </div>
         <div class="panel" id="packs-notify">
           <h3>Be the first to know</h3>
-          <p class="note">The packs are being prepared. Leave your email and we will write once, when they are ready to buy.</p>
+          <p class="note">The first lesson is ready; the rest are being prepared. Leave your email and we will write when new packs are ready to buy.</p>
           <div class="sent" id="p-sent" role="status" hidden><b>Thank you.</b> We will let you know when the packs are ready.</div>
           <form id="pack-form" action="https://formsubmit.co/haseem.n.9@gmail.com" method="POST">
             <label for="p-email">Email<input id="p-email" name="email" type="email" autocomplete="email" required></label>
