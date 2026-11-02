@@ -232,8 +232,20 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
 .pack-live { border-color: var(--qa-accent-line); }
 .pack-buy { display: grid; gap: 10px; justify-items: start; border-top: 1px dashed var(--line); padding-top: 10px; margin-top: 2px; }
 .pack-now { font-size: .9rem; color: var(--ink); font-weight: 500; }
-.pbuh-s { font-family: "Markazi Text", serif; font-size: .7em; color: var(--gold); vertical-align: super; line-height: 0; margin-inline-start: .25em; }
+.pbuh-s { font-family: "Markazi Text", "Amiri Quran", serif; font-size: .7em; color: var(--gold); vertical-align: super; line-height: 0; margin-inline-start: .25em; white-space: nowrap; }
 .pack-buy .btn { padding: 9px 16px; }
+.lessons { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; }
+.lesson { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; gap: 14px; align-items: center; background: var(--qa-card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.lesson .l-n { font-family: var(--f-display); font-size: 1.5rem; color: var(--gold); width: 2.2ch; }
+.lesson .l-t { display: grid; gap: 1px; min-width: 0; }
+.lesson .l-t b { font-weight: 600; }
+.lesson .l-t span { color: var(--muted); font-size: .9rem; }
+.lesson .l-age { font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.lesson .btn { padding: 8px 14px; white-space: nowrap; }
+.lesson .l-soon { font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border: 1px dashed var(--line); border-radius: 999px; padding: 8px 12px; white-space: nowrap; }
+#series { scroll-margin-top: 72px; }
+@media (max-width: 860px) { .lessons { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) { .lesson { grid-template-columns: auto minmax(0, 1fr) auto; } .lesson .l-age { display: none; } }
 </style>
 <link rel="stylesheet" href="../assets/site.css">
 <script src="../assets/site.js" defer></script>
@@ -287,6 +299,28 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
       <p class="dl-note" id="dl-note">Each PDF is about 2 MB: 24 square pages, sized to print well on A4 or US Letter paper. Printed editions will be for sale once the new illustrations are finished; <a href="#packs-notify">ask to be told</a>.</p>
     </div>
 
+    <div class="wrap section" id="series">
+      <div class="section-head">
+        <h2>The prophets, scene by scene</h2>
+        <p>Twelve ready-to-teach lessons, one prophet or family of prophets at a time. Each follows a story across the surahs that tell it, with a teacher’s guide, slides, worksheets at two levels, an answer key and a poster.</p>
+      </div>
+      <ol class="lessons">
+          <li class="lesson"><span class="l-n">01</span><div class="l-t"><b>Musa<span class="pbuh-s" lang="ar">عليه السلام</span></b><span>One story, many tellings: the call at the fire</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/RrVKE" target="_blank" rel="noopener">Buy · $14</a></li>
+          <li class="lesson"><span class="l-n">02</span><div class="l-t"><b>The 25 prophets<span class="pbuh-s" lang="ar">عليهم السلام</span></b><span>Meet them all</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/4rZOk" target="_blank" rel="noopener">Buy · $14</a></li>
+          <li class="lesson"><span class="l-n">03</span><div class="l-t"><b>Adam<span class="pbuh-s" lang="ar">عليه السلام</span></b><span>The angels bow</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/tSQqY" target="_blank" rel="noopener">Buy · $14</a></li>
+          <li class="lesson"><span class="l-n">04</span><div class="l-t"><b>Nuh<span class="pbuh-s" lang="ar">عليه السلام</span></b><span>The ark and the flood</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/sjTp7" target="_blank" rel="noopener">Buy · $14</a></li>
+          <li class="lesson"><span class="l-n">05</span><div class="l-t"><b>Hud, Salih and Shuʿayb<span class="pbuh-s" lang="ar">عليهم السلام</span></b><span>One message, three peoples</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/G3s2Y" target="_blank" rel="noopener">Buy · $14</a></li>
+          <li class="lesson"><span class="l-n">06</span><div class="l-t"><b>Ibrahim<span class="pbuh-s" lang="ar">عليه السلام</span></b><span>The idols and the fire</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/MdXHY" target="_blank" rel="noopener">Buy · $14</a></li>
+          <li class="lesson"><span class="l-n">07</span><div class="l-t"><b>Lut<span class="pbuh-s" lang="ar">عليه السلام</span></b><span>Leaving by night</span></div><span class="l-age">Ages 10–14</span><a class="btn btn-soft" href="https://payhip.com/b/zx6XL" target="_blank" rel="noopener">Buy · $14</a></li>
+          <li class="lesson"><span class="l-n">08</span><div class="l-t"><b>Yusuf<span class="pbuh-s" lang="ar">عليه السلام</span></b><span>One story, told once</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/z7US6" target="_blank" rel="noopener">Buy · $14</a></li>
+          <li class="lesson"><span class="l-n">09</span><div class="l-t"><b>Dawud and Sulayman<span class="pbuh-s" lang="ar">عليهما السلام</span></b><span>Gifts and gratitude</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/eUXOa" target="_blank" rel="noopener">Buy · $14</a></li>
+          <li class="lesson"><span class="l-n">10</span><div class="l-t"><b>Ayyub and Yunus<span class="pbuh-s" lang="ar">عليهما السلام</span></b><span>Calling on Allah in hardship</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/E9gjd" target="_blank" rel="noopener">Buy · $14</a></li>
+          <li class="lesson"><span class="l-n">11</span><div class="l-t"><b>The family of ʿImran<span class="pbuh-s" lang="ar">عليهم السلام</span></b><span>Zakariyya, Yahya, Maryam and ʿIsa</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/CynB7" target="_blank" rel="noopener">Buy · $14</a></li>
+          <li class="lesson"><span class="l-n">12</span><div class="l-t"><b>The Prophet Muhammad<span class="pbuh-s" lang="ar">ﷺ</span></b><span>Comfort from his Lord</span></div><span class="l-age">Ages 8–14</span><span class="l-soon">Coming soon</span></li>
+      </ol>
+      <p class="dl-note">$14 per lesson, for one teacher and their classes. For every teacher in a school, <a href="../contact/?topic=Teaching%20packs">ask for a school licence</a>, paid by invoice.</p>
+    </div>
+
     <div class="wrap section" id="teach">
       <div class="section-head">
         <h2>Teaching packs</h2>
@@ -297,8 +331,8 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
           <h3>Mapping the mushaf</h3><p>Every verse as a tile: Meccan and Medinan surahs, verse length, and the order of revelation.</p><span class="pack-age">Ages 11+</span></article>
         <article class="pack pack-live"><div class="pack-top"><span class="pack-i">B</span><span class="pack-v">Stories <span lang="ar">القصص</span></span></div>
           <h3>The prophets, scene by scene</h3><p>A series of twelve lessons, one prophet or family of prophets at a time, following each story across the surahs that tell it.</p>
-          <div class="pack-buy"><span class="pack-now">Lesson 1 · Musa<span class="pbuh-s" lang="ar">عليه السلام</span> and the call at the fire</span><a class="btn btn-gold" href="https://payhip.com/b/RrVKE" target="_blank" rel="noopener">Buy · $14</a></div>
-          <span class="pack-age">Ages 8–14 · more lessons coming</span></article>
+          <div class="pack-buy"><span class="pack-now">Eleven lessons ready, from Adam to the family of ʿImran</span><a class="btn btn-gold" href="#series">See the lessons</a></div>
+          <span class="pack-age">Ages 8–14 · twelve lessons</span></article>
         <article class="pack"><div class="pack-top"><span class="pack-i">C</span><span class="pack-v">Names <span lang="ar">خواتيم الآيات</span></span></div>
           <h3>The names that close verses</h3><p>Forgiving and Merciful, Mighty and Wise: how the closing names answer what each verse has said.</p><span class="pack-age">Ages 10+</span></article>
         <article class="pack"><div class="pack-top"><span class="pack-i">D</span><span class="pack-v">Rings <span lang="ar">النظم الحلقي</span></span></div>
