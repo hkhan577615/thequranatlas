@@ -15,7 +15,7 @@
 body{margin:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
 </style>
 <title>Library · Quran Atlas</title>
-<meta name="description" content="The Quran Atlas Library: eight illustrated picture books of stories from the Quran for children, free to read, and teaching packs for each of the Atlas’s nine perspectives.">
+<meta name="description" content="The Quran Atlas Library: eight illustrated picture books of stories from the Quran for children, free to read, print and share, with illustrators invited to redraw them.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Xanh+Mono&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&family=Amiri+Quran&family=Markazi+Text:wght@400;500;600;700&family=Reem+Kufi:wght@500&display=swap">
@@ -212,45 +212,7 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
 .sent { border: 1px dashed var(--qa-accent-line); background: var(--qa-accent-tint); border-radius: 12px; padding: 12px 14px; color: var(--ink); margin-top: 10px; }
 .sent b { color: var(--gold); }
 .section, #volunteer { scroll-margin-top: 72px; }
-.packs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.pack { background: var(--qa-card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; display: grid; gap: 8px; align-content: start; transition: border-color .15s; }
-.pack:hover { border-color: var(--qa-accent-line-hi); }
-.pack-top { display: flex; align-items: center; gap: 10px; }
-.pack-i { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); font-family: var(--f-display); flex: none; }
-.pack-v { font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.pack-v [lang="ar"] { font-family: "Markazi Text", serif; font-size: .95rem; letter-spacing: 0; text-transform: none; margin-inline-start: 6px; }
-.pack h3 { font-size: 1.2rem; }
-.pack p { color: var(--muted); font-size: .92rem; }
-.pack-age { font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); }
-#teach .checks { grid-template-columns: 1fr; }
-#teach .checks label { font-size: .88rem; }
-#teach .checks input { width: auto; padding: 0; }
-#teach fieldset { border: 1px solid var(--line); border-radius: 10px; }
-#packs-notify { scroll-margin-top: 72px; }
-@media (max-width: 860px) { .packs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .packs { grid-template-columns: minmax(0, 1fr); } }
-.pack-live { border-color: var(--qa-accent-line); }
-.pack-buy { display: grid; gap: 10px; justify-items: start; border-top: 1px dashed var(--line); padding-top: 10px; margin-top: 2px; }
-.pack-now { font-size: .9rem; color: var(--ink); font-weight: 500; }
 .pbuh-s { font-family: "Markazi Text", "Amiri Quran", serif; font-size: .7em; color: var(--gold); vertical-align: super; line-height: 0; margin-inline-start: .25em; white-space: nowrap; }
-.pack-buy .btn { padding: 9px 16px; }
-.lessons { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; }
-.lesson { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; gap: 14px; align-items: center; background: var(--qa-card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
-.lesson .l-n { font-family: var(--f-display); font-size: 1.5rem; color: var(--gold); width: 2.2ch; }
-.lesson .l-t { display: grid; gap: 1px; min-width: 0; }
-.lesson .l-t b { font-weight: 600; }
-.lesson .l-t span { color: var(--muted); font-size: .9rem; }
-.lesson .l-age { font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
-.lesson .btn { padding: 8px 14px; white-space: nowrap; }
-.lesson .l-soon { font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border: 1px dashed var(--line); border-radius: 999px; padding: 8px 12px; white-space: nowrap; }
-#series { scroll-margin-top: 72px; }
-.bundle { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; background: var(--qa-card); border: 1px solid var(--gold); border-radius: 14px; padding: 16px 18px; margin: 0 0 14px; }
-.bundle > div { display: grid; gap: 2px; min-width: 0; }
-.bundle b { font-weight: 600; }
-.bundle span { color: var(--muted); font-size: .9rem; }
-.bundle .btn { white-space: nowrap; }
-@media (max-width: 860px) { .lessons { grid-template-columns: minmax(0, 1fr); } }
-@media (max-width: 520px) { .lesson { grid-template-columns: auto minmax(0, 1fr) auto; } .lesson .l-age { display: none; } }
 </style>
 <link rel="stylesheet" href="../assets/site.css">
 <script src="../assets/site.js" defer></script>
@@ -278,7 +240,7 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
           <p class="eyebrow">Library · Free books for children</p>
           <h1>Stories from the Quran</h1>
           <p class="ar ar-t" lang="ar">قصص من القرآن</p>
-          <p class="lede">Eight illustrated picture books for children around seven. Read them here, download the PDFs, print them at home and pass them on. Every story keeps close to the verses, teaches one prayer, and hides small details from the Quran itself in the pictures.</p>
+          <p class="lede">Eight illustrated picture books for children around seven. Read them here, download the PDFs, print them at home and pass them on. Every story keeps close to the ayahs, teaches one prayer, and hides small details from the Quran itself in the pictures.</p>
           <ul class="facts"><li><b>8</b> books</li><li><b>24</b> pages each</li><li><b>Free</b> for everyone</li><li><b>CC BY-NC-SA 4.0</b></li></ul>
           <div class="actions">
             <a class="btn btn-gold" href="#read-nuh">Start reading</a>
@@ -301,87 +263,7 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
         <p>In the order the prophets lived, from Nuh to the sleepers in the cave. Read any book on this page, or save its PDF to read offline and print.</p>
       </div>
       <div class="shelf" id="shelf-grid"></div>
-      <p class="dl-note" id="dl-note">Each PDF is about 2 MB: 24 square pages, sized to print well on A4 or US Letter paper. Printed editions will be for sale once the new illustrations are finished; <a href="#packs-notify">ask to be told</a>.</p>
-    </div>
-
-    <div class="wrap section" id="series">
-      <div class="section-head">
-        <h2>The prophets, scene by scene</h2>
-        <p>Twelve ready-to-teach lessons, one prophet or family of prophets at a time. Each follows a story across the surahs that tell it, with a teacher’s guide, slides, worksheets at two levels, an answer key and a poster.</p>
-      </div>
-      <div class="bundle"><div><b>The whole series</b><span>All twelve lessons in one download: $79 instead of&nbsp;$96.</span></div><a class="btn btn-gold" href="https://payhip.com/order?link=WUPws&amp;pricing_plan=18B1VpbrGZ" target="_blank" rel="noopener">Buy all 12 · $79</a></div>
-      <ol class="lessons">
-          <li class="lesson"><span class="l-n">01</span><div class="l-t"><b>Musa<span class="pbuh-s" lang="ar">عليه السلام</span></b><span>One story, many tellings: the call at the fire</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/RrVKE" target="_blank" rel="noopener">Buy · $8</a></li>
-          <li class="lesson"><span class="l-n">02</span><div class="l-t"><b>The 25 prophets<span class="pbuh-s" lang="ar">عليهم السلام</span></b><span>Meet them all</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/4rZOk" target="_blank" rel="noopener">Buy · $8</a></li>
-          <li class="lesson"><span class="l-n">03</span><div class="l-t"><b>Adam<span class="pbuh-s" lang="ar">عليه السلام</span></b><span>The angels bow</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/tSQqY" target="_blank" rel="noopener">Buy · $8</a></li>
-          <li class="lesson"><span class="l-n">04</span><div class="l-t"><b>Nuh<span class="pbuh-s" lang="ar">عليه السلام</span></b><span>The ark and the flood</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/sjTp7" target="_blank" rel="noopener">Buy · $8</a></li>
-          <li class="lesson"><span class="l-n">05</span><div class="l-t"><b>Hud, Salih and Shuʿayb<span class="pbuh-s" lang="ar">عليهم السلام</span></b><span>One message, three peoples</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/G3s2Y" target="_blank" rel="noopener">Buy · $8</a></li>
-          <li class="lesson"><span class="l-n">06</span><div class="l-t"><b>Ibrahim<span class="pbuh-s" lang="ar">عليه السلام</span></b><span>The idols and the fire</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/MdXHY" target="_blank" rel="noopener">Buy · $8</a></li>
-          <li class="lesson"><span class="l-n">07</span><div class="l-t"><b>Lut<span class="pbuh-s" lang="ar">عليه السلام</span></b><span>Leaving by night</span></div><span class="l-age">Ages 10–14</span><a class="btn btn-soft" href="https://payhip.com/b/zx6XL" target="_blank" rel="noopener">Buy · $8</a></li>
-          <li class="lesson"><span class="l-n">08</span><div class="l-t"><b>Yusuf<span class="pbuh-s" lang="ar">عليه السلام</span></b><span>One story, told once</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/z7US6" target="_blank" rel="noopener">Buy · $8</a></li>
-          <li class="lesson"><span class="l-n">09</span><div class="l-t"><b>Dawud and Sulayman<span class="pbuh-s" lang="ar">عليهما السلام</span></b><span>Gifts and gratitude</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/eUXOa" target="_blank" rel="noopener">Buy · $8</a></li>
-          <li class="lesson"><span class="l-n">10</span><div class="l-t"><b>Ayyub and Yunus<span class="pbuh-s" lang="ar">عليهما السلام</span></b><span>Calling on Allah in hardship</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/E9gjd" target="_blank" rel="noopener">Buy · $8</a></li>
-          <li class="lesson"><span class="l-n">11</span><div class="l-t"><b>The family of ʿImran<span class="pbuh-s" lang="ar">عليهم السلام</span></b><span>Zakariyya, Yahya, Maryam and ʿIsa</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/CynB7" target="_blank" rel="noopener">Buy · $8</a></li>
-          <li class="lesson"><span class="l-n">12</span><div class="l-t"><b>The Prophet Muhammad<span class="pbuh-s" lang="ar">ﷺ</span></b><span>O Prophet, O Messenger</span></div><span class="l-age">Ages 8–14</span><a class="btn btn-soft" href="https://payhip.com/b/pErPJ" target="_blank" rel="noopener">Buy · $8</a></li>
-      </ol>
-      <p class="dl-note">$8 per lesson, or $79 for all twelve, for one teacher and their classes. For every teacher in a school, <a href="../contact/?topic=Teaching%20packs">ask for a school licence</a>, paid by invoice.</p>
-    </div>
-
-    <div class="wrap section" id="teach">
-      <div class="section-head">
-        <h2>Teaching packs</h2>
-        <p>One pack for each of the Atlas’s nine perspectives, ready for the classroom, the madrasa or the weekend school. Each has a teacher’s guide, slides, printable worksheets with answers, and a poster.</p>
-      </div>
-      <div class="packs">
-        <article class="pack"><div class="pack-top"><span class="pack-i">A</span><span class="pack-v">Barcode <span lang="ar">بصمة المصحف</span></span></div>
-          <h3>Mapping the mushaf</h3><p>Every verse as a tile: Meccan and Medinan surahs, verse length, and the order of revelation.</p><span class="pack-age">Ages 11+</span></article>
-        <article class="pack pack-live"><div class="pack-top"><span class="pack-i">B</span><span class="pack-v">Stories <span lang="ar">القصص</span></span></div>
-          <h3>The prophets, scene by scene</h3><p>A series of twelve lessons, one prophet or family of prophets at a time, following each story across the surahs that tell it.</p>
-          <div class="pack-buy"><span class="pack-now">Eleven lessons ready, from Adam to the family of ʿImran</span><a class="btn btn-gold" href="#series">See the lessons</a></div>
-          <span class="pack-age">Ages 8–14 · twelve lessons</span></article>
-        <article class="pack"><div class="pack-top"><span class="pack-i">C</span><span class="pack-v">Names <span lang="ar">خواتيم الآيات</span></span></div>
-          <h3>The names that close verses</h3><p>Forgiving and Merciful, Mighty and Wise: how the closing names answer what each verse has said.</p><span class="pack-age">Ages 10+</span></article>
-        <article class="pack"><div class="pack-top"><span class="pack-i">D</span><span class="pack-v">Rings <span lang="ar">النظم الحلقي</span></span></div>
-          <h3>Ring composition</h3><p>Al-Baqarah as mirrored sections around a centre, and how to test a structure against the text.</p><span class="pack-age">Ages 14+</span></article>
-        <article class="pack"><div class="pack-top"><span class="pack-i">E</span><span class="pack-v">Letters <span lang="ar">الحروف المقطعة</span></span></div>
-          <h3>The opening letters</h3><p>The 29 surahs that open with letters: their families, and the word that so often follows them.</p><span class="pack-age">Ages 11+</span></article>
-        <article class="pack"><div class="pack-top"><span class="pack-i">F</span><span class="pack-v">Roots <span lang="ar">الجذور</span></span></div>
-          <h3>Three-letter roots</h3><p>How Arabic builds families of words from three letters, using roots such as r-ḥ-m and ʿ-l-m.</p><span class="pack-age">Ages 10+</span></article>
-        <article class="pack"><div class="pack-top"><span class="pack-i">G</span><span class="pack-v">Echoes <span lang="ar">المتشابهات</span></span></div>
-          <h3>Repeated phrases</h3><p>Refrains, formulas and the near-identical verses that people memorising the Quran learn to tell apart.</p><span class="pack-age">Hifz classes</span></article>
-        <article class="pack"><div class="pack-top"><span class="pack-i">H</span><span class="pack-v">Rhyme <span lang="ar">الفواصل</span></span></div>
-          <h3>Verse endings</h3><p>Hear and see the rhyme of each surah, and where it shifts as the subject turns.</p><span class="pack-age">Ages 9+</span></article>
-        <article class="pack"><div class="pack-top"><span class="pack-i">I</span><span class="pack-v">Voice <span lang="ar">الالتفات</span></span></div>
-          <h3>Who is speaking?</h3><p>I and We, You, He and They: the turns of voice the scholars called iltifāt, starting with Al-Fatihah.</p><span class="pack-age">Ages 13+</span></article>
-      </div>
-      <div class="two" style="margin-top:28px">
-        <div class="panel">
-          <h3>In each pack</h3>
-          <ul class="rules">
-            <li>A teacher’s guide: the idea in plain words, with the verses quoted in Arabic and English.</li>
-            <li>A lesson of 45 to 60 minutes, with slides that open straight into the Atlas.</li>
-            <li>Printable worksheets in two levels, with an answer key.</li>
-            <li>A classroom poster, A3 and A2.</li>
-            <li>One licence covers a teacher and their classes. For every teacher in a school, <a href="../contact/?topic=Teaching%20packs">ask for a school licence</a>, paid by invoice.</li>
-          </ul>
-        </div>
-        <div class="panel" id="packs-notify">
-          <h3>Be the first to know</h3>
-          <p class="note">The first lesson is ready; the rest are being prepared. Leave your email and we will write when new packs are ready to buy.</p>
-          <div class="sent" id="p-sent" role="status" hidden><b>Thank you.</b> We will let you know when the packs are ready.</div>
-          <form id="pack-form" action="https://formsubmit.co/haseem.n.9@gmail.com" method="POST">
-            <label for="p-email">Email<input id="p-email" name="email" type="email" autocomplete="email" required></label>
-            <label for="p-school">School or organisation <span class="hint">optional</span><input id="p-school" name="school" autocomplete="organization"></label>
-            <fieldset><legend>Packs you would use</legend><div class="checks"><label><input type="checkbox" name="packs" value="A. Mapping the mushaf"> A. Mapping the mushaf</label><label><input type="checkbox" name="packs" value="B. The prophets, scene by scene"> B. The prophets, scene by scene</label><label><input type="checkbox" name="packs" value="C. The names that close verses"> C. The names that close verses</label><label><input type="checkbox" name="packs" value="D. Ring composition"> D. Ring composition</label><label><input type="checkbox" name="packs" value="E. The opening letters"> E. The opening letters</label><label><input type="checkbox" name="packs" value="F. Three-letter roots"> F. Three-letter roots</label><label><input type="checkbox" name="packs" value="G. Repeated phrases"> G. Repeated phrases</label><label><input type="checkbox" name="packs" value="H. Verse endings"> H. Verse endings</label><label><input type="checkbox" name="packs" value="I. Who is speaking?"> I. Who is speaking?</label><label><input type="checkbox" name="packs" value="Printed picture books"> Printed picture books</label></div></fieldset>
-            <input type="hidden" name="_subject" value="Quran Atlas: teaching packs interest">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" id="p-next" value="https://thequranatlas.com/library/?packs=1#packs-notify">
-            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <button class="btn btn-ink" type="submit">Notify me</button>
-          </form>
-        </div>
-      </div>
+      <p class="dl-note" id="dl-note">Each PDF is about 2 MB: 24 square pages, sized to print well on A4 or US Letter paper. Printed editions will be for sale once the new illustrations are finished.</p>
     </div>
 
     <div class="wrap section" id="illustrators">
@@ -398,6 +280,7 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
             <li>Keep each hidden detail, such as the 950 stars in Nuh or the bowl shaped like ن in Yunus.</li>
             <li>Square pages, 8.5 × 8.5 in. Leave the top or bottom third calm enough for the words.</li>
             <li>You keep the copyright in your pictures. By sending them, you let Quran Atlas use them in the books, online and in print, and share them under CC BY-NC-SA 4.0 like the rest of the series. You are credited on the title page of every copy.</li>
+            <li>If the books are printed and sold, royalties will be paid to the illustrator whose pictures are chosen.</li>
           </ul>
           <div class="brief-links" id="brief-links"></div>
         </div>
@@ -426,14 +309,14 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
       <div class="section-head"><h2>Free to read and share</h2></div>
       <ul class="open">
         <li><h3>The books</h3><p>Words and pictures under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. Print them, share them and translate them for free, with credit to Quran Atlas. Selling them, or anything made from them, needs our permission.</p></li>
-        <li><h3>The verses</h3><p>Arabic text from the Tanzil Project, quoted exactly. Counts and hidden details are computed with the same open data as the Quran Atlas.</p></li>
+        <li><h3>The ayahs</h3><p>Arabic text from the Tanzil Project, quoted exactly. Counts and hidden details are computed with the same open data as the Quran Atlas.</p></li>
         <li><h3>Printed editions</h3><p>Printed books will be for sale once the new illustrations are finished. Schools, bookshops and publishers can <a href="../contact/">get in touch</a>.</p></li>
       </ul>
     </div>
 
     <footer>
       <div class="wrap">
-        <p>Each story is checked against the verses it retells; the notes for parents at the back of every book list them. A scholar’s review is still to come, and corrections are welcome.</p>
+        <p>Every effort has been made to keep these stories true to the Quran. If you find anything inaccurate, please email <a href="mailto:haseem.n.9@gmail.com?subject=Quran%20Atlas%20Library%3A%20a%20correction">haseem.n.9@gmail.com</a>.</p>
         <p>Part of the <a href="../">Quran Atlas</a>.</p>
       </div>
     </footer>
@@ -576,11 +459,6 @@ function checkVolunteer(e) {
   msg.className = 'msg ok'; msg.textContent = 'Sending… larger files can take a moment.';
   setTimeout(() => { $('#v-send').disabled = true; }, 0);
 }
-function packsBack() {
-  const f = $('#pack-form'); f.addEventListener('submit', () => { $('#p-next').value = location.origin + location.pathname + '?packs=1#packs-notify'; });
-  const q = new URLSearchParams(location.search); if (!q.has('packs')) return;
-  $('#p-sent').hidden = false; history.replaceState(null, '', location.pathname + location.hash);
-}
 function sentBack() {
   const q = new URLSearchParams(location.search); if (!q.has('sent')) return;
   $('#v-sent').hidden = false;
@@ -608,7 +486,7 @@ window.addEventListener('hashchange', route);
 window.addEventListener('resize', () => { clearTimeout(window.__rs); window.__rs = setTimeout(drawSky, 150); });
 matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', drawEchoes);
 
-renderHome(); syncDownloads(); sentBack(); packsBack(); route();
+renderHome(); syncDownloads(); sentBack(); route();
 </script>
 
 <footer class="qa-legal"><span>© 2026 Quran Atlas. All rights reserved.</span><span>Picture books: CC BY-NC-SA 4.0.</span><a href="../licence/">Licence</a><a href="../contact/">Contact</a></footer>

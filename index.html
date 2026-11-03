@@ -14,7 +14,7 @@
 body{margin:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
 </style>
 <title>Quran Atlas</title>
-<meta name="description" content="Nine computed views of the Quran: verse barcode, stories, ring structure, opening letters, roots, echoes, rhyme, voice and name endings, with translation.">
+<meta name="description" content="Nine computed views of the Quran: ayah barcode, stories, ring structure, opening letters, roots, echoes, rhyme, voice and name endings, with translation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Xanh+Mono&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&family=Amiri+Quran&family=Markazi+Text:wght@400;500;600;700&display=swap">
@@ -22,7 +22,7 @@ body{margin:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:no
 <style>
 /* Layout: one column under an open masthead. Each view opens with a bilingual header
    (English left, Arabic right), then controls, the figure at full column width, and short
-   computed notes. Verses open in a sheet that rises from the bottom. Colours come from the
+   computed notes. Ayahs open in a sheet that rises from the bottom. Colours come from the
    --qa-* tokens in assets/site.css (warm paper by day, blue-black and gold by night). Type: Xanh
    Mono and Space Mono for display and labels, General Sans for reading, Markazi Text for Arabic
    headings, Amiri Quran for the text itself. */
@@ -307,7 +307,7 @@ table.grid td button span { display: block; border-radius: 50%; background: var(
 table.grid td button[aria-pressed="true"] span { box-shadow: 0 0 0 2px var(--leaf), 0 0 0 4px var(--ink); }
 table.grid tr.book .rl { color: var(--ink-2); font-style: italic; }
 
-/* verse sheet */
+/* ayah sheet */
 .scrim { position: fixed; inset: 0; background: var(--scrim); z-index: 20; }
 .sheet { position: fixed; z-index: 21; left: 0; right: 0; bottom: 0; max-height: min(78vh, 760px); overflow-y: auto; overscroll-behavior: contain;
   background: var(--leaf); box-shadow: var(--lift); border-radius: 16px 16px 0 0;
@@ -449,10 +449,10 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
       <div class="mast-ar" id="mast-ar" lang="ar" dir="rtl">أطلس القرآن</div>
     </div>
     <p class="mast-lede">Navigating the Quranic Structures from nine perspectives.</p>
-    <p class="mast-sub">Every figure is counted from the text itself, word by word, so any pattern can be traced back to its verses for reflection.</p>
+    <p class="mast-sub">Every figure is counted from the text itself, word by word, so any pattern can be traced back to its ayahs for reflection.</p>
     <a class="mast-guide" href="why/">Why an atlas?</a>
     <ul class="facts" id="facts">
-      <li><b>114</b> surahs</li><li><b>6,236</b> verses</li><li><b>77,430</b> words</li><li><b>1,651</b> roots</li>
+      <li><b>114</b> surahs</li><li><b>6,236</b> ayahs</li><li><b>77,430</b> words</li><li><b>1,651</b> roots</li>
     </ul>
   </header>
 </div>
@@ -466,9 +466,9 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
     <!-- Barcode -->
     <section class="view" id="v-barcode" role="tabpanel" aria-labelledby="t-barcode" hidden>
       <div class="vhead">
-        <h2 class="vtitle">Verse barcode</h2>
+        <h2 class="vtitle">Ayah barcode</h2>
         <div class="vtitle-ar" lang="ar" dir="rtl">بصمة المصحف</div>
-        <p class="vdesc">Each tile is one verse, set out like a mushaf page: start at the top right and read leftwards. A blank space marks the start of each surah.</p>
+        <p class="vdesc">Each tile is one ayah, set out like a mushaf page: start at the top right and read leftwards. A blank space marks the start of each surah.</p>
       </div>
       <div class="controls">
         <div class="ctl">
@@ -498,9 +498,9 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
       </div>
       <div class="legend" id="bc-legend" aria-live="polite"></div>
       <div class="viz" id="bc-viz">
-        <canvas id="bc-canvas" tabindex="0" role="img" aria-label="Grid of all 6,236 verses. Use the arrow keys to move between verses and Enter to read one."></canvas>
+        <canvas id="bc-canvas" tabindex="0" role="img" aria-label="Grid of all 6,236 ayahs. Use the arrow keys to move between ayahs and Enter to read one."></canvas>
         <div class="tip" id="bc-tip" hidden></div>
-        <div class="viz-cap"><span id="bc-cap-a">1:1 starts top right</span><span id="bc-cap-b">Tap a tile to read the verse</span></div>
+        <div class="viz-cap"><span id="bc-cap-a">1:1 starts top right</span><span id="bc-cap-b">Tap a tile to read the ayah</span></div>
       </div>
       <div class="notes" id="bc-notes" aria-live="polite"></div>
     </section>
@@ -513,7 +513,7 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
       </div>
 
       <h3 class="sub">Al-Baqarah as a ring</h3>
-      <p class="subnote">Raymond Farrin divides the surah's 286 verses into nine sections that pair up around a centre (<i>Surat al-Baqara: A Structural Analysis</i>, 2010; <i>Structure and Qur'anic Interpretation</i>, 2014). Arcs join each section to its mirror. Tap a section to read its first verse.</p>
+      <p class="subnote">Raymond Farrin divides the surah's 286 ayahs into nine sections that pair up around a centre (<i>Surat al-Baqara: A Structural Analysis</i>, 2010; <i>Structure and Qur'anic Interpretation</i>, 2014). Arcs join each section to its mirror. Tap a section to read its first ayah.</p>
       <div class="viz" id="rg-ring"></div>
       <ol class="ladder" id="rg-ladder"></ol>
 
@@ -525,7 +525,7 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
       </div>
 
       <h3 class="sub">Echo map for any surah</h3>
-      <p class="subnote">Every verse is compared with every other verse in the surah by the roots they share. Bright squares off the diagonal are verses that echo each other; a refrain shows up as a lattice. Switch to Arcs to see the strongest echoes as arches over the surah.</p>
+      <p class="subnote">Every ayah is compared with every other ayah in the surah by the roots they share. Bright squares off the diagonal are ayahs that echo each other; a refrain shows up as a lattice. Switch to Arcs to see the strongest echoes as arches over the surah.</p>
       <div class="controls">
         <div class="ctl">
           <label for="rg-surah">Surah</label>
@@ -548,10 +548,10 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
         <button class="chipbtn" data-s="37">37 As-Saffat</button>
       </div>
       <div class="viz" id="rg-map-wrap">
-        <canvas id="rg-canvas" role="img" aria-label="Verse-by-verse similarity map for the selected surah"></canvas>
+        <canvas id="rg-canvas" role="img" aria-label="Ayah-by-ayah similarity map for the selected surah"></canvas>
         <div id="rg-key"></div>
         <div class="tip" id="rg-tip" hidden></div>
-        <div class="viz-cap"><span id="rg-cap-a"></span><span id="rg-cap-b">Tap to compare two verses</span></div>
+        <div class="viz-cap"><span id="rg-cap-a"></span><span id="rg-cap-b">Tap to compare two ayahs</span></div>
       </div>
       <div class="pairbox" id="rg-pair" aria-live="polite"></div>
       <div class="notes" id="rg-notes"></div>
@@ -620,11 +620,11 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
       <div class="formlist" id="rt-forms"></div>
 
       <h3 class="sub">Travels with</h3>
-      <p class="subnote">Roots that share verses with this one far more often than chance would predict. Thicker lines mean more shared verses. Tap a root to follow it.</p>
+      <p class="subnote">Roots that share ayahs with this one far more often than chance would predict. Thicker lines mean more shared ayahs. Tap a root to follow it.</p>
       <div class="viz" id="rt-net"></div>
       <div class="chips" id="rt-comp"></div>
 
-      <h3 class="sub">Verses</h3>
+      <h3 class="sub">Ayahs</h3>
       <div class="vlist" id="rt-verses"></div>
     </section>
     <!-- Echoes -->
@@ -632,7 +632,7 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
       <div class="vhead">
         <h2 class="vtitle">Echoes</h2>
         <div class="vtitle-ar" lang="ar" dir="rtl">المتشابهات</div>
-        <p class="vdesc">The Quran repeats itself on purpose: formulas, refrains and whole verses recur across surahs. Each arch below joins two places where the same phrase appears, from the opening of Al-Fatihah on the left to the end on the right.</p>
+        <p class="vdesc">The Quran repeats itself on purpose: formulas, refrains and whole ayahs recur across surahs. Each arch below joins two places where the same phrase appears, from the opening of Al-Fatihah on the left to the end on the right.</p>
       </div>
       <div class="controls">
         <div class="ctl">
@@ -654,8 +654,8 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
       <h3 class="sub">Most repeated phrases</h3>
       <ol class="phr" id="ec-list"></ol>
 
-      <h3 class="sub">Confusable verses</h3>
-      <p class="subnote">Pairs of verses that match almost word for word, the places memorisers learn to watch. The words that differ are marked in gold.</p>
+      <h3 class="sub">Confusable ayahs</h3>
+      <p class="subnote">Pairs of ayahs that match almost word for word, the places memorisers learn to watch. The words that differ are marked in gold.</p>
       <div class="controls">
         <div class="ctl">
           <label for="ec-surah">Show pairs involving</label>
@@ -670,8 +670,8 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
       <div class="pairs" id="ec-pairs"></div>
       <button class="btn" id="ec-more" hidden>Show more pairs</button>
 
-      <h3 class="sub">Same verse, different surahs</h3>
-      <p class="subnote">Verses that recur word for word in more than one surah.</p>
+      <h3 class="sub">Same ayah, different surahs</h3>
+      <p class="subnote">Ayahs that recur word for word in more than one surah.</p>
       <div class="pairs" id="ec-ident"></div>
     </section>
     <!-- Rhyme -->
@@ -679,13 +679,13 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
       <div class="vhead">
         <h2 class="vtitle">Rhyme</h2>
         <div class="vtitle-ar" lang="ar" dir="rtl">الفواصل</div>
-        <p class="vdesc">Most verses end on a rhyme, read as you would pause on the last word. Each row below is one surah, stretched to the full width, with every verse coloured by its end sound. Long single-colour rows are surahs that hold one rhyme throughout.</p>
+        <p class="vdesc">Most ayahs end on a rhyme, read as you would pause on the last word. Each row below is one surah, stretched to the full width, with every ayah coloured by its end sound. Long single-colour rows are surahs that hold one rhyme throughout.</p>
       </div>
       <div class="legend" id="rh-legend" aria-label="Rhymes; tap one to highlight it"></div>
       <div class="viz" id="rh-wrap">
-        <canvas id="rh-canvas" role="img" aria-label="End rhyme of every verse, one row per surah"></canvas>
+        <canvas id="rh-canvas" role="img" aria-label="End rhyme of every ayah, one row per surah"></canvas>
         <div class="tip" id="rh-tip" hidden></div>
-        <div class="viz-cap"><span>Surah 1 at top, verse 1 at the left of each row</span><span>Tap a row to open that surah below</span></div>
+        <div class="viz-cap"><span>Surah 1 at top, ayah 1 at the left of each row</span><span>Tap a row to open that surah below</span></div>
       </div>
       <div class="notes" id="rh-notes"></div>
 
@@ -706,7 +706,7 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
       <ol class="runs" id="rh-runs"></ol>
 
       <h3 class="sub">Refrains as a score</h3>
-      <p class="subnote">Verses that return word for word inside a surah, drawn like notes on a stave. Each line spans the whole surah; each dot is one return of the refrain.</p>
+      <p class="subnote">Ayahs that return word for word inside a surah, drawn like notes on a stave. Each line spans the whole surah; each dot is one return of the refrain.</p>
       <div class="viz" id="rh-score"></div>
     </section>
     <!-- Voice -->
@@ -714,11 +714,11 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
       <div class="vhead">
         <h2 class="vtitle">Voice</h2>
         <div class="vtitle-ar" lang="ar" dir="rtl">الالتفات</div>
-        <p class="vdesc">Who is speaking, and to whom? Arabic marks person on every verb and pronoun, so each verse can be read for its I and We, its You, and its He, She and They. The Quran turns between them often, a device the rhetoricians called iltifāt.</p>
+        <p class="vdesc">Who is speaking, and to whom? Arabic marks person on every verb and pronoun, so each ayah can be read for its I and We, its You, and its He, She and They. The Quran turns between them often, a device the rhetoricians called iltifāt.</p>
       </div>
 
       <h3 class="sub">Who is addressed</h3>
-      <p class="subnote">Every call that opens with yā (O…), grouped by who is called. Each bar splits into verses from Meccan and Medinan surahs.</p>
+      <p class="subnote">Every call that opens with yā (O…), grouped by who is called. Each bar splits into ayahs from Meccan and Medinan surahs.</p>
       <div class="legend"><span class="key"><span class="sw" style="background:var(--mec)"></span>Meccan surahs</span><span class="key"><span class="sw" style="background:var(--med)"></span>Medinan surahs</span></div>
       <div class="vocs" id="vo-vocs"></div>
       <div class="notes" id="vo-voc-notes"></div>
@@ -738,11 +738,11 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
       <div class="viz" id="vo-wrap">
         <canvas id="vo-canvas" role="img" aria-label="Share of first, second and third person markers in each surah"></canvas>
         <div class="tip" id="vo-tip" hidden></div>
-        <div class="viz-cap"><span id="vo-cap">Surah 1 at top</span><span>Tap a row to read it verse by verse</span></div>
+        <div class="viz-cap"><span id="vo-cap">Surah 1 at top</span><span>Tap a row to read it ayah by ayah</span></div>
       </div>
       <div class="notes" id="vo-notes"></div>
 
-      <h3 class="sub">Verse by verse</h3>
+      <h3 class="sub">Ayah by ayah</h3>
       <div class="controls">
         <div class="ctl"><label for="vo-surah">Surah</label><select id="vo-surah"></select></div>
       </div>
@@ -762,24 +762,24 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
       <div class="vhead">
         <h2 class="vtitle">Name endings</h2>
         <div class="vtitle-ar" lang="ar" dir="rtl">خواتيم الآيات</div>
-        <p class="vdesc">Hundreds of verses close on a pair of God's names, such as Forgiving and Merciful or Mighty and Wise. Which pairs occur, how the names join up, and what the verses before them are about can all be counted.</p>
+        <p class="vdesc">Hundreds of ayahs close on a pair of God's names, such as Forgiving and Merciful or Mighty and Wise. Which pairs occur, how the names join up, and what the ayahs before them are about can all be counted.</p>
       </div>
       <div class="nm-layout">
         <div>
-          <h3 class="sub" style="margin-top:0">Pairs that close verses</h3>
+          <h3 class="sub" style="margin-top:0">Pairs that close ayahs</h3>
           <ol class="pairlist" id="nm-pairs"></ol>
           <button class="btn" id="nm-more" hidden>Show all pairs</button>
         </div>
         <div>
           <h3 class="sub" style="margin-top:0">How the names pair up</h3>
-          <p class="subnote">Each line joins two names that close a verse together; thicker lines close more verses. Tap a name to light up its partners.</p>
+          <p class="subnote">Each line joins two names that close an ayah together; thicker lines close more ayahs. Tap a name to light up its partners.</p>
           <div class="viz" id="nm-net"></div>
         </div>
       </div>
       <div class="pairbox" id="nm-detail" aria-live="polite"></div>
 
       <h3 class="sub">Common closing words</h3>
-      <p class="subnote">The most frequent last words of verses, names or not. Tap one to list its verses.</p>
+      <p class="subnote">The most frequent last words of ayahs, names or not. Tap one to list its ayahs.</p>
       <ol class="phr" id="nm-close"></ol>
     </section>
     <!-- Stories -->
@@ -805,7 +805,7 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
       <div class="notes" id="st-notes"></div>
 
       <h3 class="sub">Stories, scene by scene</h3>
-      <p class="subnote">Each row is a scene, in approximate story order; each column is a surah that tells part of it. Larger dots mean more verses. Tap a dot, then read the whole passage with its translation.</p>
+      <p class="subnote">Each row is a scene, in approximate story order; each column is a surah that tells part of it. Larger dots mean more ayahs. Tap a dot, then read the whole passage with its translation.</p>
       <div class="controls">
         <div class="ctl">
           <label for="st-story">Prophet</label>
@@ -831,7 +831,7 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
   <footer class="credits" id="credits">
     <p><b>Text.</b> Quran text from the <a href="https://tanzil.net" target="_blank" rel="noopener">Tanzil Project</a> (Uthmani edition), Creative Commons Attribution 3.0, shown verbatim. Surah order, revelation order and Meccan/Medinan labels come from Tanzil's metadata; pages and sajdahs follow the Madinah mushaf via the quran-meta package.</p>
     <p><b>Grammar.</b> Roots, lemmas and person come from the <a href="https://corpus.quran.com" target="_blank" rel="noopener">Quranic Arabic Corpus</a> v0.4 (University of Leeds, GNU GPL), in the Arabic-script edition maintained at github.com/mustafa0x/quran-morphology.</p>
-    <p><b>Translations.</b> English by Saheeh International and by Abdullah Yusuf Ali (1934), as published on <a href="https://tanzil.net/trans/" target="_blank" rel="noopener">Tanzil</a> and packaged in the al-quran-database project. They are shown here for non-commercial study; choose one in any verse panel.</p>
+    <p><b>Translations.</b> English by Saheeh International and by Abdullah Yusuf Ali (1934), as published on <a href="https://tanzil.net/trans/" target="_blank" rel="noopener">Tanzil</a> and packaged in the al-quran-database project. They are shown here for non-commercial study; choose one in any ayah panel.</p>
     <p><b>Method.</b> Quran Atlas computes every count from the Arabic text and its grammar. Scholarly structures are credited to their authors, and the story scenes were compiled for this atlas from the text.</p>
   </footer>
 </div>
@@ -855,7 +855,7 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
       <button class="btn" id="sheet-roots" aria-pressed="false">Show roots</button>
       <a id="sheet-link" href="https://quran.com/1/1" target="_blank" rel="noopener">Tafsir and recitation on Quran.com ↗</a>
     </div>
-    <nav class="sheet-nav" aria-label="Neighbouring verses">
+    <nav class="sheet-nav" aria-label="Neighbouring ayahs">
       <button class="btn" id="sheet-prev">‹ Previous</button>
       <button class="btn" id="sheet-next">Next ›</button>
     </nav>
@@ -871,8 +871,8 @@ html[lang="ar"] .tab::before { content: counter(tab, arabic-indic); }
    from the AR dictionary (exact English -> Arabic) for fixed strings, and from AR_HTML for fixed
    passages that carry markup. el(), canvas text and a watcher on the page apply them, and show
    digits in Arabic-Indic form. Switching language reloads the page in the other language. */
-const AR = /*AR-DICT*/{"Navigating the Quranic Structures from nine perspectives.":"الإبحار في بُنى القرآن من تسع زوايا.","Every figure is counted from the text itself, word by word, so any pattern can be traced back to its verses for reflection.":"كل رقم هنا محسوب من النص نفسه، كلمةً كلمة، فيمكن تتبّع أي نمط إلى آياته للتدبّر.","The Quran tells its stories in pieces, returning to the same prophets across many surahs and choosing different scenes each time. Below: where each prophet is named, then the story of every prophet broken into scenes, surah by surah.":"يروي القرآن قصصه متفرقة، فيعود إلى الأنبياء أنفسهم في سور كثيرة ويختار في كل مرة مشاهد مختلفة. وفيما يلي: مواضع ذكر كل نبي باسمه، ثم قصة كل نبي مقسّمة إلى مشاهد، سورةً سورة.","Prophet":"النبي","Peace be upon them all":"عليهم السلام جميعًا","Prophets by surah, and the scenes of every prophet's story, surah by surah.":"الأنبياء بحسب السور، ومشاهد قصة كل نبي سورةً سورة.","Nine ways to see the Quran's structure. Every figure here is counted from the text itself, word by word, so you can check any pattern by tapping through to the verses.":"تسع طرق لرؤية بنية القرآن. كل رقم هنا معدود من النص نفسه، كلمةً كلمة، فتستطيع أن تتحقق من أي نمط بالانتقال إلى الآيات.","Studies":"دراسات","Library":"المكتبة","Why an atlas?":"لماذا أطلس؟","Books":"كتب","Free books: Stories from the Quran, eight picture books for children, and this Atlas as a 112-page book to print":"كتب مجانية بالإنجليزية: «قصص من القرآن»، ثمانية كتب مصوّرة للأطفال، وهذا الأطلس كتابًا من 112 صفحة يُطبع","Six illustrated deep dives: the middle of the Quran, Ar-Rahman’s pairs, Musa’s story as a transit map, and more":"ست دراسات مصوّرة معمّقة: منتصف القرآن، ومثنّى سورة الرحمن، وقصة موسى خريطةَ مواصلات، وغير ذلك","Views":"العروض","Barcode":"البصمة","Stories":"القصص","Names":"الأسماء","Rings":"الحلقات","Letters":"الحروف","Roots":"الجذور","Echoes":"المتشابهات","Rhyme":"الفواصل","Voice":"الالتفات","Close":"إغلاق","Translation":"الترجمة","Show roots":"اعرض الجذور","Hide roots":"أخفِ الجذور","Tafsir and recitation on Quran.com ↗":"التفسير والتلاوة على موقع Quran.com ↗","Neighbouring verses":"الآيات المجاورة","‹ Previous":"› السابقة","Next ›":"التالية ‹","Loading verse…":"جارٍ تحميل الآية…","Loading passage…":"جارٍ تحميل المقطع…","The translation did not load. Check your connection and reopen the verse.":"تعذّر تحميل الترجمة. تحقّق من الاتصال وأعد فتح الآية.","Sajdah":"سجدة","Read in English":"Read in English","Each tile is one verse, set out like a mushaf page: start at the top right and read leftwards. A blank space marks the start of each surah.":"كل مربّع آية، مصفوفة كصفحة المصحف: ابدأ من أعلى اليمين واقرأ نحو اليسار. وتدلّ المسافة الفارغة على بداية كل سورة.","Colour by":"التلوين بحسب","Length":"الطول","Meccan / Medinan":"المكي والمدني","Root":"الجذر","Prophet":"النبي","Order":"الترتيب","Mushaf":"المصحف","Revelation":"النزول","Grid of all 6,236 verses. Use the arrow keys to move between verses and Enter to read one.":"شبكة الآيات كلها، 6,236 آية. استعمل مفاتيح الأسهم للتنقل بين الآيات، وEnter لقراءة إحداها.","Tap a tile to read the verse":"اضغط مربّعًا لتقرأ الآية","1:1 starts top right":"1:1 تبدأ من أعلى اليمين","Words per verse":"كلمات الآية","Mentions in the verse":"مرات الورود في الآية","Words from this root in the verse":"كلمات هذا الجذر في الآية","Not present":"غير موجود","Loading roots…":"جارٍ تحميل الجذور…","Featured":"مختارة","Most frequent":"الأكثر ورودًا","In revelation order the short, dense verses of the early surahs fill the top of the grid, and the long Medinan verses gather at the end.":"في ترتيب النزول تملأ الآياتُ القصيرة الكثيفة في السور الأولى أعلى الشبكة، وتجتمع الآيات المدنية الطويلة في آخرها.","Switch the order to Revelation to watch the short early verses gather at the top and the long Medinan verses sink to the end.":"غيّر الترتيب إلى «النزول» لترى الآيات المبكرة القصيرة تجتمع في الأعلى، والآيات المدنية الطويلة تنزل إلى الآخر.","Labels and revelation order follow Tanzil metadata, based on the 1924 Egyptian standard edition. The order applies to whole surahs; verses keep their place inside each surah, and scholars dispute the dating of some surahs.":"الوصف بالمكي والمدني وترتيب النزول من بيانات تنزيل، المبنية على المصحف المصري الصادر سنة 1924. والترتيب يشمل السور كاملة؛ وتبقى الآيات في مواضعها داخل كل سورة، ويختلف العلماء في زمن نزول بعض السور.","The Quran tells its stories in pieces, returning to the same figures across many surahs and choosing different scenes each time. Below: where each prophet is named, then the stories of Musa, Ibrahim and Nuh broken into scenes, surah by surah.":"يروي القرآن قصصه متفرقة، يعود إلى الشخصيات نفسها في سور كثيرة، ويختار في كل مرة مشاهد مختلفة. وفيما يلي: أين يُسمّى كل نبي، ثم قصص موسى وإبراهيم ونوح مقسّمة إلى مشاهد، سورةً سورة.","Prophets across the surahs":"الأنبياء عبر السور","Where each prophet is named, surah by surah":"أين يُسمّى كل نبي، سورةً سورة","Order surahs":"ترتيب السور","Mushaf order":"ترتيب المصحف","Revelation order":"ترتيب النزول","shaded columns: Medinan surahs":"الأعمدة المظللة: سور مدنية","Counts are of names only. Prophets are also referred to by title or pronoun, such as Yunus as \"the man of the fish\", so they appear in more verses than are counted here.":"العدّ للأسماء وحدها. ويُشار إلى الأنبياء أيضًا بالألقاب والضمائر، كتسمية يونس «صاحب الحوت»، فهم يرِدون في آيات أكثر مما عُدّ هنا.","Stories, scene by scene":"القصص، مشهدًا مشهدًا","Story":"القصة","Musa":"موسى","Ibrahim":"إبراهيم","Nuh":"نوح","Columns in":"الأعمدة بحسب","Each row is a scene, in approximate story order; each column is a surah that tells part of it. Larger dots mean more verses. Tap a dot, then read the whole passage with its translation.":"كل صف مشهد، بترتيب القصة على وجه التقريب؛ وكل عمود سورة تروي شيئًا منه. والنقاط الأكبر آيات أكثر. اضغط نقطة، ثم اقرأ المقطع كاملًا.","Scene / Surah":"المشهد / السورة","Tap a dot to see the verses of that telling.":"اضغط نقطة لترى آيات تلك الرواية.","Gathering the stories…":"جارٍ جمع القصص…","Hundreds of verses close on a pair of God's names, such as Forgiving and Merciful or Mighty and Wise. Which pairs occur, how the names join up, and what the verses before them are about can all be counted.":"مئات الآيات تُختم باسمين من أسماء الله، مثل «الغفور الرحيم» و«العزيز الحكيم». ويمكن أن يُعدّ أيّ الأزواج يرد، وكيف تترابط الأسماء، وعمّ تتحدث الآيات التي تسبقها.","Pairs that close verses":"أزواج تختم الآيات","How the names pair up":"كيف تقترن الأسماء","Each line joins two names that close a verse together; thicker lines close more verses. Tap a name to light up its partners.":"كل خط يصل بين اسمين يختمان آية معًا؛ والخطوط الأغلظ تختم آيات أكثر. اضغط اسمًا لتضيء الأسماء المقترنة به.","Network of divine names that close verses together":"شبكة أسماء الله التي تختم الآيات معًا","Common closing words":"خواتيم شائعة","The most frequent last words of verses, names or not. Tap one to list its verses.":"أكثر الكلمات ورودًا في أواخر الآيات، أسماءً كانت أو غيرها. اضغط إحداها لتعرض آياتها.","Its verses lean on these roots far more than the Quran overall:":"تكثر آياته من هذه الجذور أكثر بكثير من القرآن عامة:","Show all pairs":"اعرض الأزواج كلها","Reading verse endings…":"جارٍ قراءة خواتيم الآيات…","Some scholars read surahs as rings: sections that mirror each other around a centre, A B C … C′ B′ A′. Below is one such reading of Al-Baqarah, a vocabulary check of it, and an echo map you can run on any surah.":"يقرأ بعض العلماء السور حلقاتٍ: أقسامًا يقابل بعضها بعضًا حول مركز، A B C … C′ B′ A′. وفيما يلي قراءة من هذا النوع لسورة البقرة، وفحص لها بالمفردات، وخريطة أصداء تصلح لأي سورة.","Al-Baqarah as a ring":"سورة البقرة حلقةً","Does the vocabulary agree?":"هل توافقها المفردات؟","Each square compares the roots used in two of Farrin's sections, weighting rare roots more than common ones. Outlined squares are the mirrored pairs. A ring built on themes need not show up in word counts, so this is a check, not a verdict.":"كل مربع يقارن الجذور المستعملة في قسمين من أقسام فارين، مع إعطاء الجذور النادرة وزنًا أكبر من الشائعة. والمربعات المحاطة هي الأزواج المتقابلة. والحلقة المبنية على المعاني قد لا تظهر في عدّ الألفاظ، فهذا فحص لا حكم.","Similarity of shared vocabulary between the nine sections; mirrored pairs outlined.":"تشابه المفردات المشتركة بين الأقسام التسعة؛ والأزواج المتقابلة محاطة.","Shared vocabulary":"المفردات المشتركة","Counting roots…":"جارٍ عدّ الجذور…","Counting shared roots…":"جارٍ عدّ الجذور المشتركة…","Echo map for any surah":"خريطة الأصداء لأي سورة","Every verse is compared with every other verse in the surah by the roots they share. Bright squares off the diagonal are verses that echo each other; a refrain shows up as a lattice. Switch to Arcs to see the strongest echoes as arches over the surah.":"تُقارَن كل آية بكل آية أخرى في السورة بحسب الجذور المشتركة. والمربعات المضيئة بعيدًا عن القطر آيات يردّد بعضها بعضًا؛ واللازمة تظهر شبكةً. انتقل إلى «الأقواس» لترى أقوى الأصداء أقواسًا فوق السورة.","Surah":"السورة","Show":"العرض","Map":"خريطة","Arcs":"أقواس","Suggested surahs":"سور مقترحة","Verse-by-verse similarity map for the selected surah":"خريطة التشابه آيةً آية للسورة المختارة","Similarity (square-root scale)":"التشابه (بمقياس الجذر التربيعي)","Similarity is the cosine of rarity-weighted root counts: 1 means the same roots in the same proportions, 0 means no roots in common. Common roots such as God, say and be count for little.":"التشابه هو جيب تمام الزاوية بين أعداد الجذور الموزونة بندرتها: 1 يعني الجذور نفسها بالنسب نفسها، و0 يعني لا جذر مشتركًا. والجذور الشائعة مثل «الله» و«قال» و«كان» قليلة الوزن.","Section widths to scale, except A′ (two verses), widened to stay visible":"عرض الأقسام بمقياسها، إلا A′ (آيتان) فقد وُسّع ليبقى ظاهرًا","verse 1":"الآية 1","Belief and disbelief":"الإيمان والكفر","Law given to the Children of Israel":"شريعة بني إسرائيل","Abraham is tested":"ابتلاء إبراهيم","The Kaʿbah becomes the qiblah":"الكعبة قبلةً","The Muslims will be tested":"ابتلاء المسلمين","Law given to the Muslims":"شريعة المسلمين","Tap to compare two verses":"اضغط لتقارن آيتين","Tap a verse on the line to see its echoes":"اضغط آية على الخط لترى أصداءها","Tap any square to see which roots two verses share.":"اضغط أي مربع لترى الجذور المشتركة بين آيتين.","Tap a point on the line to see that verse’s strongest echoes.":"اضغط نقطة على الخط لترى أقوى أصداء تلك الآية.","These two verses share no roots.":"لا جذر مشترك بين هاتين الآيتين.","same verse":"الآية نفسها","Strongest other echoes:":"أقوى الأصداء الأخرى: ","No two verses here share many rare roots.":"لا تشترك آيتان هنا في جذور نادرة كثيرة.","No verses here share enough rare roots to draw an arc.":"لا تشترك آيات هنا في جذور نادرة تكفي لرسم قوس.","Twenty-nine surahs open with letters recited one by one, such as Alif Lām Mīm. Their meaning is left open in the tradition, but where they fall, what follows them and how often their letters recur can all be counted.":"تسع وعشرون سورة تُفتتح بحروف تُقرأ حرفًا حرفًا، مثل «الم». ومعناها متروك في التراث، لكن مواضعها وما يليها ومقدار تكرار حروفها كلها مما يُعدّ.","All 114 surahs, the 29 with opening letters highlighted":"السور كلها، 114 سورة، ومُبرزة منها الـ29 المفتتحة بالحروف","Surah 1 at top right, ten to a row":"السورة 1 في أعلى اليمين، عشر سور في كل صف","Tap a surah to read its opening":"اضغط سورة لتقرأ فاتحتها","Families":"العائلات","Alif Lām openings":"المفتتحة بـ«الم» و«الر»","Ḥā Mīm":"الحواميم","Ṭā openings":"المفتتحة بالطاء","Single letters and others":"حرف واحد وغير ذلك","What follows the letters":"ما يلي الحروف","The words right after the letters, with any word for the Book, the Quran, sending down or revelation marked in gold.":"الكلمات التي تلي الحروف مباشرة، وقد عُلّمت بالذهبي كل كلمة تدل على الكتاب أو القرآن أو التنزيل أو الوحي.","Show all 29":"اعرض الـ29 كلها","Loading the openings…":"جارٍ تحميل الفواتح…","Book":"الكتاب","A verse later":"بعد آية","Other subject":"موضوع آخر","Do the letters recur in their surahs?":"هل تتكرر الحروف في سورها؟","Each dot is one opening letter in one surah: how often that letter occurs in its own surah, compared with its rate across the whole Quran. Dots right of the line occur more often than usual. Gold dots are at least a quarter above the usual rate.":"كل نقطة حرف من حروف الفواتح في سورة واحدة: كم يتكرر في سورته مقارنةً بمعدّله في القرآن كله. والنقاط يمين الخط تتكرر أكثر من المعتاد. والنقاط الذهبية تزيد على المعتاد بالربع على الأقل.","Rate of each opening letter in its own surah relative to the whole Quran. Table below.":"معدّل كل حرف من حروف الفواتح في سورته نسبةً إلى القرآن كله. والجدول أدناه.","usual rate":"المعدّل المعتاد","Table of all letter rates":"جدول معدّلات الحروف كلها","Most Arabic words grow from a root of three letters. Pick one of the Quran's 1,651 roots to see where it lives, the shapes it takes and the roots it keeps company with.":"تنبت أكثر الكلمات العربية من جذر من ثلاثة أحرف. اختر جذرًا من جذور القرآن البالغة 1,651 لترى أين يسكن، وما الصيغ التي يأخذها، وما الجذور التي يصاحبها.","Find a root":"ابحث عن جذر","رحم, rhm or mercy":"مثل: رحم","Featured roots":"جذور مختارة","No root matches. Try Arabic letters (رحم), Latin letters (rhm) or an English word (mercy).":"لا جذر مطابق. جرّب أحرفًا عربية (رحم)، أو أحرفًا لاتينية (rhm)، أو كلمة إنجليزية (mercy).","Where it lives":"أين يسكن","Surahs in":"السور بحسب","Uses per 1,000 words in each surah":"مرات الورود لكل 1,000 كلمة في كل سورة","Meccan surah":"سورة مكية","Medinan surah":"سورة مدنية","Word forms":"صيغ الكلمات","Travels with":"يصاحب","Roots that share verses with this one far more often than chance would predict. Thicker lines mean more shared verses. Tap a root to follow it.":"جذور تشارك هذا الجذر في الآيات أكثر بكثير مما تقتضيه المصادفة. والخطوط الأغلظ آيات مشتركة أكثر. اضغط جذرًا لتنتقل إليه.","Roots that share verses with the selected root":"جذور تشارك الجذر المختار في الآيات","This root is too rare to measure the company it keeps.":"هذا الجذر أندر من أن تُقاس صحبته.","No root shares its verses notably more often than chance.":"لا جذر يشاركه آياته أكثر مما تقتضيه المصادفة بوضوح.","Verses":"الآيات","Show every verse":"اعرض كل الآيات","Every occurrence is a verb: the Quran never uses this root as a noun.":"كل وروده فعل: لم يستعمل القرآن هذا الجذر اسمًا قط.","Every occurrence is a noun or adjective: the Quran never uses this root as a verb.":"كل وروده اسم أو صفة: لم يستعمل القرآن هذا الجذر فعلًا قط.","The Quran repeats itself on purpose: formulas, refrains and whole verses recur across surahs. Each arch below joins two places where the same phrase appears, from the opening of Al-Fatihah on the left to the end on the right.":"يتكرر القرآن عن قصد: صيغ ولوازم وآيات كاملة تعود عبر السور. وكل قوس أدناه يصل بين موضعين ترد فيهما العبارة نفسها، من أول الفاتحة على اليسار إلى آخر المصحف على اليمين.","Phrases of":"عبارات من","3+ words":"3 كلمات فأكثر","5+ words":"5 كلمات فأكثر","8+ words":"8 كلمات فأكثر","Arcs joining repeated phrases across the Quran":"أقواس تصل بين العبارات المتكررة في القرآن","Tap the line to see what repeats there":"اضغط الخط لترى ما يتكرر هناك","Tap the line under the arches to see what repeats at that verse, or pick a phrase from the list below.":"اضغط الخط تحت الأقواس لترى ما يتكرر عند تلك الآية، أو اختر عبارة من القائمة أدناه.","Most repeated phrases":"أكثر العبارات تكرارًا","Confusable verses":"متشابهات الحفظ","Pairs of verses that match almost word for word, the places memorisers learn to watch. The words that differ are marked in gold.":"أزواج من الآيات تتطابق كلماتها تقريبًا، وهي المواضع التي يتنبّه لها الحفّاظ. والكلمات المختلفة معلّمة بالذهبي.","Show pairs involving":"اعرض الأزواج في","All surahs":"كل السور","Show more pairs":"اعرض أزواجًا أخرى","Same verse, different surahs":"آية واحدة في سور مختلفة","Verses that recur word for word in more than one surah.":"آيات تتكرر بلفظها في أكثر من سورة.","Finding repeated phrases…":"جارٍ البحث عن العبارات المتكررة…","No phrase of this length from this verse recurs elsewhere. Try a shorter length or a nearby verse.":"لا تتكرر عبارة بهذا الطول من هذه الآية في موضع آخر. جرّب طولًا أقصر أو آية مجاورة.","Also at:":"وترد أيضًا في:","missing word":"كلمة ناقصة","Most verses end on a rhyme, read as you would pause on the last word. Each row below is one surah, stretched to the full width, with every verse coloured by its end sound. Long single-colour rows are surahs that hold one rhyme throughout.":"تنتهي أكثر الآيات بفاصلة تُقرأ بالوقف على آخر كلمة. وكل صف أدناه سورة ممدودة بعرض الصفحة، وكل آية ملوّنة بصوت خاتمتها. والصفوف الطويلة ذات اللون الواحد سور تلتزم فاصلة واحدة من أولها إلى آخرها.","Rhymes; tap one to highlight it":"الفواصل؛ اضغط إحداها لإبرازها","End rhyme of every verse, one row per surah":"فاصلة كل آية، صف لكل سورة","Surah 1 at top, verse 1 at the left of each row":"السورة 1 في الأعلى، والآية 1 في يسار كل صف","Tap a row to open that surah below":"اضغط صفًّا لتفتح تلك السورة أدناه","Rhymes are read in pause, so final short vowels and nunation drop away and -ān sounds where -an is written. The long vowels ī and ū before the same consonant count as one rhyme, as in Al-Fatihah.":"تُقرأ الفواصل بالوقف، فتسقط الحركات القصيرة الأخيرة والتنوين، ويُنطق ما كُتب ـًا ألفًا. والياء والواو المدّيتان قبل الحرف نفسه فاصلة واحدة، كما في الفاتحة.","Inside one surah":"داخل سورة واحدة","Refrains as a score":"اللوازم نوتةً موسيقية","Verses that return word for word inside a surah, drawn like notes on a stave. Each line spans the whole surah; each dot is one return of the refrain.":"آيات تعود بلفظها داخل السورة، مرسومة كالنوتات على المدرج الموسيقي. كل خط يمتد على السورة كلها؛ وكل نقطة عودة للازمة.","Refrains drawn as notes along each surah":"اللوازم مرسومة نوتاتٍ على امتداد كل سورة","Who is speaking, and to whom? Arabic marks person on every verb and pronoun, so each verse can be read for its I and We, its You, and its He, She and They. The Quran turns between them often, a device the rhetoricians called iltifāt.":"مَن المتكلم، ومَن المخاطَب؟ تُعلِّم العربية الضمير في كل فعل وضمير، فيمكن قراءة كل آية بمتكلّمها ومخاطَبها وغائبها. والقرآن ينتقل بينها كثيرًا، وهو ما سمّاه البلاغيون «الالتفات».","Who is addressed":"مَن المخاطَب","Every call that opens with yā (O…), grouped by who is called. Each bar splits into verses from Meccan and Medinan surahs.":"كل نداء يبدأ بـ«يا»، مجموعًا بحسب المنادى. وكل عمود ينقسم إلى آيات من سور مكية وأخرى مدنية.","Meccan surahs":"سور مكية","Medinan surahs":"سور مدنية","Reading pronouns…":"جارٍ قراءة الضمائر…","Tap a row to list its verses. \"Our Lord\" counts only where it is a call (the accusative form); \"Say\" counts the singular command qul.":"اضغط صفًّا لتعرض آياته. ولا يُعدّ «ربّنا» إلا حيث يكون نداءً (بالنصب)؛ ويُعدّ في «قل» فعل الأمر المفرد.","I, You and They, surah by surah":"المتكلم والمخاطب والغائب، سورةً سورة","Most \"you\"":"الأكثر خطابًا","Share of first, second and third person markers in each surah":"نسبة علامات المتكلم والمخاطب والغائب في كل سورة","Surah 1 at top · Medinan surahs ticked at the right edge":"السورة 1 في الأعلى · والسور المدنية معلّمة عند الحافة اليمنى","Earliest revealed at top · Medinan ticked at right":"الأقدم نزولًا في الأعلى · والمدنية معلّمة يمينًا","Most \"you\" at top · Medinan ticked at right":"الأكثر خطابًا في الأعلى · والمدنية معلّمة يمينًا","Counted from verb endings and pronouns in the Quranic Arabic Corpus. This is grammatical person, not the identity of the speaker: \"We\" may be God, the angels or the jinn, depending on the passage.":"معدود من لواحق الأفعال والضمائر في المدوّنة القرآنية العربية. وهذا ضمير نحوي لا هوية المتكلم: فـ«نحن» قد تكون الله أو الملائكة أو الجن، بحسب السياق.","Verse by verse":"آيةً آية","Tap a row to read it verse by verse":"اضغط صفًّا لتقرأه آيةً آية","Farrin's ring structure of Al-Baqarah: sections A to D mirror D′ to A′ around the centre E, verses 142 to 152.":"بنية سورة البقرة الحلقية عند فارين: الأقسام من A إلى D تقابل D′ إلى A′ حول المركز E، الآيات من 142 إلى 152.","mirrors":"يقابل","the centre":"المركز","God's creation and knowledge":"خلق الله وعلمه",",":"،","and":"و",";":"؛","1 Al-Fatihah":"1 الفاتحة","2 Al-Baqarah":"2 البقرة","12 Yusuf":"12 يوسف","18 Al-Kahf":"18 الكهف","19 Maryam":"19 مريم","26 Ash-Shuʿaraʾ":"26 الشعراء","36 Ya-Sin":"36 يس","37 As-Saffat":"37 الصافات","49 Al-Hujurat":"49 الحجرات","54 Al-Qamar":"54 القمر","55 Ar-Rahman":"55 الرحمن","72 Al-Jinn":"72 الجن","77 Al-Mursalat":"77 المرسلات","93 Ad-Duha":"93 الضحى"}/*END-AR-DICT*/;
-const AR_HTML = /*AR-HTML*/{"Raymond Farrin divides the surah's 286 verses into nine sections that pair up around a centre (Surat al-Baqara: A Structural Analysis, 2010; Structure and Qur'anic Interpretation, 2014). Arcs join each section to its mirror. Tap a section to read its first verse.":"يقسّم ريموند فارين آيات السورة الـ286 تسعة أقسام يقابل بعضها بعضًا حول مركز (<i>Surat al-Baqara: A Structural Analysis</i>، 2010؛ <i>Structure and Qur'anic Interpretation</i>، 2014). وتصل الأقواس بين كل قسم ومقابله. اضغط قسمًا لتقرأ أول آياته."}/*END-AR-HTML*/;
+const AR = /*AR-DICT*/{"Navigating the Quranic Structures from nine perspectives.":"الإبحار في بُنى القرآن من تسع زوايا.","Every figure is counted from the text itself, word by word, so any pattern can be traced back to its ayahs for reflection.":"كل رقم هنا محسوب من النص نفسه، كلمةً كلمة، فيمكن تتبّع أي نمط إلى آياته للتدبّر.","The Quran tells its stories in pieces, returning to the same prophets across many surahs and choosing different scenes each time. Below: where each prophet is named, then the story of every prophet broken into scenes, surah by surah.":"يروي القرآن قصصه متفرقة، فيعود إلى الأنبياء أنفسهم في سور كثيرة ويختار في كل مرة مشاهد مختلفة. وفيما يلي: مواضع ذكر كل نبي باسمه، ثم قصة كل نبي مقسّمة إلى مشاهد، سورةً سورة.","Prophet":"النبي","Peace be upon them all":"عليهم السلام جميعًا","Prophets by surah, and the scenes of every prophet's story, surah by surah.":"الأنبياء بحسب السور، ومشاهد قصة كل نبي سورةً سورة.","Nine ways to see the Quran's structure. Every figure here is counted from the text itself, word by word, so you can check any pattern by tapping through to the ayahs.":"تسع طرق لرؤية بنية القرآن. كل رقم هنا معدود من النص نفسه، كلمةً كلمة، فتستطيع أن تتحقق من أي نمط بالانتقال إلى الآيات.","Studies":"دراسات","Library":"المكتبة","Why an atlas?":"لماذا أطلس؟","Books":"كتب","Free books: Stories from the Quran, eight picture books for children, and this Atlas as a 112-page book to print":"كتب مجانية بالإنجليزية: «قصص من القرآن»، ثمانية كتب مصوّرة للأطفال، وهذا الأطلس كتابًا من 112 صفحة يُطبع","Six illustrated deep dives: the middle of the Quran, Ar-Rahman’s pairs, Musa’s story as a transit map, and more":"ست دراسات مصوّرة معمّقة: منتصف القرآن، ومثنّى سورة الرحمن، وقصة موسى خريطةَ مواصلات، وغير ذلك","Views":"العروض","Barcode":"البصمة","Stories":"القصص","Names":"الأسماء","Rings":"الحلقات","Letters":"الحروف","Roots":"الجذور","Echoes":"المتشابهات","Rhyme":"الفواصل","Voice":"الالتفات","Close":"إغلاق","Translation":"الترجمة","Show roots":"اعرض الجذور","Hide roots":"أخفِ الجذور","Tafsir and recitation on Quran.com ↗":"التفسير والتلاوة على موقع Quran.com ↗","Neighbouring ayahs":"الآيات المجاورة","‹ Previous":"› السابقة","Next ›":"التالية ‹","Loading ayah…":"جارٍ تحميل الآية…","Loading passage…":"جارٍ تحميل المقطع…","The translation did not load. Check your connection and reopen the ayah.":"تعذّر تحميل الترجمة. تحقّق من الاتصال وأعد فتح الآية.","Sajdah":"سجدة","Read in English":"Read in English","Each tile is one ayah, set out like a mushaf page: start at the top right and read leftwards. A blank space marks the start of each surah.":"كل مربّع آية، مصفوفة كصفحة المصحف: ابدأ من أعلى اليمين واقرأ نحو اليسار. وتدلّ المسافة الفارغة على بداية كل سورة.","Colour by":"التلوين بحسب","Length":"الطول","Meccan / Medinan":"المكي والمدني","Root":"الجذر","Prophet":"النبي","Order":"الترتيب","Mushaf":"المصحف","Revelation":"النزول","Grid of all 6,236 ayahs. Use the arrow keys to move between ayahs and Enter to read one.":"شبكة الآيات كلها، 6,236 آية. استعمل مفاتيح الأسهم للتنقل بين الآيات، وEnter لقراءة إحداها.","Tap a tile to read the ayah":"اضغط مربّعًا لتقرأ الآية","1:1 starts top right":"1:1 تبدأ من أعلى اليمين","Words per ayah":"كلمات الآية","Mentions in the ayah":"مرات الورود في الآية","Words from this root in the ayah":"كلمات هذا الجذر في الآية","Not present":"غير موجود","Loading roots…":"جارٍ تحميل الجذور…","Featured":"مختارة","Most frequent":"الأكثر ورودًا","In revelation order the short, dense ayahs of the early surahs fill the top of the grid, and the long Medinan ayahs gather at the end.":"في ترتيب النزول تملأ الآياتُ القصيرة الكثيفة في السور الأولى أعلى الشبكة، وتجتمع الآيات المدنية الطويلة في آخرها.","Switch the order to Revelation to watch the short early ayahs gather at the top and the long Medinan ayahs sink to the end.":"غيّر الترتيب إلى «النزول» لترى الآيات المبكرة القصيرة تجتمع في الأعلى، والآيات المدنية الطويلة تنزل إلى الآخر.","Labels and revelation order follow Tanzil metadata, based on the 1924 Egyptian standard edition. The order applies to whole surahs; ayahs keep their place inside each surah, and scholars dispute the dating of some surahs.":"الوصف بالمكي والمدني وترتيب النزول من بيانات تنزيل، المبنية على المصحف المصري الصادر سنة 1924. والترتيب يشمل السور كاملة؛ وتبقى الآيات في مواضعها داخل كل سورة، ويختلف العلماء في زمن نزول بعض السور.","The Quran tells its stories in pieces, returning to the same figures across many surahs and choosing different scenes each time. Below: where each prophet is named, then the stories of Musa, Ibrahim and Nuh broken into scenes, surah by surah.":"يروي القرآن قصصه متفرقة، يعود إلى الشخصيات نفسها في سور كثيرة، ويختار في كل مرة مشاهد مختلفة. وفيما يلي: أين يُسمّى كل نبي، ثم قصص موسى وإبراهيم ونوح مقسّمة إلى مشاهد، سورةً سورة.","Prophets across the surahs":"الأنبياء عبر السور","Where each prophet is named, surah by surah":"أين يُسمّى كل نبي، سورةً سورة","Order surahs":"ترتيب السور","Mushaf order":"ترتيب المصحف","Revelation order":"ترتيب النزول","shaded columns: Medinan surahs":"الأعمدة المظللة: سور مدنية","Counts are of names only. Prophets are also referred to by title or pronoun, such as Yunus as \"the man of the fish\", so they appear in more ayahs than are counted here.":"العدّ للأسماء وحدها. ويُشار إلى الأنبياء أيضًا بالألقاب والضمائر، كتسمية يونس «صاحب الحوت»، فهم يرِدون في آيات أكثر مما عُدّ هنا.","Stories, scene by scene":"القصص، مشهدًا مشهدًا","Story":"القصة","Musa":"موسى","Ibrahim":"إبراهيم","Nuh":"نوح","Columns in":"الأعمدة بحسب","Each row is a scene, in approximate story order; each column is a surah that tells part of it. Larger dots mean more ayahs. Tap a dot, then read the whole passage with its translation.":"كل صف مشهد، بترتيب القصة على وجه التقريب؛ وكل عمود سورة تروي شيئًا منه. والنقاط الأكبر آيات أكثر. اضغط نقطة، ثم اقرأ المقطع كاملًا.","Scene / Surah":"المشهد / السورة","Tap a dot to see the ayahs of that telling.":"اضغط نقطة لترى آيات تلك الرواية.","Gathering the stories…":"جارٍ جمع القصص…","Hundreds of ayahs close on a pair of God's names, such as Forgiving and Merciful or Mighty and Wise. Which pairs occur, how the names join up, and what the ayahs before them are about can all be counted.":"مئات الآيات تُختم باسمين من أسماء الله، مثل «الغفور الرحيم» و«العزيز الحكيم». ويمكن أن يُعدّ أيّ الأزواج يرد، وكيف تترابط الأسماء، وعمّ تتحدث الآيات التي تسبقها.","Pairs that close ayahs":"أزواج تختم الآيات","How the names pair up":"كيف تقترن الأسماء","Each line joins two names that close an ayah together; thicker lines close more ayahs. Tap a name to light up its partners.":"كل خط يصل بين اسمين يختمان آية معًا؛ والخطوط الأغلظ تختم آيات أكثر. اضغط اسمًا لتضيء الأسماء المقترنة به.","Network of divine names that close ayahs together":"شبكة أسماء الله التي تختم الآيات معًا","Common closing words":"خواتيم شائعة","The most frequent last words of ayahs, names or not. Tap one to list its ayahs.":"أكثر الكلمات ورودًا في أواخر الآيات، أسماءً كانت أو غيرها. اضغط إحداها لتعرض آياتها.","Its ayahs lean on these roots far more than the Quran overall:":"تكثر آياته من هذه الجذور أكثر بكثير من القرآن عامة:","Show all pairs":"اعرض الأزواج كلها","Reading ayah endings…":"جارٍ قراءة خواتيم الآيات…","Some scholars read surahs as rings: sections that mirror each other around a centre, A B C … C′ B′ A′. Below is one such reading of Al-Baqarah, a vocabulary check of it, and an echo map you can run on any surah.":"يقرأ بعض العلماء السور حلقاتٍ: أقسامًا يقابل بعضها بعضًا حول مركز، A B C … C′ B′ A′. وفيما يلي قراءة من هذا النوع لسورة البقرة، وفحص لها بالمفردات، وخريطة أصداء تصلح لأي سورة.","Al-Baqarah as a ring":"سورة البقرة حلقةً","Does the vocabulary agree?":"هل توافقها المفردات؟","Each square compares the roots used in two of Farrin's sections, weighting rare roots more than common ones. Outlined squares are the mirrored pairs. A ring built on themes need not show up in word counts, so this is a check, not a verdict.":"كل مربع يقارن الجذور المستعملة في قسمين من أقسام فارين، مع إعطاء الجذور النادرة وزنًا أكبر من الشائعة. والمربعات المحاطة هي الأزواج المتقابلة. والحلقة المبنية على المعاني قد لا تظهر في عدّ الألفاظ، فهذا فحص لا حكم.","Similarity of shared vocabulary between the nine sections; mirrored pairs outlined.":"تشابه المفردات المشتركة بين الأقسام التسعة؛ والأزواج المتقابلة محاطة.","Shared vocabulary":"المفردات المشتركة","Counting roots…":"جارٍ عدّ الجذور…","Counting shared roots…":"جارٍ عدّ الجذور المشتركة…","Echo map for any surah":"خريطة الأصداء لأي سورة","Every ayah is compared with every other ayah in the surah by the roots they share. Bright squares off the diagonal are ayahs that echo each other; a refrain shows up as a lattice. Switch to Arcs to see the strongest echoes as arches over the surah.":"تُقارَن كل آية بكل آية أخرى في السورة بحسب الجذور المشتركة. والمربعات المضيئة بعيدًا عن القطر آيات يردّد بعضها بعضًا؛ واللازمة تظهر شبكةً. انتقل إلى «الأقواس» لترى أقوى الأصداء أقواسًا فوق السورة.","Surah":"السورة","Show":"العرض","Map":"خريطة","Arcs":"أقواس","Suggested surahs":"سور مقترحة","Ayah-by-ayah similarity map for the selected surah":"خريطة التشابه آيةً آية للسورة المختارة","Similarity (square-root scale)":"التشابه (بمقياس الجذر التربيعي)","Similarity is the cosine of rarity-weighted root counts: 1 means the same roots in the same proportions, 0 means no roots in common. Common roots such as God, say and be count for little.":"التشابه هو جيب تمام الزاوية بين أعداد الجذور الموزونة بندرتها: 1 يعني الجذور نفسها بالنسب نفسها، و0 يعني لا جذر مشتركًا. والجذور الشائعة مثل «الله» و«قال» و«كان» قليلة الوزن.","Section widths to scale, except A′ (two ayahs), widened to stay visible":"عرض الأقسام بمقياسها، إلا A′ (آيتان) فقد وُسّع ليبقى ظاهرًا","ayah 1":"الآية 1","Belief and disbelief":"الإيمان والكفر","Law given to the Children of Israel":"شريعة بني إسرائيل","Abraham is tested":"ابتلاء إبراهيم","The Kaʿbah becomes the qiblah":"الكعبة قبلةً","The Muslims will be tested":"ابتلاء المسلمين","Law given to the Muslims":"شريعة المسلمين","Tap to compare two ayahs":"اضغط لتقارن آيتين","Tap an ayah on the line to see its echoes":"اضغط آية على الخط لترى أصداءها","Tap any square to see which roots two ayahs share.":"اضغط أي مربع لترى الجذور المشتركة بين آيتين.","Tap a point on the line to see that ayah’s strongest echoes.":"اضغط نقطة على الخط لترى أقوى أصداء تلك الآية.","These two ayahs share no roots.":"لا جذر مشترك بين هاتين الآيتين.","same ayah":"الآية نفسها","Strongest other echoes:":"أقوى الأصداء الأخرى: ","No two ayahs here share many rare roots.":"لا تشترك آيتان هنا في جذور نادرة كثيرة.","No ayahs here share enough rare roots to draw an arc.":"لا تشترك آيات هنا في جذور نادرة تكفي لرسم قوس.","Twenty-nine surahs open with letters recited one by one, such as Alif Lām Mīm. Their meaning is left open in the tradition, but where they fall, what follows them and how often their letters recur can all be counted.":"تسع وعشرون سورة تُفتتح بحروف تُقرأ حرفًا حرفًا، مثل «الم». ومعناها متروك في التراث، لكن مواضعها وما يليها ومقدار تكرار حروفها كلها مما يُعدّ.","All 114 surahs, the 29 with opening letters highlighted":"السور كلها، 114 سورة، ومُبرزة منها الـ29 المفتتحة بالحروف","Surah 1 at top right, ten to a row":"السورة 1 في أعلى اليمين، عشر سور في كل صف","Tap a surah to read its opening":"اضغط سورة لتقرأ فاتحتها","Families":"العائلات","Alif Lām openings":"المفتتحة بـ«الم» و«الر»","Ḥā Mīm":"الحواميم","Ṭā openings":"المفتتحة بالطاء","Single letters and others":"حرف واحد وغير ذلك","What follows the letters":"ما يلي الحروف","The words right after the letters, with any word for the Book, the Quran, sending down or revelation marked in gold.":"الكلمات التي تلي الحروف مباشرة، وقد عُلّمت بالذهبي كل كلمة تدل على الكتاب أو القرآن أو التنزيل أو الوحي.","Show all 29":"اعرض الـ29 كلها","Loading the openings…":"جارٍ تحميل الفواتح…","Book":"الكتاب","An ayah later":"بعد آية","Other subject":"موضوع آخر","Do the letters recur in their surahs?":"هل تتكرر الحروف في سورها؟","Each dot is one opening letter in one surah: how often that letter occurs in its own surah, compared with its rate across the whole Quran. Dots right of the line occur more often than usual. Gold dots are at least a quarter above the usual rate.":"كل نقطة حرف من حروف الفواتح في سورة واحدة: كم يتكرر في سورته مقارنةً بمعدّله في القرآن كله. والنقاط يمين الخط تتكرر أكثر من المعتاد. والنقاط الذهبية تزيد على المعتاد بالربع على الأقل.","Rate of each opening letter in its own surah relative to the whole Quran. Table below.":"معدّل كل حرف من حروف الفواتح في سورته نسبةً إلى القرآن كله. والجدول أدناه.","usual rate":"المعدّل المعتاد","Table of all letter rates":"جدول معدّلات الحروف كلها","Most Arabic words grow from a root of three letters. Pick one of the Quran's 1,651 roots to see where it lives, the shapes it takes and the roots it keeps company with.":"تنبت أكثر الكلمات العربية من جذر من ثلاثة أحرف. اختر جذرًا من جذور القرآن البالغة 1,651 لترى أين يسكن، وما الصيغ التي يأخذها، وما الجذور التي يصاحبها.","Find a root":"ابحث عن جذر","رحم, rhm or mercy":"مثل: رحم","Featured roots":"جذور مختارة","No root matches. Try Arabic letters (رحم), Latin letters (rhm) or an English word (mercy).":"لا جذر مطابق. جرّب أحرفًا عربية (رحم)، أو أحرفًا لاتينية (rhm)، أو كلمة إنجليزية (mercy).","Where it lives":"أين يسكن","Surahs in":"السور بحسب","Uses per 1,000 words in each surah":"مرات الورود لكل 1,000 كلمة في كل سورة","Meccan surah":"سورة مكية","Medinan surah":"سورة مدنية","Word forms":"صيغ الكلمات","Travels with":"يصاحب","Roots that share ayahs with this one far more often than chance would predict. Thicker lines mean more shared ayahs. Tap a root to follow it.":"جذور تشارك هذا الجذر في الآيات أكثر بكثير مما تقتضيه المصادفة. والخطوط الأغلظ آيات مشتركة أكثر. اضغط جذرًا لتنتقل إليه.","Roots that share ayahs with the selected root":"جذور تشارك الجذر المختار في الآيات","This root is too rare to measure the company it keeps.":"هذا الجذر أندر من أن تُقاس صحبته.","No root shares its ayahs notably more often than chance.":"لا جذر يشاركه آياته أكثر مما تقتضيه المصادفة بوضوح.","Ayahs":"الآيات","Show every ayah":"اعرض كل الآيات","Every occurrence is a verb: the Quran never uses this root as a noun.":"كل وروده فعل: لم يستعمل القرآن هذا الجذر اسمًا قط.","Every occurrence is a noun or adjective: the Quran never uses this root as a verb.":"كل وروده اسم أو صفة: لم يستعمل القرآن هذا الجذر فعلًا قط.","The Quran repeats itself on purpose: formulas, refrains and whole ayahs recur across surahs. Each arch below joins two places where the same phrase appears, from the opening of Al-Fatihah on the left to the end on the right.":"يتكرر القرآن عن قصد: صيغ ولوازم وآيات كاملة تعود عبر السور. وكل قوس أدناه يصل بين موضعين ترد فيهما العبارة نفسها، من أول الفاتحة على اليسار إلى آخر المصحف على اليمين.","Phrases of":"عبارات من","3+ words":"3 كلمات فأكثر","5+ words":"5 كلمات فأكثر","8+ words":"8 كلمات فأكثر","Arcs joining repeated phrases across the Quran":"أقواس تصل بين العبارات المتكررة في القرآن","Tap the line to see what repeats there":"اضغط الخط لترى ما يتكرر هناك","Tap the line under the arches to see what repeats at that ayah, or pick a phrase from the list below.":"اضغط الخط تحت الأقواس لترى ما يتكرر عند تلك الآية، أو اختر عبارة من القائمة أدناه.","Most repeated phrases":"أكثر العبارات تكرارًا","Confusable ayahs":"متشابهات الحفظ","Pairs of ayahs that match almost word for word, the places memorisers learn to watch. The words that differ are marked in gold.":"أزواج من الآيات تتطابق كلماتها تقريبًا، وهي المواضع التي يتنبّه لها الحفّاظ. والكلمات المختلفة معلّمة بالذهبي.","Show pairs involving":"اعرض الأزواج في","All surahs":"كل السور","Show more pairs":"اعرض أزواجًا أخرى","Same ayah, different surahs":"آية واحدة في سور مختلفة","Ayahs that recur word for word in more than one surah.":"آيات تتكرر بلفظها في أكثر من سورة.","Finding repeated phrases…":"جارٍ البحث عن العبارات المتكررة…","No phrase of this length from this ayah recurs elsewhere. Try a shorter length or a nearby ayah.":"لا تتكرر عبارة بهذا الطول من هذه الآية في موضع آخر. جرّب طولًا أقصر أو آية مجاورة.","Also at:":"وترد أيضًا في:","missing word":"كلمة ناقصة","Most ayahs end on a rhyme, read as you would pause on the last word. Each row below is one surah, stretched to the full width, with every ayah coloured by its end sound. Long single-colour rows are surahs that hold one rhyme throughout.":"تنتهي أكثر الآيات بفاصلة تُقرأ بالوقف على آخر كلمة. وكل صف أدناه سورة ممدودة بعرض الصفحة، وكل آية ملوّنة بصوت خاتمتها. والصفوف الطويلة ذات اللون الواحد سور تلتزم فاصلة واحدة من أولها إلى آخرها.","Rhymes; tap one to highlight it":"الفواصل؛ اضغط إحداها لإبرازها","End rhyme of every ayah, one row per surah":"فاصلة كل آية، صف لكل سورة","Surah 1 at top, ayah 1 at the left of each row":"السورة 1 في الأعلى، والآية 1 في يسار كل صف","Tap a row to open that surah below":"اضغط صفًّا لتفتح تلك السورة أدناه","Rhymes are read in pause, so final short vowels and nunation drop away and -ān sounds where -an is written. The long vowels ī and ū before the same consonant count as one rhyme, as in Al-Fatihah.":"تُقرأ الفواصل بالوقف، فتسقط الحركات القصيرة الأخيرة والتنوين، ويُنطق ما كُتب ـًا ألفًا. والياء والواو المدّيتان قبل الحرف نفسه فاصلة واحدة، كما في الفاتحة.","Inside one surah":"داخل سورة واحدة","Refrains as a score":"اللوازم نوتةً موسيقية","Ayahs that return word for word inside a surah, drawn like notes on a stave. Each line spans the whole surah; each dot is one return of the refrain.":"آيات تعود بلفظها داخل السورة، مرسومة كالنوتات على المدرج الموسيقي. كل خط يمتد على السورة كلها؛ وكل نقطة عودة للازمة.","Refrains drawn as notes along each surah":"اللوازم مرسومة نوتاتٍ على امتداد كل سورة","Who is speaking, and to whom? Arabic marks person on every verb and pronoun, so each ayah can be read for its I and We, its You, and its He, She and They. The Quran turns between them often, a device the rhetoricians called iltifāt.":"مَن المتكلم، ومَن المخاطَب؟ تُعلِّم العربية الضمير في كل فعل وضمير، فيمكن قراءة كل آية بمتكلّمها ومخاطَبها وغائبها. والقرآن ينتقل بينها كثيرًا، وهو ما سمّاه البلاغيون «الالتفات».","Who is addressed":"مَن المخاطَب","Every call that opens with yā (O…), grouped by who is called. Each bar splits into ayahs from Meccan and Medinan surahs.":"كل نداء يبدأ بـ«يا»، مجموعًا بحسب المنادى. وكل عمود ينقسم إلى آيات من سور مكية وأخرى مدنية.","Meccan surahs":"سور مكية","Medinan surahs":"سور مدنية","Reading pronouns…":"جارٍ قراءة الضمائر…","Tap a row to list its ayahs. \"Our Lord\" counts only where it is a call (the accusative form); \"Say\" counts the singular command qul.":"اضغط صفًّا لتعرض آياته. ولا يُعدّ «ربّنا» إلا حيث يكون نداءً (بالنصب)؛ ويُعدّ في «قل» فعل الأمر المفرد.","I, You and They, surah by surah":"المتكلم والمخاطب والغائب، سورةً سورة","Most \"you\"":"الأكثر خطابًا","Share of first, second and third person markers in each surah":"نسبة علامات المتكلم والمخاطب والغائب في كل سورة","Surah 1 at top · Medinan surahs ticked at the right edge":"السورة 1 في الأعلى · والسور المدنية معلّمة عند الحافة اليمنى","Earliest revealed at top · Medinan ticked at right":"الأقدم نزولًا في الأعلى · والمدنية معلّمة يمينًا","Most \"you\" at top · Medinan ticked at right":"الأكثر خطابًا في الأعلى · والمدنية معلّمة يمينًا","Counted from verb endings and pronouns in the Quranic Arabic Corpus. This is grammatical person, not the identity of the speaker: \"We\" may be God, the angels or the jinn, depending on the passage.":"معدود من لواحق الأفعال والضمائر في المدوّنة القرآنية العربية. وهذا ضمير نحوي لا هوية المتكلم: فـ«نحن» قد تكون الله أو الملائكة أو الجن، بحسب السياق.","Ayah by ayah":"آيةً آية","Tap a row to read it ayah by ayah":"اضغط صفًّا لتقرأه آيةً آية","Farrin's ring structure of Al-Baqarah: sections A to D mirror D′ to A′ around the centre E, ayahs 142 to 152.":"بنية سورة البقرة الحلقية عند فارين: الأقسام من A إلى D تقابل D′ إلى A′ حول المركز E، الآيات من 142 إلى 152.","mirrors":"يقابل","the centre":"المركز","God's creation and knowledge":"خلق الله وعلمه",",":"،","and":"و",";":"؛","1 Al-Fatihah":"1 الفاتحة","2 Al-Baqarah":"2 البقرة","12 Yusuf":"12 يوسف","18 Al-Kahf":"18 الكهف","19 Maryam":"19 مريم","26 Ash-Shuʿaraʾ":"26 الشعراء","36 Ya-Sin":"36 يس","37 As-Saffat":"37 الصافات","49 Al-Hujurat":"49 الحجرات","54 Al-Qamar":"54 القمر","55 Ar-Rahman":"55 الرحمن","72 Al-Jinn":"72 الجن","77 Al-Mursalat":"77 المرسلات","93 Ad-Duha":"93 الضحى"}/*END-AR-DICT*/;
+const AR_HTML = /*AR-HTML*/{"Raymond Farrin divides the surah's 286 ayahs into nine sections that pair up around a centre (Surat al-Baqara: A Structural Analysis, 2010; Structure and Qur'anic Interpretation, 2014). Arcs join each section to its mirror. Tap a section to read its first ayah.":"يقسّم ريموند فارين آيات السورة الـ286 تسعة أقسام يقابل بعضها بعضًا حول مركز (<i>Surat al-Baqara: A Structural Analysis</i>، 2010؛ <i>Structure and Qur'anic Interpretation</i>، 2014). وتصل الأقواس بين كل قسم ومقابله. اضغط قسمًا لتقرأ أول آياته."}/*END-AR-HTML*/;
 const LANG_KEY = 'qpa:lang';
 const LANG = (() => {
   const m = location.hash.match(/~(ar|en)$/);
@@ -964,7 +964,7 @@ const TR = {
 };
 const trRef = (tr, g) => el('p', { class: 'tl', lang: 'en' }, el('b', { text: ref(g) + '  ' }), tr.v[g]);
 
-const Q = {}; // derived core: surahs, verse arrays
+const Q = {}; // derived core: surahs, ayah arrays
 function prepCore(core) {
   Q.core = core;
   Q.surahs = core.surahs.map((s, i) => ({ n: i + 1, ar: s[0], tr: s[1], en: s[2], ayas: s[3], ord: s[4], type: s[5] }));
@@ -1026,13 +1026,13 @@ function placeTip(tip, wrap, x, y) {
 const VIEWS = [
   { id: 'barcode', label: 'Barcode', ready: true },
   { id: 'stories', label: 'Stories', ready: true, title: 'Stories', ar: 'القصص', desc: 'Prophets by surah, and the scenes of every prophet\'s story, surah by surah.' },
-  { id: 'names', label: 'Names', ready: true, title: 'Name endings', ar: 'خواتيم الآيات', desc: 'Which pairs of divine names close verses, how they pair up, and what those verses talk about.' },
+  { id: 'names', label: 'Names', ready: true, title: 'Name endings', ar: 'خواتيم الآيات', desc: 'Which pairs of divine names close ayahs, how they pair up, and what those ayahs talk about.' },
   { id: 'rings', label: 'Rings', ready: true, title: 'Ring structure', ar: 'النظم الحلقي', desc: "Raymond Farrin's ring reading of Al-Baqarah drawn as arcs, plus a self-similarity map you can run on any surah." },
   { id: 'letters', label: 'Letters', ready: true, title: 'Opening letters', ar: 'الحروف المقطعة', desc: 'The 29 surahs that open with disjointed letters, grouped into families, with what follows the letters and letter counts that show their rules.' },
   { id: 'roots', label: 'Roots', ready: true, title: 'Root map', ar: 'الجذور', desc: 'Pick any of 1,651 roots to see where it appears, the word forms it takes, and the roots it travels with.' },
-  { id: 'echoes', label: 'Echoes', ready: true, title: 'Echoes', ar: 'المتشابهات', desc: 'Arcs between repeated phrases across the whole text, and a list of near-identical verses for memorisers.' },
-  { id: 'rhyme', label: 'Rhyme', ready: true, title: 'Rhyme', ar: 'الفواصل', desc: 'Verse endings as colour, where the rhyme shifts inside a surah, and refrains drawn like a musical score.' },
-  { id: 'voice', label: 'Voice', ready: true, title: 'Voice', ar: 'الالتفات', desc: 'First, second and third person in every verse, the shifts between them, and who is addressed.' },
+  { id: 'echoes', label: 'Echoes', ready: true, title: 'Echoes', ar: 'المتشابهات', desc: 'Arcs between repeated phrases across the whole text, and a list of near-identical ayahs for memorisers.' },
+  { id: 'rhyme', label: 'Rhyme', ready: true, title: 'Rhyme', ar: 'الفواصل', desc: 'Ayah endings as colour, where the rhyme shifts inside a surah, and refrains drawn like a musical score.' },
+  { id: 'voice', label: 'Voice', ready: true, title: 'Voice', ar: 'الالتفات', desc: 'First, second and third person in every ayah, the shifts between them, and who is addressed.' },
 ];
 const inited = {};
 const INIT = {};
@@ -1050,7 +1050,7 @@ function buildTabs() {
           el('p', { class: 'vdesc', text: v.desc })),
         el('div', { class: 'soon-card' }, el('span', { class: 'pill', text: 'Being built' }),
           el('h3', { text: 'This view is next in the build.' }),
-          el('p', { text: 'The verse barcode is live now. Each remaining view arrives at this same link as it is finished.' }))));
+          el('p', { text: 'The ayah barcode is live now. Each remaining view arrives at this same link as it is finished.' }))));
     }
   }
   // arrow-key navigation between tabs
@@ -1080,7 +1080,7 @@ function go(id, fromHash) {
 }
 window.addEventListener('hashchange', () => go(location.hash.slice(1), true));
 
-/* ---------- verse sheet: one verse, or a passage, with translation ---------- */
+/* ---------- ayah sheet: one ayah, or a passage, with translation ---------- */
 const Sheet = {
   g: 0, range: null, showRoots: false, lastFocus: null, tok: 0,
   init() {
@@ -1127,7 +1127,7 @@ const Sheet = {
     const chips = [mm(s),
       LL('Juz ', 'الجزء ') + (Q.juzOf[a] === Q.juzOf[b] ? Q.juzOf[a] : Q.juzOf[a] + '–' + Q.juzOf[b]),
       Q.pageOf[a] === Q.pageOf[b] ? LL('Page ', 'الصفحة ') + Q.pageOf[a] : LL('Pages ', 'الصفحات ') + Q.pageOf[a] + '–' + Q.pageOf[b],
-      multi ? LL((b - a + 1) + ' verses', arCount(b - a + 1, 'آية واحدة', 'آيتان', 'آيات', 'آية')) : LL(words + (words === 1 ? ' word' : ' words'), arCount(words, 'كلمة واحدة', 'كلمتان', 'كلمات', 'كلمة'))];
+      multi ? LL((b - a + 1) + ' ayahs', arCount(b - a + 1, 'آية واحدة', 'آيتان', 'آيات', 'آية')) : LL(words + (words === 1 ? ' word' : ' words'), arCount(words, 'كلمة واحدة', 'كلمتان', 'كلمات', 'كلمة'))];
     if (sajda) chips.push('Sajdah');
     chips.forEach(c => meta.append(el('span', { class: 'chip', text: c })));
     $('#sheet-link').href = 'https://quran.com/' + LL('', 'ar/') + s.n + '/' + aa + (multi ? '-' + bb : '');
@@ -1143,7 +1143,7 @@ const Sheet = {
     return [t.slice(0, n), t.slice(n)];
   },
   arabic(words, g) {
-    // keep the last word and the verse-end sign together so the sign never wraps alone
+    // keep the last word and the ayah-end sign together so the sign never wraps alone
     return el('p', { class: 'vtext', lang: 'ar', dir: 'rtl' }, words.slice(0, -1).join(' ') + ' ',
       el('span', { class: 'nw' }, (words[words.length - 1] || '') + ' ', el('span', { class: 'end', text: '۝' + arNum(Q.aOf[g]) })));
   },
@@ -1151,10 +1151,10 @@ const Sheet = {
     const tok = ++this.tok, [a, b] = this.range || [this.g, this.g], single = a === b, roots = single && this.showRoots;
     this.header(a, b);
     const body = $('#sheet-body'); body.textContent = '';
-    body.append(el('p', { class: 'loading', text: single ? 'Loading verse…' : 'Loading passage…' }));
+    body.append(el('p', { class: 'loading', text: single ? 'Loading ayah…' : 'Loading passage…' }));
     let text, tr, vr, rt;
     try { [text, tr, vr, rt] = await Promise.all([load('text'), TR.get(), roots ? load('vroots') : null, roots ? load('roots') : null]); }
-    catch (e) { if (tok === this.tok) body.textContent = LL(e.message + '. Check your connection and reopen the verse.', 'تعذّر التحميل. تحقّق من الاتصال وأعد فتح الآية.'); return; }
+    catch (e) { if (tok === this.tok) body.textContent = LL(e.message + '. Check your connection and reopen the ayah.', 'تعذّر التحميل. تحقّق من الاتصال وأعد فتح الآية.'); return; }
     if (tok !== this.tok) return;
     body.textContent = '';
     const [basm] = this.split(text, a);
@@ -1170,7 +1170,7 @@ const Sheet = {
       }
       if (tr) body.append(el('div', { class: 'trby', text: LL('Translation: ', 'الترجمة: ') + tr.name }));
     }
-    if (!tr && TR.pref !== 'off') body.append(el('p', { class: 'loading', text: 'The translation did not load. Check your connection and reopen the verse.' }));
+    if (!tr && TR.pref !== 'off') body.append(el('p', { class: 'loading', text: 'The translation did not load. Check your connection and reopen the ayah.' }));
   },
   wordGrid(words, ids, R) {
     const box = el('div', { class: 'vwords' });
@@ -1194,7 +1194,7 @@ const App = {
 };
 
 /* =========================================================
-   VIEW 1 — VERSE BARCODE
+   VIEW 1 — AYAH BARCODE
    ========================================================= */
 const Barcode = {
   mode: 'len', order: 'mushaf', root: null, pro: 'musa',
@@ -1222,7 +1222,7 @@ const Barcode = {
   },
   shown() { this.layout(); this.draw(); },
   buildCells() {
-    // one cell per verse plus a blank cell before every surah but the first
+    // one cell per ayah plus a blank cell before every surah but the first
     const C = Q.N + Q.surahs.length - 1;
     const mk = order => {
       const pos = new Uint16Array(Q.N), cell = new Int16Array(C).fill(-1); let k = 0;
@@ -1259,7 +1259,7 @@ const Barcode = {
     const N = Q.N, ci = new Uint8Array(N); let legend = [], notes = [];
     if (this.mode === 'len') {
       for (let g = 0; g < N; g++) { const L = Q.vlen[g]; let b = 0; while (L > this.LEN_BINS[b][1]) b++; ci[g] = 2 + b; }
-      legend = this.legendRamp(this.LEN_BINS.map(([a, b]) => b > 900 ? a + '+' : a === b ? '' + a : a + '–' + b), 'Words per verse', 2);
+      legend = this.legendRamp(this.LEN_BINS.map(([a, b]) => b > 900 ? a + '+' : a === b ? '' + a : a + '–' + b), 'Words per ayah', 2);
       notes = this.notesLen();
     } else if (this.mode === 'mm') {
       for (let g = 0; g < N; g++) ci[g] = Q.isMec(g) ? 17 : 18;
@@ -1269,7 +1269,7 @@ const Barcode = {
       const wt = this.pro.endsWith('+t'), p = Q.core.prophets.find(x => x.k === this.pro.replace('+t', '')); const cnt = new Uint8Array(N);
       p.v.forEach(g => cnt[g]++); if (wt) p.t.forEach(g => cnt[g]++);
       for (let g = 0; g < N; g++) ci[g] = cnt[g] ? (cnt[g] >= 3 ? 8 : cnt[g] === 2 ? 6 : 5) : 0;
-      legend = this.legendRamp(['1', '2', '3+'], 'Mentions in the verse', 5, [5, 6, 8]);
+      legend = this.legendRamp(['1', '2', '3+'], 'Mentions in the ayah', 5, [5, 6, 8]);
       notes = this.notesPro(p, cnt, wt);
     } else if (this.mode === 'root') {
       this.setLegend([el('span', { class: 'loading', text: 'Loading roots…' })]);
@@ -1280,7 +1280,7 @@ const Barcode = {
       const cnt = new Uint8Array(N);
       vr.v.forEach((ids, g) => { for (const r of ids) if (r === this.root) cnt[g]++; });
       for (let g = 0; g < N; g++) ci[g] = cnt[g] ? (cnt[g] >= 3 ? 8 : cnt[g] === 2 ? 6 : 5) : 0;
-      legend = this.legendRamp(['1', '2', '3+'], 'Words from this root in the verse', 5, [5, 6, 8]);
+      legend = this.legendRamp(['1', '2', '3+'], 'Words from this root in the ayah', 5, [5, 6, 8]);
       notes = this.notesRoot(rt, cnt);
     }
     this.colorIdx = ci; this.setLegend(legend); this.setNotes(notes); this.draw();
@@ -1393,26 +1393,26 @@ const Barcode = {
     for (let g = 0; g < Q.N; g++) { if (Q.isMec(g)) { ms += Q.vlen[g]; mc++; } else { ds += Q.vlen[g]; dc++; } if (Q.vlen[g] > Q.vlen[longest]) longest = g; if (Q.vlen[g] === 1) ones++; }
     const lnk = el('button', { class: 'linkbtn', onclick: () => Sheet.open(longest), text: ref(longest) });
     const p1 = isAr() ? el('p', {}, 'متوسط الآية المكية ', el('b', { text: (ms / mc).toFixed(1) + ' كلمة' }), '، والآية المدنية ', el('b', { text: (ds / dc).toFixed(1) }), '. وأطول آية هي ', lnk, '، وفيها ' + Q.vlen[longest] + ' كلمة، و' + ones + ' آية من كلمة واحدة.')
-      : el('p', {}, 'Meccan verses average ', el('b', { text: (ms / mc).toFixed(1) + ' words' }), '; Medinan verses average ', el('b', { text: (ds / dc).toFixed(1) }), '. The longest verse is ', lnk, ' at ' + Q.vlen[longest] + ' words, and ' + ones + ' verses are a single word.');
+      : el('p', {}, 'Meccan ayahs average ', el('b', { text: (ms / mc).toFixed(1) + ' words' }), '; Medinan ayahs average ', el('b', { text: (ds / dc).toFixed(1) }), '. The longest ayah is ', lnk, ' at ' + Q.vlen[longest] + ' words, and ' + ones + ' ayahs are a single word.');
     const p2 = el('p', { text: this.order === 'rev'
-      ? 'In revelation order the short, dense verses of the early surahs fill the top of the grid, and the long Medinan verses gather at the end.'
-      : 'Switch the order to Revelation to watch the short early verses gather at the top and the long Medinan verses sink to the end.' });
+      ? 'In revelation order the short, dense ayahs of the early surahs fill the top of the grid, and the long Medinan ayahs gather at the end.'
+      : 'Switch the order to Revelation to watch the short early ayahs gather at the top and the long Medinan ayahs sink to the end.' });
     return [p1, p2];
   },
   notesMM() {
     let mc = 0; for (let g = 0; g < Q.N; g++) if (Q.isMec(g)) mc++;
     const ms = Q.surahs.filter(s => s.type === 'M').length;
-    return [isAr() ? el('p', {}, el('b', { text: fmt(mc) }), ' آية في ' + ms + ' سورة مكية، و', el('b', { text: fmt(Q.N - mc) }), ' في ' + (114 - ms) + ' سورة مدنية. ', this.order === 'rev' ? 'وفي ترتيب النزول تجتمع السور المدنية كتلةً واحدة في الآخر.' : 'وفي ترتيب المصحف تأتي السور المدنية الطويلة قرب البداية.') : el('p', {}, el('b', { text: fmt(mc) }), ' verses in ' + ms + ' Meccan surahs and ', el('b', { text: fmt(Q.N - mc) }), ' in ' + (114 - ms) + ' Medinan surahs. ',
+    return [isAr() ? el('p', {}, el('b', { text: fmt(mc) }), ' آية في ' + ms + ' سورة مكية، و', el('b', { text: fmt(Q.N - mc) }), ' في ' + (114 - ms) + ' سورة مدنية. ', this.order === 'rev' ? 'وفي ترتيب النزول تجتمع السور المدنية كتلةً واحدة في الآخر.' : 'وفي ترتيب المصحف تأتي السور المدنية الطويلة قرب البداية.') : el('p', {}, el('b', { text: fmt(mc) }), ' ayahs in ' + ms + ' Meccan surahs and ', el('b', { text: fmt(Q.N - mc) }), ' in ' + (114 - ms) + ' Medinan surahs. ',
         this.order === 'rev' ? 'In revelation order the Medinan surahs form one block at the end.' : 'In mushaf order the long Medinan surahs sit near the front.'),
-      el('p', { class: 'more', text: 'Labels and revelation order follow Tanzil metadata, based on the 1924 Egyptian standard edition. The order applies to whole surahs; verses keep their place inside each surah, and scholars dispute the dating of some surahs.' })];
+      el('p', { class: 'more', text: 'Labels and revelation order follow Tanzil metadata, based on the 1924 Egyptian standard edition. The order applies to whole surahs; ayahs keep their place inside each surah, and scholars dispute the dating of some surahs.' })];
   },
   notesPro(p, cnt, wt) {
     const per = new Map(); let verses = 0;
     for (let g = 0; g < Q.N; g++) if (cnt[g]) { verses++; per.set(Q.sOf[g], (per.get(Q.sOf[g]) || 0) + cnt[g]); }
     const top = [...per.entries()].sort((a, b) => b[1] - a[1]).slice(0, 4);
-    const pt = wt ? el('p', {}, el('b', { text: LL(p.en, p.ar) }), honor(p.k), LL(' is named ' + p.v.length + ' times, and called by title (O Prophet, the Messenger, His servant…) in ' + p.t.length + ' more verses: ', ' ذُكر باسمه ' + p.v.length + ' مرات، ونودي أو ذُكر بألقابه (يا أيها النبي، الرسول، عبده…) في ' + fmt(p.t.length) + ' آية أخرى: '), el('b', { text: fmt(verses) }), LL(' verses across ' + per.size + ' surahs. Most of them are Medinan, where he is addressed as leader of the community.', ' آية في ' + per.size + ' سورة. وأكثرها مدنية، حيث يُخاطَب قائدًا للأمة.'))
-      : isAr() ? el('p', {}, 'ورد اسم ', el('b', { text: p.ar }), ' ', el('b', { text: String(p.v.length) }), ' مرة في ' + verses + ' آية في ' + arCount(per.size, 'سورة واحدة', 'سورتين', 'سور', 'سورة') + '.')
-      : el('p', {}, el('b', { text: p.en }), (p.alt ? ' (' + p.alt + ')' : '') + ' is named ', el('b', { text: String(p.v.length) }), ' times in ' + verses + ' verses across ' + per.size + (per.size === 1 ? ' surah.' : ' surahs.'));
+    const pt = wt ? el('p', {}, el('b', { text: LL(p.en, p.ar) }), honor(p.k), LL(' is named ' + p.v.length + ' times, and called by title (O Prophet, the Messenger, His servant…) in ' + p.t.length + ' more ayahs: ', ' ذُكر باسمه ' + p.v.length + ' مرات، ونودي أو ذُكر بألقابه (يا أيها النبي، الرسول، عبده…) في ' + fmt(p.t.length) + ' آية أخرى: '), el('b', { text: fmt(verses) }), LL(' ayahs across ' + per.size + ' surahs. Most of them are Medinan, where he is addressed as leader of the community.', ' آية في ' + per.size + ' سورة. وأكثرها مدنية، حيث يُخاطَب قائدًا للأمة.'))
+      : isAr() ? el('p', {}, 'ورد اسم ', el('b', { text: p.ar }), ' ', el('b', { text: String(p.v.length) }), ' مرة في ' + ayahs + ' آية في ' + arCount(per.size, 'سورة واحدة', 'سورتين', 'سور', 'سورة') + '.')
+      : el('p', {}, el('b', { text: p.en }), (p.alt ? ' (' + p.alt + ')' : '') + ' is named ', el('b', { text: String(p.v.length) }), ' times in ' + ayahs + ' ayahs across ' + per.size + (per.size === 1 ? ' surah.' : ' surahs.'));
     const tp = el('p', {}, LL('Most often in ', 'أكثر وروده في '));
     top.forEach(([sn, n], i) => { tp.append(el('button', { class: 'linkbtn', onclick: () => Sheet.open(Q.start[sn - 1]), text: sn + ' ' + surahName(sn) }), tx(' (' + n + ')'), i < top.length - 1 ? LL(', ', '، ') : '.'); });
     return [pt, tp];
@@ -1423,9 +1423,9 @@ const Barcode = {
     let baseMec = 0; for (let g = 0; g < Q.N; g++) if (Q.isMec(g)) baseMec++;
     const top = [...per.entries()].sort((a, b) => b[1] - a[1]).slice(0, 4);
     const p1 = isAr() ? el('p', {}, 'يرد الجذر ', el('b', { lang: 'ar', text: R[0].split('').join(' ') }), ' ', el('b', { text: fmt(R[3]) }), ' مرة في ' + fmt(verses) + ' آية في ' + arCount(per.size, 'سورة واحدة', 'سورتين', 'سور', 'سورة') + '. و' +
-      Math.round(100 * mec / verses) + '% من تلك الآيات مكية، مقابل ' + Math.round(100 * baseMec / Q.N) + '% من الآيات كلها.')
-      : el('p', {}, el('span', { class: 'ar', lang: 'ar', text: R[0] + ' ' }), el('b', { text: R[1] }), (R[2] ? ' (' + R[2] + ')' : '') + ' appears ', el('b', { text: fmt(R[3]) }), ' times in ' + fmt(verses) + ' verses across ' + per.size + ' surahs. ' +
-      Math.round(100 * mec / verses) + '% of those verses are Meccan, against ' + Math.round(100 * baseMec / Q.N) + '% of all verses.');
+      Math.round(100 * mec / ayahs) + '% من تلك الآيات مكية، مقابل ' + Math.round(100 * baseMec / Q.N) + '% من الآيات كلها.')
+      : el('p', {}, el('span', { class: 'ar', lang: 'ar', text: R[0] + ' ' }), el('b', { text: R[1] }), (R[2] ? ' (' + R[2] + ')' : '') + ' appears ', el('b', { text: fmt(R[3]) }), ' times in ' + fmt(verses) + ' ayahs across ' + per.size + ' surahs. ' +
+      Math.round(100 * mec / ayahs) + '% of those ayahs are Meccan, against ' + Math.round(100 * baseMec / Q.N) + '% of all ayahs.');
     const p2 = el('p', {}, LL('Most frequent in ', 'أكثر وروده في '));
     top.forEach(([sn, n], i) => p2.append(el('button', { class: 'linkbtn', onclick: () => Sheet.open(Q.start[sn - 1]), text: sn + ' ' + surahName(sn) }), tx(' (' + n + ')'), i < top.length - 1 ? LL(', ', '، ') : '.'));
     return [p1, p2];
@@ -1530,14 +1530,14 @@ const Rings = {
     const ws = raw.map(w => w < minW ? minW : w - extra * (w / big));
     const xs = []; let acc = 0; ws.forEach(w => { xs.push(acc); acc += w; });
     const arcH = Math.round(Math.min(160, W * 0.44)), barY = arcH + 8, barH = 18, H = barY + barH + 36;
-    const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': "Farrin's ring structure of Al-Baqarah: sections A to D mirror D′ to A′ around the centre E, verses 142 to 152." });
+    const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': "Farrin's ring structure of Al-Baqarah: sections A to D mirror D′ to A′ around the centre E, ayahs 142 to 152." });
     const mid = i => xs[i] + ws[i] / 2, rxMax = (mid(8) - mid(0)) / 2;
     for (let i = 0; i < 4; i++) {
       const x1 = mid(i), x2 = mid(8 - i), rx = (x2 - x1) / 2, ry = rx / rxMax * (arcH - 6);
       svg.append(svgEl('path', { d: `M${x1},${barY} A${rx},${ry} 0 0 1 ${x2},${barY}`, fill: 'none', style: `stroke:${this.pc(this.F[i].p)}`, 'stroke-width': 2, 'stroke-linecap': 'round' }));
     }
     this.F.forEach((s, i) => {
-      const g = svgEl('g', { tabindex: 0, role: 'button', style: 'cursor:pointer', 'aria-label': LL(`Section ${s.k}, verses ${s.a} to ${s.b}: ${s.t}`, `القسم ${s.k}، الآيات من ${s.a} إلى ${s.b}: ${tx(s.t)}`) });
+      const g = svgEl('g', { tabindex: 0, role: 'button', style: 'cursor:pointer', 'aria-label': LL(`Section ${s.k}, ayahs ${s.a} to ${s.b}: ${s.t}`, `القسم ${s.k}، الآيات من ${s.a} إلى ${s.b}: ${tx(s.t)}`) });
       g.append(svgEl('title', {}, `${s.k} · 2:${s.a}–${s.b} · ${s.t}`));
       g.append(svgEl('rect', { x: xs[i] + 1, y: barY, width: Math.max(2, ws[i] - 2), height: barH, rx: 3, style: `fill:${this.pc(s.p)}` }));
       g.append(svgEl('text', { x: clamp(mid(i), 7, W - 8), y: barY + barH + 15, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 600, style: 'fill:var(--ink)' }, s.k));
@@ -1545,14 +1545,14 @@ const Rings = {
       g.addEventListener('click', open); g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
       svg.append(g);
     });
-    // the centre verse
+    // the centre ayah
     const xc = xs[4] + ((143 - 142 + 0.5) / 11) * ws[4];
     const ryD = ((mid(5) - mid(3)) / 2) / rxMax * (arcH - 6), yTop = barY - ryD - 8;
     svg.append(svgEl('line', { x1: xc, x2: xc, y1: yTop, y2: barY + barH, 'stroke-width': 1.5, style: 'stroke:var(--ink)' }));
     svg.append(svgEl('text', { x: xc, y: yTop - 5, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 600, style: 'fill:var(--ink)' }, '2:143'));
-    svg.append(svgEl('text', { x: 0, y: H - 6, 'font-size': 11, style: 'fill:var(--ink-3)' }, 'verse 1'));
+    svg.append(svgEl('text', { x: 0, y: H - 6, 'font-size': 11, style: 'fill:var(--ink-3)' }, 'ayah 1'));
     svg.append(svgEl('text', { x: W, y: H - 6, 'text-anchor': 'end', 'font-size': 11, style: 'fill:var(--ink-3)' }, '286'));
-    box.append(svg, el('div', { class: 'viz-cap' }, el('span', { text: 'Section widths to scale, except A′ (two verses), widened to stay visible' })));
+    box.append(svg, el('div', { class: 'viz-cap' }, el('span', { text: 'Section widths to scale, except A′ (two ayahs), widened to stay visible' })));
   },
   drawLadder() {
     const ol = $('#rg-ladder'); ol.textContent = '';
@@ -1565,7 +1565,7 @@ const Rings = {
         body.append(el('div', { class: 'dim', text: L.t === R.t ? tx(L.t) : tx(L.t) + ' · ' + tx(R.t) }));
       } else {
         body.append(el('div', { class: 'lad-top' }, btn(L), el('span', { class: 'dim', text: '  the centre' })));
-        body.append(el('div', { class: 'dim' }, tx(L.t) + LL('. Verse ', '. والآية '), el('button', { class: 'linkbtn', onclick: () => Sheet.open(gOf(2, 143)), text: '2:143' }),
+        body.append(el('div', { class: 'dim' }, tx(L.t) + LL('. Ayah ', '. والآية '), el('button', { class: 'linkbtn', onclick: () => Sheet.open(gOf(2, 143)), text: '2:143' }),
           LL(', exactly half of 286, calls the believers a middle community (ummatan wasaṭan).', '، وهي نصف 286 تمامًا، تصف المؤمنين بأنهم «أمة وسط».')));
       }
       ol.append(el('li', { style: '--lvl:' + i }, el('span', { class: 'sw', style: 'background:' + this.pc(L.p) }), body));
@@ -1607,7 +1607,7 @@ const Rings = {
     notes.append(p);
     const best = lines.filter(l => l[2] <= 2).map(l => l[0] + '–' + l[1]);
     notes.append(el('p', { text: LL((best.length ? 'The ' + best.join(' and ') + (best.length > 1 ? ' pairs come closest' : ' pair comes closest') + ' to the ring in word choice. ' : '') +
-      'A′ is only two verses, too short to compare by vocabulary. Large sections also share more roots with everything, which flattens the contrast.',
+      'A′ is only two ayahs, too short to compare by vocabulary. Large sections also share more roots with everything, which flattens the contrast.',
       (best.length ? (best.length > 1 ? 'الزوجان ' : 'الزوج ') + best.join(' و') + (best.length > 1 ? ' هما الأقرب' : ' هو الأقرب') + ' إلى الحلقة في اختيار الألفاظ. ' : '') +
       'والقسم A′ آيتان فقط، أقصر من أن يُقارَن بالمفردات. والأقسام الكبيرة تشارك غيرها في جذور أكثر، فيخفّ التباين.') }));
   },
@@ -1637,8 +1637,8 @@ const Rings = {
   drawMap() {
     const c = $('#rg-canvas'), G = this.G = this.geom(), n = this.n, M = this.M;
     const ctx = hiDPI(c, G.W, G.H); ctx.clearRect(0, 0, G.W, G.H);
-    $('#rg-cap-a').textContent = tx(this.mode === 'map' ? LL('Verse 1 at top left, ' + n + ' at bottom right', 'الآية 1 في أعلى اليسار، و' + n + ' في أسفل اليمين') : LL('Verse 1 at left, ' + n + ' at right', 'الآية 1 في اليسار، و' + n + ' في اليمين'));
-    $('#rg-cap-b').textContent = tx(this.mode === 'map' ? 'Tap to compare two verses' : 'Tap a verse on the line to see its echoes');
+    $('#rg-cap-a').textContent = tx(this.mode === 'map' ? LL('Ayah 1 at top left, ' + n + ' at bottom right', 'الآية 1 في أعلى اليسار، و' + n + ' في أسفل اليمين') : LL('Ayah 1 at left, ' + n + ' at right', 'الآية 1 في اليسار، و' + n + ' في اليمين'));
+    $('#rg-cap-b').textContent = tx(this.mode === 'map' ? 'Tap to compare two ayahs' : 'Tap an ayah on the line to see its echoes');
     const key = $('#rg-key'); key.textContent = ''; if (this.mode === 'map') key.append(rampKey(0.05, 0.7, 'Similarity (square-root scale)'));
     if (this.mode === 'map') {
       const off = document.createElement('canvas'); off.width = n; off.height = n; const o = off.getContext('2d');
@@ -1670,7 +1670,7 @@ const Rings = {
       ctx.fillStyle = T.ink3; ctx.font = '11px ' + getComputedStyle(document.body).fontFamily; ctx.textBaseline = 'top';
       ctx.textAlign = 'left'; ctx.fillText('1', G.pad, G.axisY + 13); ctx.textAlign = 'right'; ctx.fillText(String(n), G.W - G.pad, G.axisY + 13);
       if (this.selV >= 0) { const x = this.ax(this.selV); ctx.fillStyle = T.ink; ctx.beginPath(); ctx.arc(x, G.axisY, 4, 0, 7); ctx.fill(); ctx.textAlign = 'center'; ctx.fillText(String(this.selV + 1), x, G.axisY + 13); }
-      if (!top.length) { ctx.fillStyle = T.ink3; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('No verses here share enough rare roots to draw an arc.', G.W / 2, G.axisY / 2); }
+      if (!top.length) { ctx.fillStyle = T.ink3; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('No ayahs here share enough rare roots to draw an arc.', G.W / 2, G.axisY / 2); }
     }
   },
   locate(e) {
@@ -1687,7 +1687,7 @@ const Rings = {
   hover(e) {
     const L = this.locate(e), tip = $('#rg-tip'); if (!L) { tip.hidden = true; return; }
     const s = this.surah; tip.textContent = '';
-    if (this.mode === 'map') { const [i, j] = L; tip.append(el('b', { text: s + ':' + (i + 1) + ' · ' + s + ':' + (j + 1) }), el('br'), el('span', { class: 't2', text: i === j ? 'same verse' : LL('similarity ', 'التشابه ') + this.M[i * this.n + j].toFixed(2) })); }
+    if (this.mode === 'map') { const [i, j] = L; tip.append(el('b', { text: s + ':' + (i + 1) + ' · ' + s + ':' + (j + 1) }), el('br'), el('span', { class: 't2', text: i === j ? 'same ayah' : LL('similarity ', 'التشابه ') + this.M[i * this.n + j].toFixed(2) })); }
     else { tip.append(el('b', { text: s + ':' + (L[0] + 1) })); }
     const r = $('#rg-map-wrap').getBoundingClientRect(); placeTip(tip, $('#rg-map-wrap'), e.clientX - r.left, e.clientY - r.top);
   },
@@ -1697,7 +1697,7 @@ const Rings = {
     if (this.mode === 'map' && this.sel) {
       const [i, j] = this.sel, v = this.M[i * n + j], sh = Sim.shared(this.st + i, this.st + j);
       box.append(el('div', { class: 'pb-head' }, el('b', { text: s + ':' + (i + 1) + LL(' and ', ' و') + s + ':' + (j + 1) }), LL(' · similarity ', ' · التشابه ') + v.toFixed(2)));
-      box.append(sh.length ? el('div', { class: 'rootchips' }, ...sh.map(r => rootChip(r))) : el('div', { class: 'dim', text: 'These two verses share no roots.' }));
+      box.append(sh.length ? el('div', { class: 'rootchips' }, ...sh.map(r => rootChip(r))) : el('div', { class: 'dim', text: 'These two ayahs share no roots.' }));
       const btns = el('div', { class: 'btnrow' }, read(i), read(j)); box.append(btns);
       const tok = this.ptok = (this.ptok || 0) + 1;
       TR.get().then(tr => { if (tr && tok === this.ptok) box.insertBefore(el('div', { style: 'display:grid;gap:6px' }, trRef(tr, this.st + i), trRef(tr, this.st + j)), btns); });
@@ -1710,20 +1710,20 @@ const Rings = {
       if (top.length) box.append(el('div', { class: 'btnrow' }, ...top.map(([v, j]) => el('button', { class: 'btn', onclick: () => Sheet.open(this.st + j), text: s + ':' + (j + 1) + ' · ' + v.toFixed(2) }))));
       box.append(el('div', { class: 'btnrow' }, read(i)));
     } else {
-      box.append(el('div', { class: 'dim', text: this.mode === 'map' ? 'Tap any square to see which roots two verses share.' : 'Tap a point on the line to see that verse’s strongest echoes.' }));
+      box.append(el('div', { class: 'dim', text: this.mode === 'map' ? 'Tap any square to see which roots two ayahs share.' : 'Tap a point on the line to see that ayah’s strongest echoes.' }));
     }
   },
   notes() {
     const box = $('#rg-notes'); box.textContent = ''; const s = this.surah, n = this.n, sur = Q.surahs[s - 1];
-    if (n < 4) { box.append(el('p', { text: LL(sur.tr + ' has only ' + n + ' verses; pick a longer surah to see a pattern.', 'سورة ' + sur.ar + ' ' + arCount(n, 'آية واحدة', 'آيتان', 'آيات', 'آية') + ' فقط؛ اختر سورة أطول ليظهر نمط.') })); return; }
+    if (n < 4) { box.append(el('p', { text: LL(sur.tr + ' has only ' + n + ' ayahs; pick a longer surah to see a pattern.', 'سورة ' + sur.ar + ' ' + arCount(n, 'آية واحدة', 'آيتان', 'آيات', 'آية') + ' فقط؛ اختر سورة أطول ليظهر نمط.') })); return; }
     const same = this.pairs.filter(p => p[0] > 0.999).length;
     const top = this.pairs.filter(p => p[0] <= 0.999).slice(0, 3);
     const p1 = el('p');
-    if (same) p1.append(el('b', { text: fmt(same) }), tx(LL(' pairs of verses in ' + sur.tr + ' use exactly the same roots in the same proportions, the mark of a repeated verse or refrain. ', ' زوجًا من آيات سورة ' + sur.ar + ' تستعمل الجذور نفسها بالنسب نفسها، وهي علامة الآية المكررة أو اللازمة. ')));
+    if (same) p1.append(el('b', { text: fmt(same) }), tx(LL(' pairs of ayahs in ' + sur.tr + ' use exactly the same roots in the same proportions, the mark of a repeated ayah or refrain. ', ' زوجًا من آيات سورة ' + sur.ar + ' تستعمل الجذور نفسها بالنسب نفسها، وهي علامة الآية المكررة أو اللازمة. ')));
     if (top.length) {
       p1.append(tx('Strongest other echoes: '));
       top.forEach(([v, i, j], k) => p1.append(el('button', { class: 'linkbtn', onclick: () => { this.mode = 'map'; $('#rg-mode-map').checked = true; this.sel = [i, j]; this.drawMap(); this.panel(); }, text: s + ':' + (i + 1) + LL(' and ', ' و') + (j + 1) }), tx(' (' + v.toFixed(2) + ')'), k < top.length - 1 ? ', ' : '.'));
-    } else if (!same) p1.append(tx('No two verses here share many rare roots.'));
+    } else if (!same) p1.append(tx('No two ayahs here share many rare roots.'));
     box.append(p1);
     box.append(el('p', { class: 'more', text: 'Similarity is the cosine of rarity-weighted root counts: 1 means the same roots in the same proportions, 0 means no roots in common. Common roots such as God, say and be count for little.' }));
   },
@@ -1809,7 +1809,7 @@ const Letters = {
       const hl = new Set(it.hl), show = toks.slice(it.from, it.from + 9);
       show.forEach((t, i) => { const idx = it.from + i; ar.append(hl.has(idx) ? el('mark', { text: t }) : t, ' '); });
       if (toks.length > it.from + 9) ar.append('…');
-      const flag = it.book1 ? el('span', { class: 'flag yes', text: 'Book' }) : it.book2 ? el('span', { class: 'flag', text: 'A verse later' }) : el('span', { class: 'flag', text: 'Other subject' });
+      const flag = it.book1 ? el('span', { class: 'flag yes', text: 'Book' }) : it.book2 ? el('span', { class: 'flag', text: 'An ayah later' }) : el('span', { class: 'flag', text: 'Other subject' });
       ol.append(el('li', {}, el('button', { onclick: () => Sheet.open(g), 'aria-label': LL('Read ', 'اقرأ ') + s.n + ':' + a },
         el('span', { class: 'who' }, el('b', { text: String(s.n) }), ' ' + surahName(s.n)), flag, ar, tr ? el('span', { class: 'tl', lang: 'en', text: tr.v[g] }) : null)));
     });
@@ -1820,7 +1820,7 @@ const Letters = {
       (later.length ? '، وفي ' + later.map(i => i.s + ' ' + surahName(i.s)).join('، ') + ' يأتي ذلك بعد آية' : '') + '. ' +
       (other.length ? 'والبقية تنتقل مباشرة إلى موضوع آخر: ' + other.map(i => i.s + ' ' + surahName(i.s)).join('، ') + '.' : ''))
       : el('p', {}, 'In ', el('b', { text: n1 + ' of ' + items.length }), ', the words after the letters speak of the Book, the Quran, its sending down or revelation' +
-      (later.length ? ', and in ' + later.map(i => i.s + ' ' + Q.surahs[i.s - 1].tr).join(', ') + ' it comes one verse later' : '') + '. ' +
+      (later.length ? ', and in ' + later.map(i => i.s + ' ' + Q.surahs[i.s - 1].tr).join(', ') + ' it comes one ayah later' : '') + '. ' +
       (other.length ? 'The others turn straight to another subject: ' + other.map(i => i.s + ' ' + Q.surahs[i.s - 1].tr).join(', ') + '.' : '')));
   },
   freq() {
@@ -1973,10 +1973,10 @@ const Roots = {
     const c = $('#rt-card'); c.textContent = '';
     c.append(...[el('div', { class: 'big', lang: 'ar', text: R[0].split('').join(' ') }), isAr() ? null : el('div', { class: 'lat', text: R[1] }),
       isAr() ? null : el('div', { class: 'gl', text: R[2] || 'See its word forms below for its range of meaning' })].filter(Boolean),
-      el('div', { class: 'stats' }, el('span', {}, el('b', { text: fmt(this.cnt[r]) }), LL(this.cnt[r] === 1 ? ' word' : ' words', ' كلمة')), el('span', {}, el('b', { text: fmt(vs.length) }), LL(vs.length === 1 ? ' verse' : ' verses', ' آية')),
+      el('div', { class: 'stats' }, el('span', {}, el('b', { text: fmt(this.cnt[r]) }), LL(this.cnt[r] === 1 ? ' word' : ' words', ' كلمة')), el('span', {}, el('b', { text: fmt(vs.length) }), LL(vs.length === 1 ? ' ayah' : ' ayahs', ' آية')),
         el('span', {}, el('b', { text: String(surahs.size) }), LL(surahs.size === 1 ? ' surah' : ' surahs', ' سورة'))));
     const facts = el('div', { class: 'facts' });
-    facts.append(el('p', { text: LL(pm + '% of its verses are Meccan, against ' + pb + '% of all verses' + (Math.abs(pm - pb) >= 12 ? (pm > pb ? ', so it leans Meccan.' : ', so it leans Medinan.') : '.'),
+    facts.append(el('p', { text: LL(pm + '% of its ayahs are Meccan, against ' + pb + '% of all ayahs' + (Math.abs(pm - pb) >= 12 ? (pm > pb ? ', so it leans Meccan.' : ', so it leans Medinan.') : '.'),
       pm + '% من آياته مكية، مقابل ' + pb + '% من الآيات كلها' + (Math.abs(pm - pb) >= 12 ? (pm > pb ? '، فهو يميل إلى المكي.' : '، فهو يميل إلى المدني.') : '.')) }));
     const pos = new Set(R[4].map(l => l[2]));
     if (pos.size === 1 && this.cnt[r] >= 10 && !pos.has('P')) facts.append(el('p', { text: pos.has('V') ? 'Every occurrence is a verb: the Quran never uses this root as a noun.' : 'Every occurrence is a noun or adjective: the Quran never uses this root as a verb.' }));
@@ -2038,17 +2038,17 @@ const Roots = {
     for (const [b, nab] of co) { if (nab < minN) continue; const lift = nab * Q.N / (na * this.vs[b].length); if (lift < 1.5) continue; out.push({ b, nab, lift, score: nab * Math.log(lift) }); }
     out.sort((x, y) => y.score - x.score); this.comp = out.slice(0, 8);
     const box = $('#rt-comp'); box.textContent = '';
-    if (!this.comp.length) { box.append(el('p', { class: 'dim', text: na < 3 ? 'This root is too rare to measure the company it keeps.' : 'No root shares its verses notably more often than chance.' })); return; }
+    if (!this.comp.length) { box.append(el('p', { class: 'dim', text: na < 3 ? 'This root is too rare to measure the company it keeps.' : 'No root shares its ayahs notably more often than chance.' })); return; }
     this.comp.forEach(x => { const R = Sim.rt[x.b];
-      box.append(el('button', { class: 'rootchip', onclick: () => this.select(x.b), title: LL(x.nab + ' shared verses, ' + x.lift.toFixed(1) + '× chance', x.nab + ' آية مشتركة، ' + x.lift.toFixed(1) + '× المتوقع') },
-        el('span', { class: 'ar', lang: 'ar', text: isAr() ? R[0].split('').join(' ') : R[0] }), LL((R[2] || R[1]).split(/[,;]/)[0] + ' · ' + x.nab + ' verses, ' + x.lift.toFixed(1) + '× chance', ' · ' + x.nab + ' آية، ' + x.lift.toFixed(1) + '× المتوقع'))); });
+      box.append(el('button', { class: 'rootchip', onclick: () => this.select(x.b), title: LL(x.nab + ' shared ayahs, ' + x.lift.toFixed(1) + '× chance', x.nab + ' آية مشتركة، ' + x.lift.toFixed(1) + '× المتوقع') },
+        el('span', { class: 'ar', lang: 'ar', text: isAr() ? R[0].split('').join(' ') : R[0] }), LL((R[2] || R[1]).split(/[,;]/)[0] + ' · ' + x.nab + ' ayahs, ' + x.lift.toFixed(1) + '× chance', ' · ' + x.nab + ' آية، ' + x.lift.toFixed(1) + '× المتوقع'))); });
   },
   drawNet() {
     const box = $('#rt-net'); box.textContent = ''; const comp = this.comp || [];
     if (!comp.length) { box.hidden = true; return; } box.hidden = false;
     const W = Math.max(260, box.clientWidth - (box.clientWidth < 420 ? 16 : 24)), H = Math.round(Math.min(360, Math.max(260, W * 0.78))), cx = W / 2, cy = H / 2;
     const rad = Math.min(W / 2 - 62, H / 2 - 40), mx = Math.max(...comp.map(x => x.nab));
-    const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': 'Roots that share verses with the selected root' });
+    const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': 'Roots that share ayahs with the selected root' });
     comp.forEach((x, i) => {
       const ang = -Math.PI / 2 + i * 2 * Math.PI / comp.length, nx = cx + rad * Math.cos(ang), ny = cy + rad * Math.sin(ang);
       svg.append(svgEl('line', { x1: cx, y1: cy, x2: nx, y2: ny, 'stroke-width': 1 + 6 * x.nab / mx, 'stroke-linecap': 'round', style: 'stroke:var(--gold-soft);opacity:.75' }));
@@ -2056,7 +2056,7 @@ const Roots = {
     comp.forEach((x, i) => {
       const R = Sim.rt[x.b], ang = -Math.PI / 2 + i * 2 * Math.PI / comp.length, nx = cx + rad * Math.cos(ang), ny = cy + rad * Math.sin(ang);
       const c = Math.cos(ang), anchor = Math.abs(c) < 0.3 ? 'middle' : c > 0 ? 'start' : 'end', dx = Math.abs(c) < 0.3 ? 0 : (c > 0 ? 12 : -12), dy = Math.abs(c) < 0.3 ? (Math.sin(ang) > 0 ? 24 : -22) : -2;
-      const g = svgEl('g', { tabindex: 0, role: 'button', style: 'cursor:pointer', 'aria-label': LL((R[2] || R[1]) + ', ' + x.nab + ' shared verses', R[0] + '، ' + x.nab + ' آية مشتركة') });
+      const g = svgEl('g', { tabindex: 0, role: 'button', style: 'cursor:pointer', 'aria-label': LL((R[2] || R[1]) + ', ' + x.nab + ' shared ayahs', R[0] + '، ' + x.nab + ' آية مشتركة') });
       g.append(svgEl('circle', { cx: nx, cy: ny, r: 16, style: 'fill:transparent' }), svgEl('circle', { cx: nx, cy: ny, r: 6, 'stroke-width': 2, style: 'fill:var(--gold);stroke:var(--leaf)' }));
       g.append(svgEl('text', { x: nx + dx, y: ny + dy, 'text-anchor': anchor, 'font-size': 17, style: 'fill:var(--ink);font-family:var(--f-ar)' }, R[0]));
       if (!isAr()) g.append(svgEl('text', { x: nx + dx, y: ny + dy + 14, 'text-anchor': anchor, 'font-size': 11, style: 'fill:var(--ink-3)' }, (R[2] || R[1]).split(/[,;]/)[0]));
@@ -2080,7 +2080,7 @@ const Roots = {
         if (gs.length > nV) refs.append(el('span', { class: 'dim', text: '+' + (gs.length - nV) + LL(' more', ' أخرى') }));
         box.append(el('div', { class: 'vs' }, el('span', { class: 'who' }, el('b', { text: String(s) }), ' ' + surahName(s) + ' · ' + gs.length), refs));
       });
-      if (entries.length > nS || entries.some(([, gs]) => gs.length > nV)) box.append(el('button', { class: 'btn', style: 'justify-self:start', onclick: () => render(Infinity, Infinity), text: 'Show every verse' }));
+      if (entries.length > nS || entries.some(([, gs]) => gs.length > nV)) box.append(el('button', { class: 'btn', style: 'justify-self:start', onclick: () => render(Infinity, Infinity), text: 'Show every ayah' }));
     };
     render(12, 40);
   },
@@ -2121,7 +2121,7 @@ const Echoes = {
   x(g) { const W = this.W; return 8 + g / (Q.N - 1) * (W - 16); },
   nearest(e) {
     const r = $('#ec-canvas').getBoundingClientRect(), x = e.clientX - r.left, g0 = clamp(Math.round((x - 8) / (this.W - 16) * (Q.N - 1)), 0, Q.N - 1);
-    // snap to the closest verse that has a repeated phrase, if one lies within a fingertip
+    // snap to the closest ayah that has a repeated phrase, if one lies within a fingertip
     const v = this.vWith; let lo = 0, hi = v.length - 1;
     while (lo < hi) { const m = (lo + hi) >> 1; if (v[m] < g0) lo = m + 1; else hi = m; }
     let best = -1, bd = 1e9; for (const k of [lo - 1, lo]) if (k >= 0 && k < v.length) { const d = Math.abs(this.x(v[k]) - x); if (d < bd) { bd = d; best = v[k]; } }
@@ -2154,7 +2154,7 @@ const Echoes = {
     const nArcs = this.ph.reduce((t, p) => t + p.occ.length - 1, 0);
     $('#ec-cap').textContent = tx(LL(fmt(this.ph.length) + ' phrases, ' + fmt(nArcs) + ' arches', fmt(this.ph.length) + ' عبارة، و' + fmt(nArcs) + ' قوسًا'));
   },
-  occText(p) { const k = new Set(p.occ.map(o => Q.sOf[o[0]])).size; return LL(p.occ.length + ' verses in ' + k + (k === 1 ? ' surah' : ' surahs'), p.occ.length + ' آية في ' + arCount(k, 'سورة واحدة', 'سورتين', 'سور', 'سورة')); },
+  occText(p) { const k = new Set(p.occ.map(o => Q.sOf[o[0]])).size; return LL(p.occ.length + ' ayahs in ' + k + (k === 1 ? ' surah' : ' surahs'), p.occ.length + ' آية في ' + arCount(k, 'سورة واحدة', 'سورتين', 'سور', 'سورة')); },
   list() {
     const ol = $('#ec-list'); ol.textContent = '';
     const top = this.ph.slice().sort((a, b) => b.occ.length - a.occ.length || b.n - a.n).slice(0, 15);
@@ -2171,11 +2171,11 @@ const Echoes = {
     } else if (this.selV >= 0) {
       const g = this.selV, hits = this.ph.filter(p => p.occ.some(o => o[0] === g)).sort((a, b) => b.n - a.n);
       box.append(el('div', { class: 'pb-head' }, el('b', { text: ref(g) }), ' · ' + surahName(Q.sOf[g]) + (hits.length ? ' · ' + LL(hits.length + (hits.length === 1 ? ' repeated phrase' : ' repeated phrases'), arCount(hits.length, 'عبارة مكررة واحدة', 'عبارتان مكررتان', 'عبارات مكررة', 'عبارة مكررة')) : '')));
-      if (!hits.length) box.append(el('div', { class: 'dim', text: 'No phrase of this length from this verse recurs elsewhere. Try a shorter length or a nearby verse.' }));
+      if (!hits.length) box.append(el('div', { class: 'dim', text: 'No phrase of this length from this ayah recurs elsewhere. Try a shorter length or a nearby ayah.' }));
       hits.slice(0, 4).forEach(p => box.append(el('div', { class: 'ar', lang: 'ar', style: 'font-family:var(--f-quran);font-size:1.25rem;line-height:1.9;direction:rtl;text-align:right', text: this.phraseText(p) }), el('div', { class: 'dim', text: 'Also at:' }), refsOf({ occ: p.occ.filter(o => o[0] !== g) })));
       box.append(el('div', { class: 'btnrow' }, el('button', { class: 'btn', onclick: () => Sheet.open(g), text: LL('Read ', 'اقرأ ') + ref(g) })));
     } else {
-      box.append(el('div', { class: 'dim', text: 'Tap the line under the arches to see what repeats at that verse, or pick a phrase from the list below.' }));
+      box.append(el('div', { class: 'dim', text: 'Tap the line under the arches to see what repeats at that ayah, or pick a phrase from the list below.' }));
     }
   },
   renderLine(g, ranges, gaps) {
@@ -2189,7 +2189,7 @@ const Echoes = {
     const s = +$('#ec-surah').value, all = this.d.pairs.filter(p => !s || Q.sOf[p[0]] === s || Q.sOf[p[1]] === s);
     const box = $('#ec-pairs'); box.textContent = '';
     const notes = $('#ec-pair-notes'); notes.textContent = '';
-    notes.append(el('p', {}, el('b', { text: String(all.length) }), LL((all.length === 1 ? ' pair' : ' pairs') + (s ? ' involve ' + s + ' ' + surahName(s) : ' of verses are at least 72% alike word for word') + '.',
+    notes.append(el('p', {}, el('b', { text: String(all.length) }), LL((all.length === 1 ? ' pair' : ' pairs') + (s ? ' involve ' + s + ' ' + surahName(s) : ' of ayahs are at least 72% alike word for word') + '.',
       (s ? ' زوجًا فيها آية من ' + s + ' ' + surahName(s) : ' زوجًا من الآيات تتشابه كلماتها بنسبة 72% على الأقل') + '.')));
     all.slice(0, this.pairLimit).forEach(([a, b, r, ops]) => {
       const ra = [], rb = [], ga = [], gb = [];
@@ -2211,7 +2211,7 @@ const Echoes = {
       el('span', { class: 'ar', lang: 'ar', text: this.toks(gs[0]).join(' ') }),
       this.tr ? el('p', { class: 'tl', lang: 'en', text: this.tr.v[gs[0]] }) : null,
       el('div', { class: 'refs' }, ...gs.map(g => el('button', { class: 'linkbtn', onclick: () => Sheet.open(g), text: ref(g) }))))));
-    if (cross.length > 12) box.append(el('p', { class: 'dim', text: LL((cross.length - 12) + ' more verses recur across surahs; pick a surah above to find its confusable pairs.', 'و' + (cross.length - 12) + ' آية أخرى تتكرر في أكثر من سورة؛ اختر سورة في الأعلى لتجد متشابهاتها.') }));
+    if (cross.length > 12) box.append(el('p', { class: 'dim', text: LL((cross.length - 12) + ' more ayahs recur across surahs; pick a surah above to find its confusable pairs.', 'و' + (cross.length - 12) + ' آية أخرى تتكرر في أكثر من سورة؛ اختر سورة في الأعلى لتجد متشابهاتها.') }));
   },
 };
 INIT.echoes = () => Echoes.init();
@@ -2225,7 +2225,7 @@ const Rhyme = {
     if (key === 'ah') return 'ـه / ـة'; if (key === 'ā') return 'ـا'; if (key === 'ū') return 'ـو';
     if (key[0] === 'ī') return 'ـي' + key.slice(1) + ' / ـو' + key.slice(1); if (key[0] === 'ā') return 'ـا' + key.slice(1); return 'ـ' + key; },
   async init() {
-    $('#rh-notes').append(el('span', { class: 'loading', text: 'Reading verse endings…' }));
+    $('#rh-notes').append(el('span', { class: 'loading', text: 'Reading ayah endings…' }));
     let d, text; try { [d, text] = await Promise.all([load('rhyme'), load('text')]); } catch (e) { $('#rh-notes').textContent = e.message; return; }
     this.d = d; this.text = text;
     this.lastWord = g => { const t = text.v[g].split(' '); return t[t.length - 1]; };
@@ -2292,8 +2292,8 @@ const Rhyme = {
     const mono = []; for (const s of Q.surahs) { if (s.ayas < 10) continue; const c = new Map(); for (let a = 0; a < s.ayas; a++) { const k = v[Q.start[s.n - 1] + a]; c.set(k, (c.get(k) || 0) + 1); } const best = Math.max(...c.values()); if (best / s.ayas >= 0.95) mono.push(s); }
     box.append(isAr() ? el('p', {}, el('b', { text: Math.round(100 * top[2] / Q.N) + '%' }), ' من الآيات كلها تنتهي بـ' + this.lab(0) + '، وهي أكثر فواصل القرآن بفارق كبير. و',
       el('b', { text: String(mono.length) }), ' سورة من عشر آيات فأكثر تلتزم فاصلة واحدة في 95% من آياتها على الأقل، منها ' + mono.slice(0, 5).map(s => s.n + ' ' + surahName(s.n)).join('، ') + '.')
-      : el('p', {}, el('b', { text: Math.round(100 * top[2] / Q.N) + '%' }), ' of all verses end in ' + this.lab(0) + ', the Quran’s commonest rhyme by far. ',
-      el('b', { text: String(mono.length) }), ' surahs of ten or more verses hold a single rhyme in at least 95% of their verses, among them ' + mono.slice(0, 5).map(s => s.n + ' ' + s.tr).join(', ') + '.'));
+      : el('p', {}, el('b', { text: Math.round(100 * top[2] / Q.N) + '%' }), ' of all ayahs end in ' + this.lab(0) + ', the Quran’s commonest rhyme by far. ',
+      el('b', { text: String(mono.length) }), ' surahs of ten or more ayahs hold a single rhyme in at least 95% of their ayahs, among them ' + mono.slice(0, 5).map(s => s.n + ' ' + s.tr).join(', ') + '.'));
     box.append(el('p', { class: 'more', text: 'Rhymes are read in pause, so final short vowels and nunation drop away and -ān sounds where -an is written. The long vowels ī and ū before the same consonant count as one rhyme, as in Al-Fatihah.' }));
   },
   setSurah(s) {
@@ -2305,7 +2305,7 @@ const Rhyme = {
     if (!this.d) return;
     const box = $('#rh-ribbon'), s = this.surah, n = Q.surahs[s - 1].ayas, st = Q.start[s - 1];
     const W = Math.max(260, box.clientWidth - (box.clientWidth < 420 ? 16 : 24)), H = 64, y = 16, h = 26, span = W - 4;
-    const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': LL('Verse endings of surah ', 'فواصل آيات السورة ') + s });
+    const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': LL('Ayah endings of surah ', 'فواصل آيات السورة ') + s });
     const runs = this.runsOf(s);
     runs.forEach(r => {
       const x0 = 2 + r.a / n * span, x1 = 2 + (r.b + 1) / n * span;
@@ -2316,7 +2316,7 @@ const Rhyme = {
       svg.append(rect);
       if (x1 - x0 > 34) svg.append(svgEl('text', { x: x0 + 3, y: y - 4, 'font-size': 10, style: 'fill:var(--ink-2)' }, String(r.a + 1)));
     });
-    svg.append(svgEl('text', { x: 2, y: H - 6, 'font-size': 11, style: 'fill:var(--ink-3)' }, 'verse 1'));
+    svg.append(svgEl('text', { x: 2, y: H - 6, 'font-size': 11, style: 'fill:var(--ink-3)' }, 'ayah 1'));
     svg.append(svgEl('text', { x: W - 2, y: H - 6, 'text-anchor': 'end', 'font-size': 11, style: 'fill:var(--ink-3)' }, String(n)));
     box.textContent = ''; box.append(svg);
   },
@@ -2326,7 +2326,7 @@ const Rhyme = {
     const counts = new Map(); runs.forEach(r => counts.set(r.k, (counts.get(r.k) || 0) + r.b - r.a + 1));
     const main = [...counts.entries()].sort((a, b) => b[1] - a[1])[0];
     const nb = $('#rh-snotes'); nb.textContent = '';
-    nb.append(el('p', {}, el('b', { text: s + ' ' + surahName(s) }), LL(': ' + Math.round(100 * main[1] / sur.ayas) + '% of its ' + sur.ayas + ' verses end in ' + this.lab(main[0]) + ', and the rhyme changes ' + (runs.length - 1) + (runs.length - 1 === 1 ? ' time.' : ' times.') +
+    nb.append(el('p', {}, el('b', { text: s + ' ' + surahName(s) }), LL(': ' + Math.round(100 * main[1] / sur.ayas) + '% of its ' + sur.ayas + ' ayahs end in ' + this.lab(main[0]) + ', and the rhyme changes ' + (runs.length - 1) + (runs.length - 1 === 1 ? ' time.' : ' times.') +
       (runs.length > 1 ? ' A change of rhyme often marks a change of subject.' : ''), ': ' + Math.round(100 * main[1] / sur.ayas) + '% من آياتها الـ' + sur.ayas + ' تنتهي بـ' + this.lab(main[0]) + '، وتتغير الفاصلة ' + arCount(runs.length - 1, 'مرة واحدة', 'مرتين', 'مرات', 'مرة') + '.' +
       (runs.length > 1 ? ' وكثيرًا ما يصاحب تغيّرَ الفاصلة تغيّرُ الموضوع.' : ''))));
     const show = lim => {
@@ -2352,7 +2352,7 @@ const Rhyme = {
     for (const [s, rs] of bySurah) {
       const sur = Q.surahs[s - 1], n = sur.ayas, st = Q.start[s - 1], X = a => 6 + (a - 0.5) / n * (W - 12);
       svg.append(svgEl('text', { x: 0, y: y + 16, 'font-size': 13, 'font-weight': 600, style: 'fill:var(--ink)' }, s + ' ' + surahName(s)));
-      svg.append(svgEl('text', { x: W, y: y + 16, 'text-anchor': 'end', 'font-size': 11, style: 'fill:var(--ink-3)' }, LL(n + ' verses', n + ' آية')));
+      svg.append(svgEl('text', { x: W, y: y + 16, 'text-anchor': 'end', 'font-size': 11, style: 'fill:var(--ink-3)' }, LL(n + ' ayahs', n + ' آية')));
       y += headH;
       rs.sort((a, b) => a[0] - b[0]).forEach(gs => {
         const ly = y + 34;
@@ -2360,7 +2360,7 @@ const Rhyme = {
         svg.append(svgEl('text', { x: 0, y: y + 14, 'font-size': 11, style: 'fill:var(--ink-3)' }, '×' + gs.length));
         svg.append(svgEl('line', { x1: 6, x2: W - 6, y1: ly, y2: ly, style: 'stroke:var(--rule)' }));
         gs.forEach(g => {
-          const a = Q.aOf[g], c = svgEl('g', { style: 'cursor:pointer', tabindex: 0, role: 'button', 'aria-label': LL('Verse ', 'الآية ') + s + ':' + a });
+          const a = Q.aOf[g], c = svgEl('g', { style: 'cursor:pointer', tabindex: 0, role: 'button', 'aria-label': LL('Ayah ', 'الآية ') + s + ':' + a });
           c.append(svgEl('circle', { cx: X(a), cy: ly, r: 11, style: 'fill:transparent' }), svgEl('circle', { cx: X(a), cy: ly, r: 4.5, 'stroke-width': 2, style: 'fill:var(--gold);stroke:var(--leaf)' }));
           c.append(svgEl('title', {}, s + ':' + a));
           c.addEventListener('click', () => Sheet.open(g)); c.addEventListener('keydown', e => { if (e.key === 'Enter') Sheet.open(g); });
@@ -2428,9 +2428,9 @@ const Voice = {
     }
     const split = gs => { const m = gs.filter(g => Q.isMec(g)).length; return LL(m + ' Meccan, ' + (gs.length - m) + ' Medinan', m + ' مكية، ' + (gs.length - m) + ' مدنية'); };
     nb.append(isAr() ? el('p', {}, 'وصيغتان أخريان يتكلم بهما النص: الدعاء المفتتح بـ', el('b', { text: '«ربّنا»' }), ' في ' + new Set(d.ourlord).size + ' آية (' + split([...new Set(d.ourlord)]) + ')، والأمر ', el('b', { text: '«قل»' }), ' ' + d.say.length + ' مرة (' + split(d.say) + ').')
-      : el('p', {}, 'Two more ways the text speaks: prayers that open ', el('b', { text: 'Our Lord' }), ' (rabbanā) in ' + new Set(d.ourlord).size + ' verses (' + split([...new Set(d.ourlord)]) + '), and the command ',
+      : el('p', {}, 'Two more ways the text speaks: prayers that open ', el('b', { text: 'Our Lord' }), ' (rabbanā) in ' + new Set(d.ourlord).size + ' ayahs (' + split([...new Set(d.ourlord)]) + '), and the command ',
       el('b', { text: 'Say' }), ' (qul) ' + d.say.length + ' times (' + split(d.say) + ').'));
-    nb.append(el('p', { class: 'more', text: 'Tap a row to list its verses. "Our Lord" counts only where it is a call (the accusative form); "Say" counts the singular command qul.' }));
+    nb.append(el('p', { class: 'more', text: 'Tap a row to list its ayahs. "Our Lord" counts only where it is a call (the accusative form); "Say" counts the singular command qul.' }));
   },
   geom() { const wrap = $('#vo-wrap'), W = Math.max(260, wrap.clientWidth - (wrap.clientWidth < 420 ? 16 : 24)), rowH = W < 500 ? 5 : 6, gut = 26; return { W, rowH, gut, H: 114 * rowH + 4 }; },
   rowsOrder() {
@@ -2488,7 +2488,7 @@ const Voice = {
     const box = $('#vo-stream'), s = this.surah, sur = Q.surahs[s - 1], st = Q.start[s - 1], n = sur.ayas, P = this.d.p;
     const W = Math.max(260, box.clientWidth - (box.clientWidth < 420 ? 16 : 24)), H = 150, base = H - 26, top = 10;
     let mx = 1; for (let a = 0; a < n; a++) { const p = P[st + a]; mx = Math.max(mx, p[0] + p[1] + p[2]); }
-    const bw = W / n, svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': LL('Person markers in each verse of surah ', 'علامات الضمائر في كل آية من السورة ') + s });
+    const bw = W / n, svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': LL('Person markers in each ayah of surah ', 'علامات الضمائر في كل آية من السورة ') + s });
     const dom = p => { const T = p[0] + p[1] + p[2]; if (!T) return -1; const m = Math.max(...p); return p.indexOf(m); };
     let shifts = [], prev = -1;
     for (let a = 0; a < n; a++) {
@@ -2501,14 +2501,14 @@ const Voice = {
     }
     svg.append(svgEl('line', { x1: 0, x2: W, y1: base + 0.5, y2: base + 0.5, style: 'stroke:var(--rule)' }));
     shifts.forEach(a => svg.append(svgEl('path', { d: `M${a * bw + bw / 2 - 4},${base + 10} L${a * bw + bw / 2 + 4},${base + 10} L${a * bw + bw / 2},${base + 4} Z`, style: 'fill:var(--ink-2)' })));
-    svg.append(svgEl('text', { x: 0, y: H - 2, 'font-size': 11, style: 'fill:var(--ink-3)' }, 'verse 1'));
+    svg.append(svgEl('text', { x: 0, y: H - 2, 'font-size': 11, style: 'fill:var(--ink-3)' }, 'ayah 1'));
     svg.append(svgEl('text', { x: W, y: H - 2, 'text-anchor': 'end', 'font-size': 11, style: 'fill:var(--ink-3)' }, String(n)));
     box.textContent = ''; box.append(svg);
     const t = this.sTot[s - 1], T = t[0] + t[1] + t[2] || 1, nb = $('#vo-snotes'); nb.textContent = '';
     const p = el('p', {}, el('b', { text: s + ' ' + surahName(s) }), ': ' + this.LAB.map((l, k) => l + ' ' + Math.round(100 * t[k] / T) + '%').join(LL(', ', '، ')) + LL('. The leading voice changes ' + shifts.length + (shifts.length === 1 ? ' time' : ' times') + ' (▲ under the bars).', '. ويتغير الضمير الغالب ' + arCount(shifts.length, 'مرة واحدة', 'مرتين', 'مرات', 'مرة') + ' (▲ تحت الأعمدة).'));
     const empty = []; for (let a = 0; a < n; a++) { const q = P[st + a]; if (!(q[0] + q[1] + q[2])) empty.push(a + 1); }
-    if (s === 1) p.append(tx(LL(' Verses 1 to 4 speak about God without a single pronoun; verse 5 turns to address Him directly: You alone we worship.', ' الآيات من 1 إلى 4 تتحدث عن الله دون ضمير واحد؛ ثم تلتفت الآية 5 إلى خطابه مباشرة: «إياك نعبد».')));
-    else if (empty.length && empty.length <= 6) p.append(tx(LL(' Verses with no person marker at all: ' + empty.join(', ') + '.', ' آيات بلا علامة ضمير أصلًا: ' + empty.join('، ') + '.')));
+    if (s === 1) p.append(tx(LL(' Ayahs 1 to 4 speak about God without a single pronoun; ayah 5 turns to address Him directly: You alone we worship.', ' الآيات من 1 إلى 4 تتحدث عن الله دون ضمير واحد؛ ثم تلتفت الآية 5 إلى خطابه مباشرة: «إياك نعبد».')));
+    else if (empty.length && empty.length <= 6) p.append(tx(LL(' Ayahs with no person marker at all: ' + empty.join(', ') + '.', ' آيات بلا علامة ضمير أصلًا: ' + empty.join('، ') + '.')));
     nb.append(p);
   },
 };
@@ -2526,7 +2526,7 @@ const Names = {
     'غني': 'غني', 'حميد': 'حمد', 'مجيد': 'مجد', 'رءوف': 'رأف', 'تواب': 'توب', 'ودود': 'ودد', 'شكور': 'شكر', 'شاكر': 'شكر', 'قوي': 'قوي', 'متين': 'متن', 'علي': 'علو', 'عظيم': 'عظم', 'كبير': 'كبر',
     'متعال': 'علو', 'قهار': 'قهر', 'واحد': 'وحد', 'عفو': 'عفو', 'رحمن': 'رحم', 'كريم': 'كرم', 'شهيد': 'شهد', 'حفيظ': 'حفظ', 'وكيل': 'وكل', 'ولي': 'ولي', 'حي': 'حيي', 'قيوم': 'قوم' },
   async init() {
-    $('#nm-detail').append(el('span', { class: 'loading', text: 'Reading verse endings…' }));
+    $('#nm-detail').append(el('span', { class: 'loading', text: 'Reading ayah endings…' }));
     let d; try { d = await load('names'); await Sim.prep(); } catch (e) { $('#nm-detail').textContent = e.message; return; }
     this.d = d; this.text = await load('text');
     $('#nm-more').onclick = () => { this.limit = Infinity; this.list(); };
@@ -2553,7 +2553,7 @@ const Names = {
     if (this.node && !nodes.includes(this.node)) this.node = null;
     const H = Math.round(Math.min(W, 520)), cx = W / 2, cy = H / 2, R = Math.min(W, H) / 2 - (W < 520 ? 62 : 70);
     const pos = new Map(nodes.map((n, i) => { const t = -Math.PI / 2 + i / nodes.length * 2 * Math.PI; return [n, [cx + R * Math.cos(t), cy + R * Math.sin(t), t]]; }));
-    const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': 'Network of divine names that close verses together' });
+    const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': 'Network of divine names that close ayahs together' });
     const selPair = P[this.sel], mx = P[0][2].length;
     P.forEach(([a, b, gs], i) => {
       if (!pos.has(a) || !pos.has(b)) return;
@@ -2578,7 +2578,7 @@ const Names = {
     });
     box.textContent = ''; box.append(svg);
     const hidden = new Set(); P.forEach(([a2, b2]) => [a2, b2].forEach(n => { if (!pos.has(n)) hidden.add(n); }));
-    if (hidden.size) box.append(el('div', { class: 'viz-cap' }, el('span', { text: LL('Showing names that close ' + minDeg + ' or more paired verses; the list has every pair.', 'تظهر هنا الأسماء التي تختم ' + minDeg + ' آيات مزدوجة فأكثر؛ والقائمة فيها كل الأزواج.') })));
+    if (hidden.size) box.append(el('div', { class: 'viz-cap' }, el('span', { text: LL('Showing names that close ' + minDeg + ' or more paired ayahs; the list has every pair.', 'تظهر هنا الأسماء التي تختم ' + minDeg + ' آيات مزدوجة فأكثر؛ والقائمة فيها كل الأزواج.') })));
   },
   detail() {
     const box = $('#nm-detail'); box.textContent = ''; const P = this.d.pairs;
@@ -2586,20 +2586,20 @@ const Names = {
       const n = this.node, partners = P.filter(p => p[0] === n || p[1] === n).sort((a, b) => b[2].length - a[2].length);
       const tot = partners.reduce((t, p) => t + p[2].length, 0);
       box.append(isAr() ? el('div', { class: 'pb-head' }, el('b', { text: this.en(n) }), ' يختم ' + tot + ' آية مقترنًا باسم آخر، مع ' + arCount(partners.length, 'اسم واحد', 'اسمين', 'أسماء', 'اسمًا') + ':')
-        : el('div', { class: 'pb-head' }, el('b', { text: this.en(n) }), ' (' + this.tr(n) + ', ', el('span', { lang: 'ar', style: 'font-family:var(--f-ar)', text: n }), ') closes ' + tot + ' verses in a pair, with ' + partners.length + (partners.length === 1 ? ' partner' : ' partners') + ':'));
+        : el('div', { class: 'pb-head' }, el('b', { text: this.en(n) }), ' (' + this.tr(n) + ', ', el('span', { lang: 'ar', style: 'font-family:var(--f-ar)', text: n }), ') closes ' + tot + ' ayahs in a pair, with ' + partners.length + (partners.length === 1 ? ' partner' : ' partners') + ':'));
       box.append(el('div', { class: 'btnrow' }, ...partners.map(p => el('button', { class: 'btn', onclick: () => { this.sel = P.indexOf(p); this.node = null; this.list(); this.net(); this.detail(); },
         text: (p[0] === n ? this.en(n) + LL(', ', ' ') + this.en(p[1]) : this.en(p[0]) + LL(', ', ' ') + this.en(n)) + ' · ' + p[2].length }))));
       return;
     }
     const [a, b, gs] = P[this.sel], mec = gs.filter(g => Q.isMec(g)).length;
-    box.append(el('div', { class: 'pb-head' }, el('b', { text: this.en(a) + LL(', ', ' ') + this.en(b) }), LL(' closes ' + gs.length + (gs.length === 1 ? ' verse' : ' verses') + ' in ' + new Set(gs.map(g => Q.sOf[g])).size + ' surahs · ' + mec + ' Meccan, ' + (gs.length - mec) + ' Medinan',
+    box.append(el('div', { class: 'pb-head' }, el('b', { text: this.en(a) + LL(', ', ' ') + this.en(b) }), LL(' closes ' + gs.length + (gs.length === 1 ? ' ayah' : ' ayahs') + ' in ' + new Set(gs.map(g => Q.sOf[g])).size + ' surahs · ' + mec + ' Meccan, ' + (gs.length - mec) + ' Medinan',
       ' يختمان ' + arCount(gs.length, 'آية واحدة', 'آيتين', 'آيات', 'آية') + ' في ' + (k => arCount(k, 'سورة واحدة', 'سورتين', 'سور', 'سورة'))(new Set(gs.map(g => Q.sOf[g])).size) + ' · ' + mec + ' مكية، ' + (gs.length - mec) + ' مدنية')));
-    // what the verses talk about: roots far more common here than in the Quran overall
+    // what the ayahs talk about: roots far more common here than in the Quran overall
     const own = new Set([this.ROOT[a], this.ROOT[b], 'أله'].filter(Boolean)), cnt = new Map();
     gs.forEach(g => new Set(Sim.vr[g]).forEach(r => { if (r >= 0 && !own.has(Sim.rt[r][0])) cnt.set(r, (cnt.get(r) || 0) + 1); }));
     const minN = Math.max(2, Math.ceil(gs.length * 0.12)), df = r => Q.N / Math.exp(Sim.idf[r]);
     const lifts = [...cnt.entries()].filter(([r, c]) => c >= minN).map(([r, c]) => [r, c, (c / gs.length) / (df(r) / Q.N)]).filter(x => x[2] >= 1.8).sort((x, y) => y[1] * Math.log(y[2]) - x[1] * Math.log(x[2])).slice(0, 6);
-    if (lifts.length) box.append(el('div', { class: 'dim', text: 'Its verses lean on these roots far more than the Quran overall:' }), el('div', { class: 'rootchips' }, ...lifts.map(([r, c, l]) => rootChip(r))));
+    if (lifts.length) box.append(el('div', { class: 'dim', text: 'Its ayahs lean on these roots far more than the Quran overall:' }), el('div', { class: 'rootchips' }, ...lifts.map(([r, c, l]) => rootChip(r))));
     const flagged = gs.filter(g => this.d.flags[g]);
     flagged.forEach(g => box.append(el('p', { class: 'dim', style: 'margin:0' }, el('button', { class: 'linkbtn', onclick: () => Sheet.open(g), text: ref(g) }), ': ' + LL(this.d.flags[g], { 1362: 'يصف النبي ﷺ: بالمؤمنين رؤوف رحيم.', 1650: 'يوسف يصف نفسه للملك: حفيظ عليم.' }[g] || this.d.flags[g]))));
     box.append(el('div', { class: 'refs', style: 'display:flex;flex-wrap:wrap;gap:3px 10px;font-variant-numeric:lining-nums tabular-nums' }, ...gs.map(g => el('button', { class: 'linkbtn', onclick: () => Sheet.open(g), text: ref(g) }))));
@@ -2682,7 +2682,7 @@ const Stories = {
       const hit = svgEl('rect', { x: left, y: y - rowH / 2, width: W - left - right, height: rowH, style: 'fill:transparent;cursor:pointer', tabindex: -1 });
       const nearest = ev => { const r = svg.getBoundingClientRect(), x = (ev.clientX - r.left) * (W / r.width); let best = null, bd = 1e9; for (const n of new Set([...per.keys(), ...tper.keys()])) { const d = Math.abs(X(n) - x); if (d < bd) { bd = d; best = n; } } return bd < 14 ? best : null; };
       hit.addEventListener('pointermove', ev => { if (ev.pointerType === 'touch') return; const n = nearest(ev); if (!n) { tip.hidden = true; return; }
-        tip.textContent = ''; tip.append(el('b', { text: LL(p.en, p.ar) }), honor(p.k), LL(' in ', ' في ') + n + ' ' + surahName(n), el('br'), el('span', { class: 't2', text: [per.get(n) ? LL(per.get(n) + (per.get(n) === 1 ? ' mention by name' : ' mentions by name'), arCount(per.get(n), 'مرة واحدة', 'مرتين', 'مرات', 'مرة') + ' باسمه') : '', tper.get(n) ? LL(tper.get(n) + (tper.get(n) === 1 ? ' verse by title' : ' verses by title'), arCount(tper.get(n), 'آية واحدة', 'آيتين', 'آيات', 'آية') + ' بلقبه') : ''].filter(Boolean).join(' · ') }));
+        tip.textContent = ''; tip.append(el('b', { text: LL(p.en, p.ar) }), honor(p.k), LL(' in ', ' في ') + n + ' ' + surahName(n), el('br'), el('span', { class: 't2', text: [per.get(n) ? LL(per.get(n) + (per.get(n) === 1 ? ' mention by name' : ' mentions by name'), arCount(per.get(n), 'مرة واحدة', 'مرتين', 'مرات', 'مرة') + ' باسمه') : '', tper.get(n) ? LL(tper.get(n) + (tper.get(n) === 1 ? ' ayah by title' : ' ayahs by title'), arCount(tper.get(n), 'آية واحدة', 'آيتين', 'آيات', 'آية') + ' بلقبه') : ''].filter(Boolean).join(' · ') }));
         const br = wrap.getBoundingClientRect(); placeTip(tip, wrap, ev.clientX - br.left, ev.clientY - br.top); });
       hit.addEventListener('pointerleave', () => tip.hidden = true);
       hit.addEventListener('click', ev => { const n = nearest(ev); if (n) Sheet.open(p.v.find(g => Q.sOf[g] === n) ?? p.t.find(g => Q.sOf[g] === n)); });
@@ -2709,7 +2709,7 @@ const Stories = {
     if (mu && mu.t) {
       const all = new Set([...mu.v, ...mu.t]), ss = new Set([...all].map(g => Q.sOf[g])).size, box = el('div', { class: 'tvs' });
       const show = (t, b) => { nb.querySelectorAll('.tchips button').forEach(x => x.setAttribute('aria-pressed', x === b)); box.textContent = '';
-        box.append(el('p', { class: 'dim', style: 'margin:.4rem 0 .2rem' }, el('b', { lang: 'ar', class: 'ar', text: t.ar }), ' · ' + LL(t.en, '') + LL(' · ' + t.v.length + (t.v.length === 1 ? ' verse' : ' verses'), ' · ' + arCount(t.v.length, 'آية واحدة', 'آيتان', 'آيات', 'آية'))),
+        box.append(el('p', { class: 'dim', style: 'margin:.4rem 0 .2rem' }, el('b', { lang: 'ar', class: 'ar', text: t.ar }), ' · ' + LL(t.en, '') + LL(' · ' + t.v.length + (t.v.length === 1 ? ' ayah' : ' ayahs'), ' · ' + arCount(t.v.length, 'آية واحدة', 'آيتان', 'آيات', 'آية'))),
           el('p', { style: 'margin:0;line-height:1.9' }, ...t.v.flatMap((g, i) => [el('button', { class: 'linkbtn', onclick: () => Sheet.open(g), text: ref(g) }), i < t.v.length - 1 ? ' ' : '']))); };
       const chips = el('p', { class: 'tchips' }, ...mu.tg.map(t => { const b = el('button', { class: 'chipbtn', 'aria-pressed': 'false', text: LL(t.en, t.ar) + ' · ' + t.v.length }); b.onclick = () => show(t, b); return b; }));
       nb.append(el('h3', { class: 'th' }, LL('The Prophet Muhammad', 'النبي محمد'), honor('muhammad'), LL(', by name and by title', '، باسمه وبألقابه')),
@@ -2718,11 +2718,11 @@ const Stories = {
           el('b', { text: LL('O Prophet', 'يا أيها النبي') }), LL(' (' + mu.tg[0].v.length + ' times), ', ' (' + mu.tg[0].v.length + ' مرة)، '),
           el('b', { text: LL('O Messenger', 'يا أيها الرسول') }), LL(' (twice), and in the earliest calls, ', ' (مرتين)، وفي أول النداءات '),
           el('b', { text: LL('O you wrapped in garments', 'يا أيها المزمل') }), LL(' (73:1) and ', ' (73:1) و'), el('b', { text: LL('O you cloaked', 'يا أيها المدثر') }), ' (74:1). ',
-          LL('Counting these titles, he appears in ' + all.size + ' verses across ' + ss + ' surahs; the rings on his row above mark them. Tap a title to list its verses.',
+          LL('Counting these titles, he appears in ' + all.size + ' ayahs across ' + ss + ' surahs; the rings on his row above mark them. Tap a title to list its ayahs.',
             'وبعدّ هذه الألقاب يرد في ' + fmt(all.size) + ' آية في ' + ss + ' سورة، وتدلّ عليها الحلقات في صفّه أعلاه. اضغط لقبًا لتعرض آياته.')),
         chips, box);
     }
-    nb.append(el('p', { class: 'more', text: LL('Dots count names only. Prophets are also referred to by title or pronoun, such as Yunus as "the man of the fish". For the Prophet Muhammad ﷺ the titles are counted too: the Prophet and the Messenger (definite, or as His/Our Messenger and the Messenger of Allah), His servant where it means him, and the four calls with yā. Verses where these words mean another prophet, such as 61:5, are left out.',
+    nb.append(el('p', { class: 'more', text: LL('Dots count names only. Prophets are also referred to by title or pronoun, such as Yunus as "the man of the fish". For the Prophet Muhammad ﷺ the titles are counted too: the Prophet and the Messenger (definite, or as His/Our Messenger and the Messenger of Allah), His servant where it means him, and the four calls with yā. Ayahs where these words mean another prophet, such as 61:5, are left out.',
       'النقاط للأسماء وحدها. ويُشار إلى الأنبياء أيضًا بالألقاب والضمائر، كتسمية يونس «صاحب الحوت». وللنبي محمد ﷺ عُدّت الألقاب أيضًا: النبي والرسول (معرّفين، و«رسوله» و«رسولنا» و«رسول الله»)، و«عبده» حيث يُراد به، والنداءات الأربعة بـ«يا». وتُركت الآيات التي يُراد فيها نبي آخر، مثل 61:5.') }));
   },
   episodes() { const st = this.cur(); return st.episodes.filter(e => this.theme || e.k !== st.theme); },
@@ -2743,7 +2743,7 @@ const Stories = {
         const rs = by.get(s); if (!rs) { tr.append(el('td')); return; }
         const n = rs.reduce((t, r) => t + r[2] - r[1] + 1, 0), d = Math.min(18, 6 + Math.sqrt(n) * 2.6);
         const on = this.sel && this.sel[0] === e.k && this.sel[1] === s;
-        tr.append(el('td', {}, el('button', { 'aria-pressed': on, 'aria-label': LL(e.en + ' in ' + s + ' ' + surahName(s) + ', ' + n + (n === 1 ? ' verse' : ' verses'), e.ar + ' في ' + s + ' ' + surahName(s) + '، ' + arCount(n, 'آية واحدة', 'آيتان', 'آيات', 'آية')), title: rs.map(r => s + ':' + r[1] + (r[2] > r[1] ? '–' + r[2] : '')).join(', '),
+        tr.append(el('td', {}, el('button', { 'aria-pressed': on, 'aria-label': LL(e.en + ' in ' + s + ' ' + surahName(s) + ', ' + n + (n === 1 ? ' ayah' : ' ayahs'), e.ar + ' في ' + s + ' ' + surahName(s) + '، ' + arCount(n, 'آية واحدة', 'آيتان', 'آيات', 'آية')), title: rs.map(r => s + ':' + r[1] + (r[2] > r[1] ? '–' + r[2] : '')).join(', '),
           onclick: () => { this.sel = [e.k, s]; this.grid(); this.panel(); } }, el('span', { style: `width:${d}px;height:${d}px` }))));
       });
       tb.append(tr);
@@ -2752,10 +2752,10 @@ const Stories = {
   },
   panel() {
     const box = $('#st-sel'); box.textContent = '';
-    if (!this.sel) { box.append(el('div', { class: 'dim', text: 'Tap a dot to see the verses of that telling.' })); return; }
+    if (!this.sel) { box.append(el('div', { class: 'dim', text: 'Tap a dot to see the ayahs of that telling.' })); return; }
     const [k, s] = this.sel, e = this.cur().episodes.find(x => x.k === k), rs = e.r.filter(r => r[0] === s), n = rs.reduce((t, r) => t + r[2] - r[1] + 1, 0);
     const others = [...new Set(e.r.map(r => r[0]))].filter(x => x !== s);
-    box.append(el('div', { class: 'pb-head' }, el('b', { text: LL(e.en, e.ar) }), LL(' in ', ' في ') + s + ' ' + surahName(s) + ' · ' + LL(n + (n === 1 ? ' verse' : ' verses'), arCount(n, 'آية واحدة', 'آيتان', 'آيات', 'آية'))),
+    box.append(el('div', { class: 'pb-head' }, el('b', { text: LL(e.en, e.ar) }), LL(' in ', ' في ') + s + ' ' + surahName(s) + ' · ' + LL(n + (n === 1 ? ' ayah' : ' ayahs'), arCount(n, 'آية واحدة', 'آيتان', 'آيات', 'آية'))),
       isAr() ? '' : el('div', { class: 'ar', lang: 'ar', style: 'font-family:var(--f-ar);color:var(--gold)', text: e.ar }),
       el('div', { class: 'btnrow' }, ...rs.map(r => el('button', { class: 'btn', onclick: () => Sheet.openRange(gOf(s, r[1]), gOf(s, r[2])), text: LL('Read ', 'اقرأ ') + s + ':' + r[1] + (r[2] > r[1] ? '–' + r[2] : '') }))));
     if (others.length) box.append(el('div', { class: 'dim' }, LL('Also told in ' + others.length + (others.length === 1 ? ' other surah: ' : ' other surahs: '), 'ويُروى أيضًا في ' + arCount(others.length, 'سورة أخرى', 'سورتين أخريين', 'سور أخرى', 'سورة أخرى') + ': '),
@@ -2791,7 +2791,7 @@ const Stories = {
     nb.append(isAr() ? el('p', {}, 'أكثر المشاهد روايةً: ', el('b', { text: '«' + most.ar + '»' }), '، في ' + new Set(most.r.map(r => r[0])).size + ' سورة. وأوفى الروايات في ' +
       longest.map(([s, set]) => s + ' ' + surahName(s) + ' (' + set.size + ' آية)').join('، ') + '.' + (once.length ? ' ولا يُروى إلا في سورة واحدة: ' + once.map(e => lc(this.short(e.k)) + ' (' + e.r[0][0] + ')').join('؛ ') + '.' : ''))
       : el('p', {}, 'Told most often: ', el('b', { text: '“' + most.en + '”' }), ', in ' + new Set(most.r.map(r => r[0])).size + ' surahs. The fullest tellings are in ' +
-      longest.map(([s, set]) => s + ' ' + surahName(s) + ' (' + set.size + (set.size === 1 ? ' verse)' : ' verses)')).join(', ') + '.' + (once.length ? ' Told in one surah only: ' + once.map(e => lc(this.short(e.k)) + ' (' + e.r[0][0] + ')').join('; ') + '.' : '')));
+      longest.map(([s, set]) => s + ' ' + surahName(s) + ' (' + set.size + (set.size === 1 ? ' ayah)' : ' ayahs)')).join(', ') + '.' + (once.length ? ' Told in one surah only: ' + once.map(e => lc(this.short(e.k)) + ' (' + e.r[0][0] + ')').join('; ') + '.' : '')));
     nb.append(el('p', { class: 'more', text: LL(this.d.note + ' Columns start in revelation order, so the Meccan tellings come first and the Medinan ones last.', 'جُمعت نطاقات المشاهد لهذا الأطلس من النص، وحدودها تقريبية حيث يمزج المقطع بين مشهدين. وتبدأ الأعمدة بترتيب النزول، فتأتي الروايات المكية أولًا والمدنية آخرًا.') }));
   },
 };
@@ -2830,7 +2830,7 @@ async function boot() {
   prepCore(core);
   const words = Q.vlen.reduce((a, b) => a + b, 0);
   const facts = $('#facts'); facts.textContent = '';
-  LL([['114', 'surahs'], [fmt(Q.N), 'verses'], [fmt(words), 'words'], ['1,651', 'roots']], [['114', 'سورة'], [fmt(Q.N), 'آية'], [fmt(words), 'كلمة'], ['1,651', 'جذرًا']]).forEach(([b, t]) => facts.append(el('li', {}, el('b', { text: b }), ' ' + t)));
+  LL([['114', 'surahs'], [fmt(Q.N), 'ayahs'], [fmt(words), 'words'], ['1,651', 'roots']], [['114', 'سورة'], [fmt(Q.N), 'آية'], [fmt(words), 'كلمة'], ['1,651', 'جذرًا']]).forEach(([b, t]) => facts.append(el('li', {}, el('b', { text: b }), ' ' + t)));
   const start = (location.hash || '').slice(1) || store('view') || 'barcode';
   go(start, true);
   if (location.hash.slice(1) !== current) history.replaceState(null, '', '#' + current);
