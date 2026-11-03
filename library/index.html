@@ -241,7 +241,7 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
           <h1>Stories from the Quran</h1>
           <p class="ar ar-t" lang="ar">قصص من القرآن</p>
           <p class="lede">Eight illustrated picture books for children around seven. Read them here, download the PDFs, print them at home and pass them on. Every story keeps close to the ayahs, teaches one prayer, and hides small details from the Quran itself in the pictures.</p>
-          <ul class="facts"><li><b>8</b> books</li><li><b>23</b> pages each</li><li><b>Free</b> for everyone</li><li><b>CC BY-NC-SA 4.0</b></li></ul>
+          <ul class="facts"><li><b>8</b> books</li><li><b>24</b> pages each</li><li><b>Free</b> for everyone</li><li><b>CC BY-NC-SA 4.0</b></li></ul>
           <div class="actions">
             <a class="btn btn-gold" href="#read-nuh">Start reading</a>
             <a class="btn btn-ghost" href="#illustrators">Help illustrate</a>
@@ -263,7 +263,7 @@ label .hint { color: var(--muted); font-size: .8rem; opacity: .85; }
         <p>In the order the prophets lived, from Nuh to the sleepers in the cave. Read any book on this page, or save its PDF to read offline and print.</p>
       </div>
       <div class="shelf" id="shelf-grid"></div>
-      <p class="dl-note" id="dl-note">Each PDF is about 2 MB: 23 square pages, sized to print well on A4 or US Letter paper. Printed editions will be for sale once the new illustrations are finished.</p>
+      <p class="dl-note" id="dl-note">Each PDF is about 2 MB: 24 square pages, sized to print well on A4 or US Letter paper. Printed editions will be for sale once the new illustrations are finished.</p>
     </div>
 
     <div class="wrap section" id="illustrators">
@@ -337,7 +337,7 @@ const BOOKS = [
   { k: 'maryam', pb: 'عليها السلام', n: 7, f: 'book7-maryam-and-the-date-palm', t: 'Maryam and the Date Palm', ar: 'مريم والنخلة', b: 'Fruit out of season in a prayer room, a stream beneath a palm, and a newborn who spoke.' },
   { k: 'cave', n: 8, f: 'book8-the-sleepers-in-the-cave', t: 'The Sleepers in the Cave', ar: 'أصحاب الكهف', b: 'Brave young friends, a faithful dog at the doorway, and three hundred and nine years of sleep.' },
 ];
-const PAGES = 23;
+const PAGES = 24;
 const ttl = b => b.pb ? esc(b.t).replace(/^(\S+)/, `$1<span class="pbuh" lang="ar" title="${b.pb === 'عليها السلام' ? 'Peace be upon her' : 'Peace be upon him'}">${b.pb}</span>`) : esc(b.t);
 const FILES = Object.fromEntries(BOOKS.map(b => [b.k, b.f]));
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -435,10 +435,10 @@ async function renderBrief(k) {
   v.innerHTML = `<a class="back" href="#illustrators">← Illustrators</a><div class="brief-head"><p class="eyebrow">Illustrator brief · Book ${b.n}</p><h2>${esc(b.t)}</h2><p class="note">Loading the pages…</p></div>`;
   try { BRIEFS = BRIEFS || await (await fetch('briefs.json')).json(); }
   catch (e) { $('.brief-head .note', v).textContent = 'The brief could not load. Reload the page to try again.'; return; }
-  const pages = BRIEFS[k].filter(p => p.n >= 2 && p.n <= 18);
+  const pages = BRIEFS[k].filter(p => p.n >= 3 && p.n <= 19);
   v.innerHTML = `<a class="back" href="#illustrators">← Illustrators</a>
     <div class="brief-head"><p class="eyebrow">Illustrator brief · Book ${b.n}</p><h2>${esc(b.t)}</h2>
-      <p>Seventeen story pages, 2 to 18. The cover, the prayer page and the pages at the back are designed type, so they need only a cover picture. Draw each page square, and leave a calm band at the top or bottom for the words shown here.</p>
+      <p>Seventeen story pages, 3 to 19. The cover, the prayer page and the pages at the back are designed type, so they need only a cover picture. Draw each page square, and leave a calm band at the top or bottom for the words shown here.</p>
       <p class="note">No person is drawn in this series, and never a prophet. Gold notes mark details the “Look closer” page sends readers to find.</p></div>
     <div class="scenes">${pages.map(p => `<article class="scene"><img src="${pimg(k, p.n)}" alt="The current picture for page ${p.n}" loading="lazy" width="150" height="150"><div>
       <p class="n">Page ${p.n}</p><p class="tx">${esc(p.text)}</p>${p.keep.length ? `<div class="keep"><b>Keep:</b> ${p.keep.map(esc).join(' ')}</div>` : ''}</div></article>`).join('')}</div>
